@@ -1,4 +1,3 @@
-// 多语言内容
 const langData = {
     en: {
         title: "China Travel Guide",
@@ -110,26 +109,4 @@ const langData = {
         info5: "<strong>Lingua:</strong> Il mandarino è la lingua ufficiale. Le principali attrazioni hanno segnaletica in inglese.",
         footer: "&copy; 2025 Guida di Viaggio in Cina | Fornito da AI Assistant"
     },
-    zh: {
-        title: "中国旅游介绍",
-        subtitle: "探索中华大地，领略壮丽山河与悠久文化",
-        nav: ["著名景点", "特色美食", "实用信息"],
-        scenic: "著名景点",
-        scenic1: ["长城", "世界著名的古代防御工程，蜿蜒万里，是中国的象征之一。"],
-        scenic2: ["故宫", "位于北京的皇家宫殿，拥有丰富的历史和文化遗产，是世界上现存规模最大、保存最为完整的木质结构古建筑之一。"],
-        scenic3: ["桂林山水", "以“山青、水秀、洞奇、石美”著称，被誉为“山水甲天下”。"],
-        scenic4: ["西湖", "位于杭州，以其秀丽的湖光山色和丰富的人文景观闻名于世。"],
-        food: "特色美食",
-        food1: ["北京烤鸭", "色泽红润、外脆里嫩，是北京最具代表性的美食之一。"],
-        food2: ["重庆火锅", "麻辣鲜香，食材丰富，是中国南方极具特色的美食体验。"],
-        food3: ["上海小笼包", "皮薄馅多、汤汁鲜美，是江南地区的传统美食。"],
-        food4: ["兰州拉面", "面条筋道、汤鲜味美，是中国西北地区的代表性面食。"],
-        info: "实用信息",
-        info1: "<strong>最佳旅游时间：</strong>春秋两季气候宜人，适合大部分地区旅游。",
-        info2: "<strong>交通：</strong>中国拥有发达的高铁和航空网络，城市间出行便利。",
-        info3: "<strong>签证：</strong>大多数外国游客需提前办理中国签证。",
-        info4: "<strong>货币：</strong>人民币（CNY），移动支付（如支付宝、微信支付）非常普及。",
-        info5: "<strong>语言：</strong>普通话为官方语言，主要景区有英文标识。",
-        footer: "&copy; 2025 中国旅游介绍 | 由AI助手生成"
-    }
 };
