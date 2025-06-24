@@ -7,6 +7,38 @@ setInterval(() => {
     images[current].classList.add('active');
 }, 3000);
 
+// 支持的语言列表
+const langList = ['en','fr','de','es','it','zh','ja','ko','th'];
+
+// 语言别名映射
+const langAlias = {
+    'en': 'en', 'en-US': 'en', 'en-GB': 'en',
+    'fr': 'fr', 'fr-FR': 'fr', 'fr-CA': 'fr',
+    'de': 'de', 'de-DE': 'de',
+    'es': 'es', 'es-ES': 'es', 'es-MX': 'es',
+    'it': 'it', 'it-IT': 'it',
+    'zh': 'zh', 'zh-CN': 'zh', 'zh-TW': 'zh',
+    'ja': 'ja', 'ja-JP': 'ja',
+    'ko': 'ko', 'ko-KR': 'ko',
+    'th': 'th', 'th-TH': 'th'
+};
+
+// 检测浏览器语言
+function detectLang() {
+    let langs = [];
+    if (navigator.languages) {
+        langs = navigator.languages;
+    } else if (navigator.language) {
+        langs = [navigator.language];
+    }
+    for (let l of langs) {
+        l = l.split('-')[0] + (l.indexOf('-') > -1 ? '-' + l.split('-')[1].toUpperCase() : '');
+        if (langAlias[l]) return langAlias[l];
+        if (langList.includes(l)) return l;
+    }
+    return 'en'; // 默认英文
+}
+
 function setLang(lang) {
     document.getElementById('title').innerText = langData[lang].title;
     document.getElementById('subtitle').innerText = langData[lang].subtitle;
@@ -39,19 +71,19 @@ function setLang(lang) {
     document.getElementById('info5').innerHTML = langData[lang].info5;
     document.getElementById('footer').innerHTML = langData[lang].footer;
     // Highlight active button
-    ['en','fr','de','es','it','zh'].forEach(l => {
-        document.getElementById('btn-' + l).classList.toggle('active', lang === l);
+    langList.forEach(l => {
+        const btn = document.getElementById('btn-' + l);
+        if (btn) btn.classList.toggle('active', lang === l);
     });
     // Set html lang attribute
     document.documentElement.lang = lang;
 }
 
-document.getElementById('btn-en').onclick = () => setLang('en');
-document.getElementById('btn-fr').onclick = () => setLang('fr');
-document.getElementById('btn-de').onclick = () => setLang('de');
-document.getElementById('btn-es').onclick = () => setLang('es');
-document.getElementById('btn-it').onclick = () => setLang('it');
-document.getElementById('btn-zh').onclick = () => setLang('zh');
+// 绑定所有按钮
+langList.forEach(l => {
+    const btn = document.getElementById('btn-' + l);
+    if (btn) btn.onclick = () => setLang(l);
+});
 
-// 默认英文
-setLang('en');
+// 自动检测并设置语言
+setLang(detectLang());
