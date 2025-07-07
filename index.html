@@ -2,97 +2,479 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>China Travel Guide</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover China - 中国之旅</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans KR', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
+        }
+        .hero-section {
+            background-image: url('https://placehold.co/1920x1080/000000/FFFFFF?text=The+Great+Wall');
+            background-size: cover;
+            background-position: center;
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .lang-btn {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .lang-btn.active {
+            background-color: #1e40af; /* Darker blue */
+            color: white;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <div class="lang-switch">
-            <button id="btn-en" class="active">English</button>
-            <button id="btn-fr">Français</button>
-            <button id="btn-de">Deutsch</button>
-            <button id="btn-es">Español</button>
-            <button id="btn-it">Italiano</button>
-            <button id="btn-zh">中文</button>
-            <button id="btn-ja">日本語</button>
-            <button id="btn-ko">한국어</button>
-            <button id="btn-th">ไทย</button>
-        </div>
-        <h1 id="title">China Travel Guide</h1>
-        <p id="subtitle">Explore China: Magnificent Landscapes & Rich Culture</p>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-blue-800">
+                <span data-lang-key="siteTitle">Discover China</span>
+            </div>
+            <div class="flex items-center space-x-2 md:space-x-4">
+                <div id="language-switcher" class="flex flex-wrap justify-end space-x-1 md:space-x-2 bg-blue-100 p-1 rounded-full">
+                    <!-- Language buttons will be inserted here by JS -->
+                </div>
+            </div>
+        </nav>
     </header>
-    <nav>
-        <a href="beijing.html" id="nav-beijing">Beijing</a>
-        <a href="#scenic" id="nav-scenic">Famous Attractions</a>
-        <a href="#food" id="nav-food">Local Cuisine</a>
-        <a href="#info" id="nav-info">Travel Tips</a>
-    </nav>
-    <div class="container">
-        <div class="carousel" id="carousel">
-            <img src="https://plus.unsplash.com/premium_photo-1664304492320-8359efcaad38?q=80&w=1933&auto=format&fit=crop" alt="Great Wall" class="active">
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1000&q=80" alt="Forbidden City">
-            <img src="https://images.unsplash.com/photo-1506089676908-3592f7389d4d?auto=format&fit=crop&w=1000&q=80" alt="Guilin">
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section text-white h-[60vh] flex items-center justify-center">
+            <div class="text-center bg-black/50 p-8 rounded-lg">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4" data-lang-key="heroTitle">Explore the Wonders of China</h1>
+                <p class="text-lg md:text-xl" data-lang-key="heroSubtitle">A Land of Ancient History and Breathtaking Landscapes</p>
+            </div>
+        </section>
+
+        <!-- Famous Cities Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-2" data-lang-key="citiesTitle">Iconic Cities</h2>
+                <p class="text-gray-600 mb-12 max-w-2xl mx-auto" data-lang-key="citiesDescription">From imperial capitals to futuristic metropolises, discover the vibrant heart of China.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Beijing Card -->
+                    <div class="card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                        <img src="https://placehold.co/400x300/3498db/ffffff?text=Beijing" alt="Beijing" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-lang-key="cityBeijing">Beijing</h3>
+                            <p class="text-gray-700" data-lang-key="descBeijing">The imperial capital, home to the Forbidden City and the Great Wall.</p>
+                        </div>
+                    </div>
+                    <!-- Shanghai Card -->
+                    <div class="card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                        <img src="https://placehold.co/400x300/e74c3c/ffffff?text=Shanghai" alt="Shanghai" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-lang-key="cityShanghai">Shanghai</h3>
+                            <p class="text-gray-700" data-lang-key="descShanghai">A dazzling metropolis showcasing China's futuristic ambition and colonial past.</p>
+                        </div>
+                    </div>
+                    <!-- Xi'an Card -->
+                    <div class="card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                        <img src="https://placehold.co/400x300/9b59b6/ffffff?text=Xi'an" alt="Xi'an" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-lang-key="cityXian">Xi'an</h3>
+                            <p class="text-gray-700" data-lang-key="descXian">The ancient starting point of the Silk Road and home to the Terracotta Army.</p>
+                        </div>
+                    </div>
+                    <!-- Guilin Card -->
+                    <div class="card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                        <img src="https://placehold.co/400x300/2ecc71/ffffff?text=Guilin" alt="Guilin" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-lang-key="cityGuilin">Guilin</h3>
+                            <p class="text-gray-700" data-lang-key="descGuilin">Famous for its stunning karst landscapes along the Li River.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Natural Landscapes Section -->
+        <section class="py-16">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-2" data-lang-key="natureTitle">Breathtaking Nature</h2>
+                <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto" data-lang-key="natureDescription">Discover diverse landscapes that have inspired poets and artists for centuries.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="card rounded-lg overflow-hidden shadow-md">
+                        <img src="https://placehold.co/400x300/f1c40f/ffffff?text=Zhangjiajie" alt="Zhangjiajie" class="w-full h-56 object-cover">
+                        <div class="p-6 bg-white">
+                            <h3 class="font-bold text-lg" data-lang-key="natureZhangjiajie">Zhangjiajie</h3>
+                            <p class="text-gray-700" data-lang-key="descZhangjiajie">Pillar-like mountains that inspired the Hallelujah Mountains in Avatar.</p>
+                        </div>
+                    </div>
+                    <div class="card rounded-lg overflow-hidden shadow-md">
+                        <img src="https://placehold.co/400x300/3498db/ffffff?text=Jiuzhaigou" alt="Jiuzhaigou" class="w-full h-56 object-cover">
+                        <div class="p-6 bg-white">
+                            <h3 class="font-bold text-lg" data-lang-key="natureJiuzhaigou">Jiuzhaigou Valley</h3>
+                            <p class="text-gray-700" data-lang-key="descJiuzhaigou">A wonderland of colorful lakes, layered waterfalls, and snow-capped peaks.</p>
+                        </div>
+                    </div>
+                    <div class="card rounded-lg overflow-hidden shadow-md">
+                        <img src="https://placehold.co/400x300/1abc9c/ffffff?text=Yangtze+River" alt="Yangtze River" class="w-full h-56 object-cover">
+                        <div class="p-6 bg-white">
+                            <h3 class="font-bold text-lg" data-lang-key="natureYangtze">Yangtze River</h3>
+                            <p class="text-gray-700" data-lang-key="descYangtze">Cruise through the majestic Three Gorges, a lifeline of Chinese civilization.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cuisine Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-2" data-lang-key="cuisineTitle">A Culinary Journey</h2>
+                <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto" data-lang-key="cuisineDescription">Taste the incredible diversity of Chinese food, with flavors for every palate.</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+                    <div class="text-center">
+                        <img src="https://placehold.co/200x200/c0392b/ffffff?text=Peking+Duck" alt="Peking Duck" class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                        <h4 class="font-bold mt-4" data-lang-key="foodDuck">Peking Duck</h4>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://placehold.co/200x200/d35400/ffffff?text=Dim+Sum" alt="Dim Sum" class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                        <h4 class="font-bold mt-4" data-lang-key="foodDimSum">Dim Sum</h4>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://placehold.co/200x200/8e44ad/ffffff?text=Hotpot" alt="Hotpot" class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                        <h4 class="font-bold mt-4" data-lang-key="foodHotpot">Hotpot</h4>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://placehold.co/200x200/27ae60/ffffff?text=Dumplings" alt="Dumplings" class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                        <h4 class="font-bold mt-4" data-lang-key="foodDumplings">Dumplings</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Tips Section -->
+        <section class="py-16">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-3xl font-bold text-center mb-12" data-lang-key="tipsTitle">Essential Travel Tips</h2>
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4">
+                        <div class="bg-blue-100 text-blue-600 p-3 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg" data-lang-key="tipVisaTitle">Visa & Entry</h3>
+                            <p class="text-gray-700" data-lang-key="tipVisaDesc">Many nationalities require a visa to enter mainland China. Check with your local Chinese embassy for the latest policies and visa-free transit options.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4">
+                        <div class="bg-green-100 text-green-600 p-3 rounded-full">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg" data-lang-key="tipPaymentTitle">Payment Methods</h3>
+                            <p class="text-gray-700" data-lang-key="tipPaymentDesc">Mobile payments like Alipay and WeChat Pay are dominant. It's recommended to set them up for convenience. Major credit cards are accepted in hotels and large stores.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p data-lang-key="footerText">&copy; 2024 Discover China. All Rights Reserved.</p>
+            <p class="text-sm text-gray-400 mt-2" data-lang-key="footerDisclaimer">This is a demonstration website. All images are for illustrative purposes.</p>
         </div>
-        <h2 id="scenic">Famous Attractions</h2>
-        <div class="scenic-list">
-            <div class="scenic-item">
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Great Wall">
-                <h3 id="scenic1-title">Great Wall</h3>
-                <p id="scenic1-desc">A world-famous ancient defense project, stretching thousands of miles, and a symbol of China.</p>
-            </div>
-            <div class="scenic-item">
-                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Forbidden City">
-                <h3 id="scenic2-title">The Forbidden City</h3>
-                <p id="scenic2-desc">Located in Beijing, this imperial palace boasts rich history and culture. It is the largest and best-preserved wooden palace complex in the world.</p>
-            </div>
-            <div class="scenic-item">
-                <img src="https://images.unsplash.com/photo-1506089676908-3592f7389d4d?auto=format&fit=crop&w=600&q=80" alt="Guilin">
-                <h3 id="scenic3-title">Guilin Scenery</h3>
-                <p id="scenic3-desc">Famous for its green mountains, clear waters, unique caves, and beautiful rocks. Known as 'the best landscape under heaven'.</p>
-            </div>
-            <div class="scenic-item">
-                <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=600&q=80" alt="West Lake">
-                <h3 id="scenic4-title">West Lake</h3>
-                <p id="scenic4-desc">Located in Hangzhou, renowned for its beautiful scenery and rich cultural heritage.</p>
-            </div>
-        </div>
-        <h2 id="food">Local Cuisine</h2>
-        <div class="food-list">
-            <div class="food-item">
-                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80" alt="Peking Duck">
-                <h3 id="food1-title">Peking Duck</h3>
-                <p id="food1-desc">Crispy outside and tender inside, Peking Duck is one of Beijing's most iconic dishes.</p>
-            </div>
-            <div class="food-item">
-                <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=600&q=80" alt="Hotpot">
-                <h3 id="food2-title">Chongqing Hotpot</h3>
-                <p id="food2-desc">Spicy and flavorful with a variety of ingredients, a signature food experience in southern China.</p>
-            </div>
-            <div class="food-item">
-                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80" alt="Soup Dumplings">
-                <h3 id="food3-title">Shanghai Soup Dumplings</h3>
-                <p id="food3-desc">Thin skin, juicy filling, a traditional delicacy from the Jiangnan region.</p>
-            </div>
-            <div class="food-item">
-                <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=600&q=80" alt="Lanzhou Noodles">
-                <h3 id="food4-title">Lanzhou Noodles</h3>
-                <p id="food4-desc">Chewy noodles in a savory broth, a representative noodle dish from northwest China.</p>
-            </div>
-        </div>
-        <h2 id="info">Travel Tips</h2>
-        <ul id="info-list">
-            <li id="info1"><strong>Best Time to Visit:</strong> Spring and autumn offer pleasant weather for most regions.</li>
-            <li id="info2"><strong>Transportation:</strong> China has a well-developed high-speed rail and air network, making intercity travel convenient.</li>
-            <li id="info3"><strong>Visa:</strong> Most foreign visitors need to apply for a Chinese visa in advance.</li>
-            <li id="info4"><strong>Currency:</strong> Renminbi (CNY). Mobile payments (Alipay, WeChat Pay) are widely used.</li>
-            <li id="info5"><strong>Language:</strong> Mandarin is the official language. Major attractions have English signs.</li>
-        </ul>
-    </div>
-    <footer id="footer">
-        &copy; 2025 China Travel Guide | Powered by AI Assistant
     </footer>
-    <script src="lang.js"></script>
-    <script src="main.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- TRANSLATION DATA ---
+        const translations = {
+            'en': {
+                siteTitle: "Discover China",
+                heroTitle: "Explore the Wonders of China",
+                heroSubtitle: "A Land of Ancient History and Breathtaking Landscapes",
+                citiesTitle: "Iconic Cities",
+                citiesDescription: "From imperial capitals to futuristic metropolises, discover the vibrant heart of China.",
+                cityBeijing: "Beijing",
+                descBeijing: "The imperial capital, home to the Forbidden City and the Great Wall.",
+                cityShanghai: "Shanghai",
+                descShanghai: "A dazzling metropolis showcasing China's futuristic ambition and colonial past.",
+                cityXian: "Xi'an",
+                descXian: "The ancient starting point of the Silk Road and home to the Terracotta Army.",
+                cityGuilin: "Guilin",
+                descGuilin: "Famous for its stunning karst landscapes along the Li River.",
+                natureTitle: "Breathtaking Nature",
+                natureDescription: "Discover diverse landscapes that have inspired poets and artists for centuries.",
+                natureZhangjiajie: "Zhangjiajie",
+                descZhangjiajie: "Pillar-like mountains that inspired the Hallelujah Mountains in Avatar.",
+                natureJiuzhaigou: "Jiuzhaigou Valley",
+                descJiuzhaigou: "A wonderland of colorful lakes, layered waterfalls, and snow-capped peaks.",
+                natureYangtze: "Yangtze River",
+                descYangtze: "Cruise through the majestic Three Gorges, a lifeline of Chinese civilization.",
+                cuisineTitle: "A Culinary Journey",
+                cuisineDescription: "Taste the incredible diversity of Chinese food, with flavors for every palate.",
+                foodDuck: "Peking Duck",
+                foodDimSum: "Dim Sum",
+                foodHotpot: "Hotpot",
+                foodDumplings: "Dumplings",
+                tipsTitle: "Essential Travel Tips",
+                tipVisaTitle: "Visa & Entry",
+                tipVisaDesc: "Many nationalities require a visa to enter mainland China. Check with your local Chinese embassy for the latest policies and visa-free transit options.",
+                tipPaymentTitle: "Payment Methods",
+                tipPaymentDesc: "Mobile payments like Alipay and WeChat Pay are dominant. It's recommended to set them up for convenience. Major credit cards are accepted in hotels and large stores.",
+                footerText: "© 2024 Discover China. All Rights Reserved.",
+                footerDisclaimer: "This is a demonstration website. All images are for illustrative purposes."
+            },
+            'zh-CN': {
+                siteTitle: "探索中国",
+                heroTitle: "探索中国的奇迹",
+                heroSubtitle: "一个拥有古老历史和壮丽风景的国度",
+                citiesTitle: "标志性城市",
+                citiesDescription: "从帝王之都到未来主义大都市，发现中国充满活力的心脏。",
+                cityBeijing: "北京",
+                descBeijing: "帝王之都，紫禁城和长城的所在地。",
+                cityShanghai: "上海",
+                descShanghai: "一个耀眼的大都市，展示了中国的未来雄心和殖民历史。",
+                cityXian: "西安",
+                descXian: "丝绸之路的古老起点，兵马俑的故乡。",
+                cityGuilin: "桂林",
+                descGuilin: "以漓江沿岸令人惊叹的喀斯特地貌而闻名。",
+                natureTitle: "壮丽的自然风光",
+                natureDescription: "发现几个世纪以来激发诗人和艺术家灵感的各种景观。",
+                natureZhangjiajie: "张家界",
+                descZhangjiajie: "电影《阿凡达》中哈利路亚山的灵感来源。",
+                natureJiuzhaigou: "九寨沟",
+                descJiuzhaigou: "一个由五彩池、叠瀑和雪峰组成的仙境。",
+                natureYangtze: "长江",
+                descYangtze: "乘船游览雄伟的三峡，中华文明的生命线。",
+                cuisineTitle: "美食之旅",
+                cuisineDescription: "品尝中国美食的惊人多样性，满足每一种味蕾。",
+                foodDuck: "北京烤鸭",
+                foodDimSum: "点心",
+                foodHotpot: "火锅",
+                foodDumplings: "饺子",
+                tipsTitle: "重要旅行提示",
+                tipVisaTitle: "签证与入境",
+                tipVisaDesc: "许多国家的公民需要签证才能进入中国大陆。请向当地的中国大使馆查询最新的政策和过境免签选项。",
+                tipPaymentTitle: "支付方式",
+                tipPaymentDesc: "支付宝和微信支付等移动支付占主导地位。建议设置它们以方便使用。大型酒店和商店接受主流信用卡。",
+                footerText: "© 2024 探索中国。版权所有。",
+                footerDisclaimer: "这是一个演示网站。所有图片仅用于说明目的。"
+            },
+            'ja': {
+                siteTitle: "中国を発見",
+                heroTitle: "中国の奇跡を探る",
+                heroSubtitle: "古代の歴史と息をのむような風景の地",
+                citiesTitle: "象徴的な都市",
+                citiesDescription: "帝国の首都から未来的な大都市まで、中国の活気に満ちた心臓部を発見してください。",
+                cityBeijing: "北京",
+                descBeijing: "紫禁城と万里の長城がある帝国の首都。",
+                cityShanghai: "上海",
+                descShanghai: "中国の未来的な野心と植民地時代の過去を示すまばゆいばかりの大都市。",
+                cityXian: "西安",
+                descXian: "シルクロードの古代の出発点であり、兵馬俑の本拠地。",
+                cityGuilin: "桂林",
+                descGuilin: "漓江沿いの見事なカルスト地形で有名。",
+                natureTitle: "息をのむような自然",
+                natureDescription: "何世紀にもわたって詩人や芸術家にインスピレーションを与えてきた多様な風景を発見してください。",
+                natureZhangjiajie: "張家界",
+                descZhangjiajie: "映画「アバター」のハレルヤ・マウンテンにインスピレーションを与えた柱のような山々。",
+                natureJiuzhaigou: "九寨溝",
+                descJiuzhaigou: "色とりどりの湖、重なり合う滝、雪を頂いた峰々のワンダーランド。",
+                natureYangtze: "長江",
+                descYangtze: "中国文明の生命線である雄大な三峡をクルーズします。",
+                cuisineTitle: "食の旅",
+                cuisineDescription: "あらゆる味覚に対応する、中国料理の驚くべき多様性を味わってください。",
+                foodDuck: "北京ダック",
+                foodDimSum: "点心",
+                foodHotpot: "火鍋",
+                foodDumplings: "餃子",
+                tipsTitle: "重要な旅行のヒント",
+                tipVisaTitle: "ビザと入国",
+                tipVisaDesc: "多くの国籍の方は中国本土への入国にビザが必要です。最新のポリシーとビザなしの乗り継ぎオプションについては、最寄りの中国大使館にご確認ください。",
+                tipPaymentTitle: "支払い方法",
+                tipPaymentDesc: "アリペイやウィーチャットペイなどのモバイル決済が主流です。利便性のために設定することをお勧めします。主要なホテルや大型店では主要なクレジットカードが利用できます。",
+                footerText: "© 2024 中国を発見。全著作権所有。",
+                footerDisclaimer: "これはデモウェブサイトです。すべての画像は説明のみを目的としています。"
+            },
+            'ko': {
+                siteTitle: "중국 발견",
+                heroTitle: "중국의 경이로움을 탐험하세요",
+                heroSubtitle: "고대 역사와 숨막히는 풍경의 땅",
+                citiesTitle: "상징적인 도시",
+                citiesDescription: "제국의 수도에서 미래형 대도시에 이르기까지 중국의 활기찬 심장을 발견하십시오.",
+                cityBeijing: "베이징",
+                descBeijing: "자금성과 만리장성이 있는 제국의 수도.",
+                cityShanghai: "상하이",
+                descShanghai: "중국의 미래 지향적인 야망과 식민지 시대의 과거를 보여주는 눈부신 대도시.",
+                cityXian: "시안",
+                descXian: "실크로드의 고대 출발점이자 진시황릉의 본거지.",
+                cityGuilin: "구이린",
+                descGuilin: "리장 강을 따라 펼쳐진 멋진 카르스트 지형으로 유명합니다.",
+                natureTitle: "숨막히는 자연",
+                natureDescription: "수세기 동안 시인과 예술가에게 영감을 준 다양한 풍경을 발견하십시오.",
+                natureZhangjiajie: "장가계",
+                descZhangjiajie: "영화 '아바타'의 할렐루야 산에 영감을 준 기둥 모양의 산.",
+                natureJiuzhaigou: "구채구",
+                descJiuzhaigou: "다채로운 호수, 계단식 폭포, 눈 덮인 봉우리의 원더랜드.",
+                natureYangtze: "양쯔강",
+                descYangtze: "중국 문명의 생명선인 장엄한 삼협을 유람하세요.",
+                cuisineTitle: "요리 여행",
+                cuisineDescription: "모든 입맛에 맞는 맛으로 중국 음식의 놀라운 다양성을 맛보세요.",
+                foodDuck: "베이징 덕",
+                foodDimSum: "딤섬",
+                foodHotpot: "훠궈",
+                foodDumplings: "만두",
+                tipsTitle: "필수 여행 팁",
+                tipVisaTitle: "비자 및 입국",
+                tipVisaDesc: "많은 국적의 사람들은 중국 본토에 입국하려면 비자가 필요합니다. 최신 정책 및 비자 면제 환승 옵션에 대해서는 현지 중국 대사관에 확인하십시오.",
+                tipPaymentTitle: "결제 수단",
+                tipPaymentDesc: "알리페이 및 위챗페이와 같은 모바일 결제가 지배적입니다. 편의를 위해 설정하는 것이 좋습니다. 주요 호텔 및 대형 상점에서는 주요 신용 카드를 사용할 수 있습니다.",
+                footerText: "© 2024 중국 발견. 모든 권리 보유.",
+                footerDisclaimer: "이것은 데모 웹사이트입니다. 모든 이미지는 설명 목적으로만 사용됩니다."
+            },
+            'ru': {
+                siteTitle: "Откройте для себя Китай",
+                heroTitle: "Исследуйте чудеса Китая",
+                heroSubtitle: "Земля древней истории и захватывающих дух пейзажей",
+                citiesTitle: "Знаковые города",
+                citiesDescription: "От имперских столиц до футуристических мегаполисов — откройте для себя яркое сердце Китая.",
+                cityBeijing: "Пекин",
+                descBeijing: "Императорская столица, где находятся Запретный город и Великая стена.",
+                cityShanghai: "Шанхай",
+                descShanghai: "Ослепительный мегаполис, демонстрирующий футуристические амбиции Китая и колониальное прошлое.",
+                cityXian: "Сиань",
+                descXian: "Древняя отправная точка Шелкового пути и дом Терракотовой армии.",
+                cityGuilin: "Гуйлинь",
+                descGuilin: "Знаменит своими потрясающими карстовыми пейзажами вдоль реки Ли.",
+                natureTitle: "Захватывающая дух природа",
+                natureDescription: "Откройте для себя разнообразные пейзажи, которые веками вдохновляли поэтов и художников.",
+                natureZhangjiajie: "Чжанцзяцзе",
+                descZhangjiajie: "Столбчатые горы, вдохновившие на создание гор Аллилуйя в фильме «Аватар».",
+                natureJiuzhaigou: "Долина Цзючжайгоу",
+                descJiuzhaigou: "Страна чудес с разноцветными озерами, многоуровневыми водопадами и заснеженными вершинами.",
+                natureYangtze: "Река Янцзы",
+                descYangtze: "Совершите круиз по величественным Трем ущельям, жизненной артерии китайской цивилизации.",
+                cuisineTitle: "Кулинарное путешествие",
+                cuisineDescription: "Попробуйте невероятное разнообразие китайской кухни со вкусами на любой вкус.",
+                foodDuck: "Утка по-пекински",
+                foodDimSum: "Дим-самы",
+                foodHotpot: "Хого",
+                foodDumplings: "Пельмени",
+                tipsTitle: "Основные советы для путешественников",
+                tipVisaTitle: "Виза и въезд",
+                tipVisaDesc: "Гражданам многих стран для въезда в материковый Китай требуется виза. Информацию о последних правилах и вариантах безвизового транзита можно получить в местном посольстве Китая.",
+                tipPaymentTitle: "Способы оплаты",
+                tipPaymentDesc: "Доминируют мобильные платежи, такие как Alipay и WeChat Pay. Для удобства рекомендуется их настроить. Крупные кредитные карты принимаются в отелях и крупных магазинах.",
+                footerText: "© 2024 Откройте для себя Китай. Все права защищены.",
+                footerDisclaimer: "Это демонстрационный веб-сайт. Все изображения предназначены для иллюстративных целей."
+            }
+        };
+
+        const languageSwitcher = document.getElementById('language-switcher');
+        const mainContent = document.getElementById('main-content');
+        
+        const supportedLangs = {
+            'en': 'EN',
+            'zh-CN': '中',
+            'ja': '日',
+            'ko': '한',
+            'ru': 'РУ'
+        };
+
+        // --- FUNCTIONS ---
+
+        // Function to change the language
+        const setLanguage = (lang) => {
+            if (!translations[lang]) {
+                console.error(`Language ${lang} not supported.`);
+                return;
+            }
+
+            // Add fade-in effect
+            mainContent.classList.remove('fade-in');
+            void mainContent.offsetWidth; // Trigger reflow
+            mainContent.classList.add('fade-in');
+
+            document.querySelectorAll('[data-lang-key]').forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                element.textContent = translations[lang][key] || translations['en'][key];
+            });
+            
+            // Update document lang attribute for accessibility
+            document.documentElement.lang = lang;
+
+            // Update active button style
+            updateActiveButton(lang);
+
+            // Save preference to localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        };
+
+        // Function to update the active state of language buttons
+        const updateActiveButton = (activeLang) => {
+            document.querySelectorAll('.lang-btn').forEach(button => {
+                if (button.getAttribute('data-lang') === activeLang) {
+                    button.classList.add('active', 'bg-blue-600', 'text-white');
+                    button.classList.remove('bg-transparent', 'text-blue-800');
+                } else {
+                    button.classList.remove('active', 'bg-blue-600', 'text-white');
+                    button.classList.add('bg-transparent', 'text-blue-800');
+                }
+            });
+        };
+
+        // --- INITIALIZATION ---
+
+        // Populate language switcher
+        for (const [code, name] of Object.entries(supportedLangs)) {
+            const button = document.createElement('button');
+            button.textContent = name;
+            button.setAttribute('data-lang', code);
+            button.className = 'lang-btn text-sm font-medium py-1 px-3 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50';
+            button.addEventListener('click', () => setLanguage(code));
+            languageSwitcher.appendChild(button);
+        }
+
+        // Detect initial language
+        const savedLang = localStorage.getItem('preferredLanguage');
+        const browserLang = navigator.language || navigator.userLanguage;
+        
+        let initialLang = 'en'; // Default to English
+        
+        if (savedLang && supportedLangs[savedLang]) {
+            initialLang = savedLang;
+        } else if (supportedLangs[browserLang]) {
+            initialLang = browserLang;
+        } else if (supportedLangs[browserLang.split('-')[0]]) {
+            initialLang = browserLang.split('-')[0];
+        }
+
+        // Set the initial language for the page
+        setLanguage(initialLang);
+    });
+    </script>
 </body>
 </html>
