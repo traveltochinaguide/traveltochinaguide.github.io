@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.travelchinaguide.dpdns.org/sitemap.xml

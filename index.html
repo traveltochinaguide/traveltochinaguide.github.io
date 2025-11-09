@@ -12,18 +12,31 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="">
+    <meta property="og:url" content="https://www.travelchinaguide.dpdns.org/index.html">
     <meta property="og:title" content="Discover China - A Journey Through Culture, Scenery, and Cuisine" data-lang-key="metaTitle">
     <meta property="og:description" content="Explore the wonders of China. Your ultimate guide to iconic cities, breathtaking landscapes, exquisite cuisine, and essential travel tips." data-lang-key="metaDescription">
     <meta property="og:image" content="https://source.unsplash.com/1200x630/?great-wall,china">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="">
+    <meta property="twitter:url" content="https://www.travelchinaguide.dpdns.org/index.html">
     <meta property="twitter:title" content="Discover China - A Journey Through Culture, Scenery, and Cuisine" data-lang-key="metaTitle">
     <meta property="twitter:description" content="Explore the wonders of China. Your ultimate guide to iconic cities, breathtaking landscapes, exquisite cuisine, and essential travel tips." data-lang-key="metaDescription">
     <meta property="twitter:image" content="https://source.unsplash.com/1200x630/?great-wall,china">
 
+    <!-- Preload LCP hero image (Great Wall) -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1608037521277-154cd1b89191?&w=1920">
+
+    <link rel="canonical" href="https://www.travelchinaguide.dpdns.org/index.html">
+    <meta name="robots" content="index, follow">
+    <!-- hreflang alternates -->
+    <link rel="alternate" href="https://www.travelchinaguide.dpdns.org/index.html?lang=en" hreflang="en">
+    <link rel="alternate" href="https://www.travelchinaguide.dpdns.org/index.html?lang=zh-CN" hreflang="zh-CN">
+    <link rel="alternate" href="https://www.travelchinaguide.dpdns.org/index.html?lang=ja" hreflang="ja">
+    <link rel="alternate" href="https://www.travelchinaguide.dpdns.org/index.html?lang=ko" hreflang="ko">
+    <link rel="alternate" href="https://www.travelchinaguide.dpdns.org/index.html?lang=fr" hreflang="fr">
+    <link rel="alternate" href="https://www.travelchinaguide.dpdns.org/index.html?lang=de" hreflang="de">
+    <link rel="alternate" href="https://www.travelchinaguide.dpdns.org/index.html?lang=es" hreflang="es">
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -31,6 +44,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Preconnect for image hosts to improve image fetch latency -->
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="preconnect" href="https://source.unsplash.com">
     
     <style>
         /* Custom styles for a more premium feel */
@@ -80,7 +96,9 @@
         .gradient-text {
             background: linear-gradient(to right, #3b82f6, #8b5cf6);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
+            color: transparent;
         }
         .section-heading {
             font-weight: 800;
@@ -96,20 +114,20 @@
     </style>
     
     <!-- JSON-LD for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Discover China",
-      "url": "",
-      "description": "Your ultimate guide to traveling in China. Explore iconic cities, breathtaking landscapes, and find essential travel tips.",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "?s={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Discover China",
+            "url": "https://www.travelchinaguide.dpdns.org/",
+            "description": "Your ultimate guide to traveling in China. Explore iconic cities, breathtaking landscapes, and find essential travel tips.",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.travelchinaguide.dpdns.org/index.html?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+        </script>
 </head>
 <body class="text-gray-700 antialiased">
 
@@ -158,9 +176,42 @@
                 <h2 class="text-4xl md:text-5xl section-heading text-center mb-4" data-lang-key="natureTitle">Breathtaking Nature</h2>
                 <p class="text-gray-600 text-center mb-16 max-w-2xl mx-auto text-lg" data-lang-key="natureDescription">Discover diverse landscapes that have inspired poets and artists for centuries.</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="card rounded-2xl shadow-lg"><img src="https://source.unsplash.com/400x300/?zhangjiajie,china" alt="Zhangjiajie" class="w-full h-56 object-cover card-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/f1c40f/ffffff?text=Zhangjiajie';"><div class="p-6 bg-white"><h3 class="font-bold text-xl" data-lang-key="natureZhangjiajie">Zhangjiajie</h3><p class="text-gray-600 mt-2" data-lang-key="descZhangjiajie">Pillar-like mountains that inspired the Hallelujah Mountains in Avatar.</p></div></div>
-                    <div class="card rounded-2xl shadow-lg"><img src="https://source.unsplash.com/400x300/?jiuzhaigou,china" alt="Jiuzhaigou" class="w-full h-56 object-cover card-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/3498db/ffffff?text=Jiuzhaigou';"><div class="p-6 bg-white"><h3 class="font-bold text-xl" data-lang-key="natureJiuzhaigou">Jiuzhaigou Valley</h3><p class="text-gray-600 mt-2" data-lang-key="descJiuzhaigou">A wonderland of colorful lakes, layered waterfalls, and snow-capped peaks.</p></div></div>
-                    <div class="card rounded-2xl shadow-lg"><img src="https://source.unsplash.com/400x300/?yangtze,river,china" alt="Yangtze River" class="w-full h-56 object-cover card-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1abc9c/ffffff?text=Yangtze+River';"><div class="p-6 bg-white"><h3 class="font-bold text-xl" data-lang-key="natureYangtze">Yangtze River</h3><p class="text-gray-600 mt-2" data-lang-key="descYangtze">Cruise through the majestic Three Gorges, a lifeline of Chinese civilization.</p></div></div>
+                        <a href="./zhangjiajie.html" class="block nature-link">
+                            <div class="card rounded-2xl shadow-lg overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1567266565446-d9c40ccf59a4?&w=400" alt="Zhangjiajie" width="400" height="300" class="w-full h-56 object-cover card-img"
+                                    srcset="https://images.unsplash.com/photo-1567266565446-d9c40ccf59a4?&w=400 400w, https://images.unsplash.com/photo-1567266565446-d9c40ccf59a4?&w=800 800w, https://images.unsplash.com/photo-1567266565446-d9c40ccf59a4?&w=1200 1200w, https://images.unsplash.com/photo-1567266565446-d9c40ccf59a4?&w=1600 1600w"
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/400x300/f1c40f/ffffff?text=Zhangjiajie';">
+                                <div class="p-6 bg-white">
+                                    <h3 class="font-bold text-xl" data-lang-key="natureZhangjiajie">Zhangjiajie</h3>
+                                    <p class="text-gray-600 mt-2" data-lang-key="descZhangjiajie">Pillar-like mountains that inspired the Hallelujah Mountains in Avatar.</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="./jiuzhaigou.html" class="block nature-link">
+                            <div class="card rounded-2xl shadow-lg overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1694565176775-ec282698b5e9?&w=400" alt="Jiuzhaigou" width="400" height="300" class="w-full h-56 object-cover card-img"
+                                    srcset="https://images.unsplash.com/photo-1694565176775-ec282698b5e9?&w=400 400w, https://images.unsplash.com/photo-1694565176775-ec282698b5e9?&w=800 800w, https://images.unsplash.com/photo-1694565176775-ec282698b5e9?&w=1200 1200w, https://images.unsplash.com/photo-1694565176775-ec282698b5e9?&w=1600 1600w"
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/400x300/3498db/ffffff?text=Jiuzhaigou';">
+                                <div class="p-6 bg-white">
+                                    <h3 class="font-bold text-xl" data-lang-key="natureJiuzhaigou">Jiuzhaigou Valley</h3>
+                                    <p class="text-gray-600 mt-2" data-lang-key="descJiuzhaigou">A wonderland of colorful lakes, layered waterfalls, and snow-capped peaks.</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="./yangtze.html" class="block nature-link">
+                            <div class="card rounded-2xl shadow-lg overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1491552222800-c124480c9b02?&w=400" alt="Yangtze River" width="400" height="300" class="w-full h-56 object-cover card-img"
+                                    srcset="https://images.unsplash.com/photo-1491552222800-c124480c9b02?&w=400 400w, https://images.unsplash.com/photo-1491552222800-c124480c9b02?&w=800 800w, https://images.unsplash.com/photo-1491552222800-c124480c9b02?&w=1200 1200w, https://images.unsplash.com/photo-1491552222800-c124480c9b02?&w=1600 1600w"
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/400x300/1abc9c/ffffff?text=Yangtze+River';">
+                                <div class="p-6 bg-white">
+                                    <h3 class="font-bold text-xl" data-lang-key="natureYangtze">Yangtze River</h3>
+                                    <p class="text-gray-600 mt-2" data-lang-key="descYangtze">Cruise through the majestic Three Gorges, a lifeline of Chinese civilization.</p>
+                                </div>
+                            </div>
+                        </a>
                 </div>
             </div>
         </section>
@@ -173,28 +224,13 @@
         <!-- Travel Tips Section -->
         <section class="py-20 bg-gray-50"><div class="container mx-auto px-6 max-w-4xl"><h2 class="text-4xl md:text-5xl section-heading text-center mb-16" data-lang-key="tipsTitle">Essential Travel Tips</h2><div class="space-y-8"><div class="bg-white p-6 rounded-2xl shadow-lg flex items-start space-x-6"><div class="bg-blue-100 text-blue-600 p-4 rounded-full flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></div><div><h3 class="font-bold text-xl mb-1" data-lang-key="tipVisaTitle">Visa & Entry</h3><p class="text-gray-600" data-lang-key="tipVisaDesc">China has implemented a visa-free policy for many countries. However, policies are updated frequently. We strongly recommend checking the latest official announcements from your local Chinese Embassy before your trip.</p></div></div><div class="bg-white p-6 rounded-2xl shadow-lg flex items-start space-x-6"><div class="bg-green-100 text-green-600 p-4 rounded-full flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg></div><div><h3 class="font-bold text-xl mb-1" data-lang-key="tipPaymentTitle">Payment Methods</h3><p class="text-gray-600" data-lang-key="tipPaymentDesc">Mobile payments like Alipay and WeChat Pay are dominant. It's recommended to set them up for convenience. Major credit cards are accepted in hotels and large stores.</p></div></div></div></div></section>
         
-        <!-- Contact Section -->
+        <!-- Contact Section (simplified) -->
         <section id="contact" class="py-20 bg-white">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl md:text-5xl section-heading mb-4" data-lang-key="contactTitle">Contact Us</h2>
-                <p class="text-gray-600 mb-12 max-w-2xl mx-auto text-lg" data-lang-key="contactDescription">Have questions? We'd love to hear from you. Send us a message and we'll get back to you.</p>
-                <form action="mailto:yangglair@gmail.com" method="post" enctype="text/plain" class="max-w-2xl mx-auto text-left bg-white p-8 rounded-2xl shadow-xl">
-                    <div class="mb-6">
-                        <label for="contact-name" class="block text-left font-semibold text-gray-700 mb-2" data-lang-key="contactNameLabel">Name</label>
-                        <input type="text" id="contact-name" name="name" class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
-                    </div>
-                    <div class="mb-6">
-                        <label for="contact-email" class="block text-left font-semibold text-gray-700 mb-2" data-lang-key="contactEmailLabel">Email</label>
-                        <input type="email" id="contact-email" name="email" class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
-                    </div>
-                    <div class="mb-6">
-                        <label for="contact-message" class="block text-left font-semibold text-gray-700 mb-2" data-lang-key="contactMessageLabel">Message</label>
-                        <textarea id="contact-message" name="message" rows="5" class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold py-4 px-6 rounded-xl hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center text-lg">
-                        <span data-lang-key="contactButton">Send Message</span>
-                    </button>
-                </form>
+                <h2 class="text-4xl md:text-5xl section-heading mb-4" data-lang-key="contactTitle">Contact</h2>
+                <p class="text-gray-600 mb-4 max-w-2xl mx-auto text-lg" data-lang-key="contactDescription">You can reach us via email:</p>
+                <p class="text-lg font-medium"><a href="mailto:yangyangokok98@gmail.com" class="text-blue-600 hover:underline">yangyangokok98@gmail.com</a></p>
+                <p class="text-sm text-gray-500 mt-4">We typically respond within 48 hours.</p>
             </div>
         </section>
     </main>
@@ -217,7 +253,7 @@
                 </button>
             </div>
             <div class="p-6 md:p-8">
-                <img id="modal-city-image" src="" alt="City Image" class="w-full h-64 md:h-96 object-cover rounded-xl mb-6 shadow-lg">
+                <img id="modal-city-image" src="" alt="City Image" width="800" height="600" class="w-full h-64 md:h-96 object-cover rounded-xl mb-6 shadow-lg">
                 <div id="modal-city-description" class="text-gray-700 leading-relaxed mb-8 prose max-w-none"></div>
             </div>
         </div>
@@ -226,8 +262,8 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // --- DATA ---
-        const carouselData = [ { id: 'great-wall', titleKey: 'carouselTitle1', subtitleKey: 'carouselSubtitle1', imgQuery: 'great wall,china' }, { id: 'shanghai', titleKey: 'carouselTitle2', subtitleKey: 'carouselSubtitle2', imgQuery: 'shanghai,skyline' }, { id: 'guilin', titleKey: 'carouselTitle3', subtitleKey: 'carouselSubtitle3', imgQuery: 'guilin,li river' }, ];
+    // --- DATA ---
+    const carouselData = [ { id: 'great-wall', titleKey: 'carouselTitle1', subtitleKey: 'carouselSubtitle1', imgQuery: 'great wall,china' }, { id: 'shanghai', titleKey: 'carouselTitle2', subtitleKey: 'carouselSubtitle2', imgQuery: 'shanghai,skyline' }, { id: 'guilin', titleKey: 'carouselTitle3', subtitleKey: 'carouselSubtitle3', imgQuery: 'guilin,li river' }, { id: 'xian', titleKey: 'carouselTitle4', subtitleKey: 'carouselSubtitle4', imgQuery: 'terracotta army,xian' } ];
         const cityDetails = { beijing: { imgQuery: 'forbidden city,beijing', nameKey: 'cityBeijing', descKey: 'descBeijing', longDescKey: 'longDescBeijing' }, shanghai: { imgQuery: 'the bund,shanghai', nameKey: 'cityShanghai', descKey: 'descShanghai', longDescKey: 'longDescShanghai' }, xian: { imgQuery: 'terracotta army,xian', nameKey: 'cityXian', descKey: 'descXian', longDescKey: 'longDescXian' }, guilin: { imgQuery: 'li river,guilin,china', nameKey: 'cityGuilin', descKey: 'descGuilin', longDescKey: 'longDescGuilin' } };
         const translations = {
             'en': {
@@ -311,7 +347,7 @@
                 natureZhangjiajie: "張家界", descZhangjiajie: "映画「アバター」のハレルヤ・マウンテンにインスピレーションを与えた柱のような山々。",
                 natureJiuzhaigou: "九寨溝", descJiuzhaigou: "色とりどりの湖、重なり合う滝、雪を頂いた峰々のワンダーランド。",
                 natureYangtze: "長江", descYangtze: "中国文明の生命線である雄大な三峡をクルーズします。",
-                cuisineTitle: "食の旅", cuisineDescription: "あらゆる味覚に対応する、中国料理の驚くべき多様性を味わってください。",
+                cuisineTitle: "美食之旅", cuisineDescription: "あらゆる味覚に対応する、中国料理の驚くべき多様性を味わってください。",
                 foodDuck: "北京ダック", foodDimSum: "点心", foodHotpot: "火鍋", foodDumplings: "餃子",
                 tipsTitle: "重要な旅行のヒント",
                 tipVisaTitle: "ビザと入国", tipVisaDesc: "中国は、ヨーロッパやアジアの国々を含む多くの国に対して、短期旅行のためのビザなし政策を実施しています。しかし、政策は頻繁に更新されます。旅行前に、最寄りの中国大使館または領事館からの最新の公式発表を確認して、ビザなし入国の資格があるかどうかを確認することを強くお勧めします。",
@@ -335,7 +371,7 @@
                 cityGuilin: "구이린", descGuilin: "리장 강을 따라 펼쳐진 멋진 카르스트 지형으로 유명합니다.",
                 longDescBeijing: "<p>중화인민공화국의 수도인 베이징은 엄청난 역사와 문화적 중요성을 지닌 도시입니다. 웅장한 건축물에서 알 수 있듯이 중국 역사의 대부분 동안 권력의 중심지였습니다.</p><p>이전 황궁인 자금성의 광대한 단지를 탐험하고, 역사적인 만리장성을 따라 걷고, 고요한 천단을 방문하십시오. 현대 베이징은 또한 예술, 요리, 상업의 중심지로서 옛것과 새것의 역동적인 조화를 제공합니다.</p>",
                 longDescShanghai: "<p>세계 금융 허브인 상하이는 최상급의 도시입니다. 상하이 타워와 동방명주 TV 타워가 지배하는 미래형 스카이라인은 장관입니다.</p><p>와이탄을 따라 거닐며 식민지 시대 건축물을 감상하고, 프랑스 조계의 트렌디한 부티크와 미술관을 둘러보거나, 고전적인 예원에서 평온을 찾으십시오. 상하이는 중국의 급속한 발전을 증명하며 모든 여행객에게 필수적인 방문지입니다.</p>",
-                longDescXian: "<p>시안은 중국에서 가장 오래된 도시 중 하나이며 실크로드의 동쪽 종점입니다. 가장 유명한 명소는 중국 최초의 황제인 진시황의 군대를 묘사한 실물 크기 테라코타 조각의 방대한 컬렉션인 병마俑입니다.</p><p>도시 자체는 잘 보존된 고대 성벽으로 둘러싸여 있으며, 자전거를 타고 멋진 전망을 감상할 수 있습니다. 활기찬 요리 경험을 위해 이슬람 지구를 놓치지 마십시오.</p>",
+                longDescXian: "<p>시안은 중국에서 가장 오래된 도시 중 하나이며 실크로드의 동쪽 종점입니다. 가장 유명한 명소는 중국 최초의 황제 진시황의 군대를 묘사한 실물 크기 테라코타 조각의 방대한 컬렉션인 병마俑입니다.</p><p>도시 자체는 잘 보존된 고대 성벽으로 둘러싸여 있으며, 자전거를 타고 멋진 전망을 감상할 수 있습니다. 활기찬 요리 경험을 위해 이슬람 지구를 놓치지 마십시오.</p>",
                 longDescGuilin: "<p>구이린의 풍경은 고전 중국 그림의 소재입니다. 중국 남부에 위치하고 있으며 초현실적인 카르스트 지형으로 세계적으로 유명합니다.</p><p>그 아름다움을 경험하는 가장 좋은 방법은 리 강을 따라 유람선을 타는 것입니다. 그곳에서 석회암 봉우리, 대나무 숲, 고요한 마을을 볼 수 있습니다. 또한 화려한 조명으로 밝혀진 인상적인 종유석과 석순이 있는 천연 석회암 동굴인 갈대 피리 동굴을 탐험할 수도 있습니다.</p>",
                 natureTitle: "숨막히는 자연", natureDescription: "수세기 동안 시인과 예술가에게 영감을 준 다양한 풍경을 발견하십시오.",
                 natureZhangjiajie: "장가계", descZhangjiajie: "영화 '아바타'의 할렐루야 산에 영감을 준 기둥 모양의 산.",
@@ -382,7 +418,7 @@
             },
             'fr': {
                 metaTitle: "Découvrir la Chine - Un voyage à travers la culture, les paysages et la cuisine",
-                metaDescription: "Explorez les merveilles de la Chine. Votre guide ultime des villes emblématiques comme Pékin et Shanghai, des paysages à couper le souffle comme Guilin, une cuisine exquise et des conseils de voyage essentiels.",
+                metaDescription: "Explorez les merveilles de la Chine. Votre guide ultime des villes emblématiques comme Pékin и Shanghai, des paysages à couper le souffle comme Guilin, une cuisine exquise et des conseils de voyage essentiels.",
                 metaKeywords: "voyage en Chine, tourisme en Chine, visite de Pékin, guide de Shanghai, Grande Muraille, Cité Interdite, Armée de terre cuite, Guilin, cuisine chinoise, planificateur de voyage en Chine",
                 siteTitle: "Découvrir la Chine",
                 carouselTitle1: "La Grande Muraille", carouselSubtitle1: "Une merveille majestueuse du monde antique.",
@@ -530,13 +566,31 @@
         };
 
         const updateActiveButton = (activeLang) => {
-            document.querySelectorAll('.lang-btn').forEach(button => {
-                if (button.getAttribute('data-lang') === activeLang) {
-                    button.classList.add('active');
+            // update the compact toggle label (do not change toggle bg color)
+            const langCurrent = document.getElementById('lang-current');
+            if (langCurrent && supportedLangs[activeLang]) langCurrent.textContent = supportedLangs[activeLang];
+
+            // update menu items: show check icon for selected item and emphasize label
+            document.querySelectorAll('.lang-option').forEach(item => {
+                const check = item.querySelector('.check-icon');
+                if (item.getAttribute('data-lang') === activeLang) {
+                    check && check.classList.remove('hidden');
+                    item.classList.add('font-semibold');
+                    item.setAttribute('aria-checked', 'true');
                 } else {
-                    button.classList.remove('active');
+                    check && check.classList.add('hidden');
+                    item.classList.remove('font-semibold');
+                    item.setAttribute('aria-checked', 'false');
                 }
             });
+
+            // ensure toggle has current language for ARIA but keep visual neutral
+            const toggleEl = document.getElementById('lang-toggle');
+            if (toggleEl) {
+                toggleEl.setAttribute('data-lang', activeLang);
+                // remove any active blue state from toggle to keep it neutral
+                toggleEl.classList.remove('active');
+            }
         };
 
         // Carousel Functions
@@ -590,19 +644,83 @@
 
         // --- INITIALIZATION ---
         const supportedLangs = {'en': 'EN', 'zh-CN': '中', 'ja': '日', 'ko': '한', 'ru': 'РУ', 'fr': 'FR', 'de': 'DE', 'es': 'ES'};
-        for (const [code, name] of Object.entries(supportedLangs)) {
-            const button = document.createElement('button');
-            button.textContent = name;
-            button.setAttribute('data-lang', code);
-            button.className = 'lang-btn text-sm font-semibold py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300';
-            button.addEventListener('click', () => setLanguage(code));
-            languageSwitcher.appendChild(button);
-        }
+
+        // Build an accessible dropdown language selector
+        const dropdown = document.createElement('div');
+        dropdown.className = 'relative inline-block text-left lang-dropdown';
+
+        const toggle = document.createElement('button');
+        toggle.id = 'lang-toggle';
+        toggle.type = 'button';
+        toggle.setAttribute('aria-haspopup', 'true');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.className = 'lang-btn text-sm font-semibold py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 flex items-center gap-2 bg-white';
+        // Add a small globe icon + current lang + chevron
+        toggle.innerHTML = `
+            <svg class="h-4 w-4 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path d="M2.05 6.05h19.9M2.05 17.95h19.9M12 2.05v19.9"/></svg>
+            <span id="lang-current" class="ml-2">${supportedLangs[currentLang] || 'EN'}</span>
+            <svg class="h-4 w-4 text-gray-600 ml-2" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd" /></svg>`;
+
+        dropdown.appendChild(toggle);
+
+        const menu = document.createElement('div');
+        menu.id = 'lang-menu';
+        menu.className = 'hidden origin-top-right absolute right-0 mt-2 w-36 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50';
+        const menuInner = document.createElement('div');
+        menuInner.className = 'py-1';
+        menuInner.setAttribute('role', 'menu');
+        menuInner.setAttribute('aria-orientation', 'vertical');
+        menuInner.setAttribute('aria-labelledby', 'lang-toggle');
+
+        Object.entries(supportedLangs).forEach(([code, name]) => {
+            const item = document.createElement('button');
+            item.type = 'button';
+            item.className = 'w-full text-left px-4 py-2 text-sm lang-option';
+            item.setAttribute('data-lang', code);
+            item.setAttribute('role', 'menuitem');
+            item.setAttribute('aria-checked', 'false');
+            // show label + code and a check icon on the right (hidden by default)
+            item.innerHTML = `
+                <span class="flex items-center justify-between w-full">
+                    <span class="truncate">${name} <span class="ml-2 text-xs text-gray-500">(${code})</span></span>
+                    <svg class="check-icon hidden h-4 w-4 text-green-600 flex-shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 11 8 15 16 6"></polyline></svg>
+                </span>`;
+            item.addEventListener('click', () => { setLanguage(code); closeLangMenu(); });
+            menuInner.appendChild(item);
+        });
+
+        menu.appendChild(menuInner);
+        dropdown.appendChild(menu);
+        languageSwitcher.appendChild(dropdown);
+
+        // Dropdown open/close helpers
+        const langToggle = document.getElementById('lang-toggle');
+        const langMenu = document.getElementById('lang-menu');
+        function openLangMenu() { langMenu.classList.remove('hidden'); langToggle.setAttribute('aria-expanded', 'true'); }
+        function closeLangMenu() { langMenu.classList.add('hidden'); langToggle.setAttribute('aria-expanded', 'false'); }
+        function toggleLangMenu() { if (langMenu.classList.contains('hidden')) openLangMenu(); else closeLangMenu(); }
+
+        langToggle.addEventListener('click', (e) => { e.stopPropagation(); toggleLangMenu(); });
+        // close when clicking outside
+        document.addEventListener('click', (e) => { if (!dropdown.contains(e.target)) closeLangMenu(); });
+        // close on escape
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLangMenu(); });
 
         carouselData.forEach((slide, index) => {
             const slideEl = document.createElement('div');
             slideEl.className = 'carousel-slide absolute inset-0 w-full h-full opacity-0';
-            slideEl.innerHTML = `<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div><img src="https://source.unsplash.com/1920x1080/?${slide.imgQuery}" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000000/FFFFFF?text=Image';"><div class="absolute inset-0 flex items-center justify-center"><div class="text-center text-white p-8 max-w-3xl"><h2 class="text-5xl md:text-7xl font-extrabold mb-4 text-shadow-lg" data-lang-key="${slide.titleKey}"></h2><p class="text-xl md:text-2xl text-shadow" data-lang-key="${slide.subtitleKey}"></p></div></div>`;
+            // default image for slides (kept for great-wall)
+            const defaultImg = 'https://images.unsplash.com/photo-1608037521277-154cd1b89191?&w=1920';
+            // user-provided fixed images for specific slides
+            const shanghaiImg = 'https://images.unsplash.com/photo-1727478431214-67846b1d62be?&w=1920';
+            const guilinImg = 'https://images.unsplash.com/photo-1625820006696-dd7f545b36a5?&w=1920';
+            // Xi'an fixed image provided by user
+            const xianImg = 'https://images.unsplash.com/photo-1527922891260-918d42a4efc8?&w=1920';
+            let imgSrc = defaultImg;
+            if (slide.id === 'shanghai') imgSrc = shanghaiImg;
+            if (slide.id === 'guilin') imgSrc = guilinImg;
+            if (slide.id === 'xian') imgSrc = xianImg;
+            slideEl.innerHTML = `<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div><img loading="lazy" decoding="async" src="${imgSrc}" width="1920" height="1080" class="w-full h-full object-cover" alt="${slide.imgQuery}" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000000/FFFFFF?text=Image';"><div class="absolute inset-0 flex items-center justify-center"><div class="text-center text-white p-8 max-w-3xl"><h2 class="text-5xl md:text-7xl font-extrabold mb-4 text-shadow-lg" data-lang-key="${slide.titleKey}"></h2><p class="text-xl md:text-2xl text-shadow" data-lang-key="${slide.subtitleKey}"></p></div></div>`;
             carouselContainer.insertBefore(slideEl, carouselDotsContainer);
             
             const dot = document.createElement('button');
@@ -611,13 +729,25 @@
             carouselDotsContainer.appendChild(dot);
         });
 
+        // Color map for city cards (gradient background)
+        const cityColors = {
+            beijing: 'linear-gradient(135deg,#fb923c,#ef4444)',
+            shanghai: 'linear-gradient(135deg,#7c3aed,#4f46e5)',
+            xian: 'linear-gradient(135deg,#f59e0b,#f97316)',
+            guilin: 'linear-gradient(135deg,#14b8a6,#10b981)'
+        };
+
         Object.keys(cityDetails).forEach(cityId => {
             const city = cityDetails[cityId];
             const card = document.createElement('div');
-            card.className = 'card bg-white rounded-2xl shadow-lg cursor-pointer text-left';
+            card.className = 'card bg-white rounded-2xl shadow-lg cursor-pointer text-left overflow-hidden';
             card.setAttribute('data-city-id', cityId);
-            card.innerHTML = `<div class="relative"><img src="https://source.unsplash.com/400x300/?${city.imgQuery},landmark" alt="${cityId}" class="w-full h-48 object-cover card-img rounded-t-2xl" onerror="this.onerror=null;this.src='https://placehold.co/400x300/cccccc/ffffff?text=${cityId}';"></div><div class="p-6"><h3 class="text-xl font-bold mb-2 text-gray-900" data-lang-key="${city.nameKey}"></h3><p class="text-gray-600" data-lang-key="${city.descKey}"></p></div>`;
-            card.addEventListener('click', () => showCityModal(cityId));
+            const bgStyle = cityColors[cityId] || 'linear-gradient(135deg,#e5e7eb,#9ca3af)';
+            card.innerHTML = `<div class="relative"><div class="w-full h-48 rounded-t-2xl flex items-center justify-center city-hero" style="background: ${bgStyle};"><span class="text-white text-2xl md:text-3xl font-extrabold" data-lang-key="${city.nameKey}"></span></div></div><div class="p-6"><h3 class="text-xl font-bold mb-2 text-gray-900 sr-only" data-lang-key="${city.nameKey}"></h3><p class="text-gray-600" data-lang-key="${city.descKey}"></p></div>`;
+            card.addEventListener('click', () => {
+                const langParam = currentLang ? `?lang=${encodeURIComponent(currentLang)}` : '';
+                window.location.href = `./${cityId}.html${langParam}`;
+            });
             cityGrid.appendChild(card);
         });
 
@@ -638,6 +768,17 @@
 
         showSlide(0);
         startCarousel();
+
+        // Preserve current language when navigating from nature cards
+        // Attach after initial language is set so `currentLang` is correct
+        document.querySelectorAll('a.nature-link').forEach(a => {
+            a.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = a.getAttribute('href');
+                const langParam = currentLang ? `?lang=${encodeURIComponent(currentLang)}` : '';
+                window.location.href = `${href}${langParam}`;
+            });
+        });
     });
     </script>
 </body>
