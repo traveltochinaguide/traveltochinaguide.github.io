@@ -17,15 +17,36 @@
   <link rel="alternate" href="https://www.travelchinaguide.dpdns.org/zhangjiajie.html?lang=en" hreflang="en">
   <link rel="alternate" href="https://www.travelchinaguide.dpdns.org/zhangjiajie.html?lang=zh-CN" hreflang="zh-CN">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <style>body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans SC",sans-serif;background:#f7f8fa}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
 </head>
 <body class="text-gray-800">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2274290381465979" crossorigin="anonymous"></script>
-  <header class="bg-white sticky top-0 shadow">
+  <header class="bg-white sticky top-0 shadow z-50">
     <div class="container mx-auto px-6 py-4 flex items-center justify-between">
-      <div class="text-xl font-extrabold text-blue-700">Discover China</div>
-      <a id="back-link" class="text-sm text-gray-600 hover:text-blue-600">← Back</a>
+      <a href="index.html" class="text-xl font-extrabold text-blue-700">Discover China</a>
+  <nav class="flex flex-wrap gap-3 items-center">
+        <a href="index.html" class="px-3 py-2 text-sm font-medium tracking-wide text-gray-800 hover:text-blue-600 rounded transition-colors" data-lang-key="navHome">Home</a>
+        <div class="relative group" tabindex="0">
+          <button type="button" class="px-3 py-2 text-sm font-medium tracking-wide text-gray-800 hover:text-blue-600 rounded transition-colors" data-lang-key="navCities" aria-haspopup="true" aria-expanded="false">Popular Cities</button>
+          <div class="hidden group-hover:block focus-within:block absolute left-0 top-full mt-0 min-w-max w-56 bg-white rounded-md shadow-md p-2 z-50">
+            <a href="beijing.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="cityBeijing">Beijing</a>
+            <a href="shanghai.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="cityShanghai">Shanghai</a>
+            <a href="xian.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="cityXian">Xi'an</a>
+            <a href="guilin.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="cityGuilin">Guilin</a>
+          </div>
+        </div>
+        <div class="relative group" tabindex="0">
+          <button type="button" class="px-3 py-2 text-sm font-medium tracking-wide text-gray-800 hover:text-blue-600 rounded transition-colors" data-lang-key="navNature" aria-haspopup="true" aria-expanded="false">Nature</button>
+          <div class="hidden group-hover:block focus-within:block absolute left-0 top-full mt-0 min-w-max w-56 bg-white rounded-md shadow-md p-2 z-50">
+            <a href="zhangjiajie.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="natureZhangjiajie">Zhangjiajie</a>
+            <a href="jiuzhaigou.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="natureJiuzhaigou">Jiuzhaigou</a>
+            <a href="yangtze.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="natureYangtze">Yangtze</a>
+          </div>
+        </div>
+      </nav>
     </div>
   </header>
 
@@ -62,6 +83,7 @@
   }
   </script>
   <script src="./city.js"></script>
+  <script src="./js/nav-toggle.js"></script>
   <script>
     const translations = {
       'en': {

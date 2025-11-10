@@ -40,20 +40,18 @@
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Inter -->
+    <!-- Google Fonts preload + shared site CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" onload="this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="/css/site.css">
     <!-- Preconnect for image hosts to improve image fetch latency -->
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
     <link rel="preconnect" href="https://source.unsplash.com">
     
     <style>
-        /* Custom styles for a more premium feel */
-        body {
-            font-family: 'Inter', 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans KR', sans-serif;
-            background-color: #f7f8fa;
-        }
+        /* page-specific tweaks (kept small) */
         .card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             overflow: hidden;
@@ -133,13 +131,31 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2274290381465979" crossorigin="anonymous"></script>
 
     <!-- Header & Navigation -->
-    <header class="bg-white/90 backdrop-blur-xl sticky top-0 z-50 shadow-md shadow-gray-200/20">
+    <header class="site-header bg-white/90 backdrop-blur-xl sticky top-0 z-50 shadow-md shadow-gray-200/20">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="text-2xl font-extrabold text-blue-700 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-500" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M10 2a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 2zM5.22 5.22a.75.75 0 011.06 0l1.06 1.06a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zM2 10a.75.75 0 01.75-.75h1.5a.75.75 0 010 1.5h-1.5A.75.75 0 012 10zm3.22 4.78a.75.75 0 010 1.06l-1.06 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zM10 18a.75.75 0 01-.75-.75v-1.5a.75.75 0 011.5 0v1.5a.75.75 0 01-.75.75zm4.78-3.22a.75.75 0 01-1.06 0l-1.06-1.06a.75.75 0 111.06-1.06l1.06 1.06a.75.75 0 010 1.06zM18 10a.75.75 0 01-.75.75h-1.5a.75.75 0 010 1.5h1.5a.75.75 0 01.75.75zm-3.22-4.78a.75.75 0 010-1.06l1.06-1.06a.75.75 0 111.06 1.06l-1.06 1.06a.75.75 0 01-1.06 0zM10 5a5 5 0 100 10 5 5 0 000-10z" />
-                </svg>
-                <span data-lang-key="siteTitle">Discover China</span>
+            <div class="text-xl font-extrabold text-blue-700 flex items-center gap-2">
+                <a href="index.html" class="text-xl font-extrabold text-blue-700">Discover China</a>
+            </div>
+            <button class="nav-toggle md:hidden" data-nav-toggle data-nav-target="primary-nav" aria-label="Toggle menu" aria-expanded="false">☰</button>
+            <div id="primary-nav" class="nav-links site-nav md:flex">
+                <a href="index.html" class="px-3 py-2 text-sm font-medium tracking-wide text-gray-800 hover:text-blue-600 rounded transition-colors" data-lang-key="navHome">Home</a>
+                <div class="relative group" tabindex="0">
+                    <button type="button" class="px-3 py-2 text-sm font-medium tracking-wide text-gray-800 hover:text-blue-600 rounded transition-colors" data-lang-key="navCities" aria-haspopup="true" aria-expanded="false">Popular Cities</button>
+                    <div class="hidden group-hover:block focus-within:block absolute left-0 top-full mt-0 min-w-max w-56 bg-white rounded-md shadow-md p-2 z-50 dropdown-panel">
+                        <a href="beijing.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="cityBeijing">Beijing</a>
+                        <a href="shanghai.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="cityShanghai">Shanghai</a>
+                        <a href="xian.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="cityXian">Xi'an</a>
+                        <a href="guilin.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="cityGuilin">Guilin</a>
+                    </div>
+                </div>
+                <div class="relative group" tabindex="0">
+                    <button type="button" class="px-3 py-2 text-sm font-medium tracking-wide text-gray-800 hover:text-blue-600 rounded transition-colors" data-lang-key="navNature" aria-haspopup="true" aria-expanded="false">Nature</button>
+                    <div class="hidden group-hover:block focus-within:block absolute left-0 top-full mt-0 min-w-max w-56 bg-white rounded-md shadow-md p-2 z-50 dropdown-panel">
+                        <a href="zhangjiajie.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="natureZhangjiajie">Zhangjiajie</a>
+                        <a href="jiuzhaigou.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="natureJiuzhaigou">Jiuzhaigou</a>
+                        <a href="yangtze.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="natureYangtze">Yangtze</a>
+                    </div>
+                </div>
             </div>
             <div class="flex items-center space-x-2 md:space-x-4">
                 <div id="language-switcher" class="flex flex-wrap justify-end space-x-1 md:space-x-2 bg-blue-50 p-1 rounded-full"></div>
@@ -261,6 +277,7 @@
     </div>
 
 
+    <script src="/js/nav-toggle.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
     // --- DATA ---
@@ -272,6 +289,9 @@
                 metaDescription: "Explore the wonders of China. Your ultimate guide to iconic cities like Beijing and Shanghai, breathtaking landscapes like Guilin, exquisite cuisine, and essential travel tips.",
                 metaKeywords: "China travel, tourism in China, Beijing tour, Shanghai guide, Great Wall, Forbidden City, Terracotta Army, Guilin, Chinese food, China trip planner",
                 siteTitle: "Discover China",
+                navHome: "Home",
+                navCities: "Popular Cities",
+                navNature: "Nature",
                 carouselTitle1: "The Great Wall", carouselSubtitle1: "A majestic wonder of the ancient world.",
                 carouselTitle2: "Shanghai", carouselSubtitle2: "The vibrant pulse of modern China.",
                 carouselTitle3: "Guilin", carouselSubtitle3: "Karst mountains meeting serene rivers.",
@@ -302,6 +322,9 @@
                 metaDescription: "探索中国的奇迹。您通往北京、上海等标志性城市，桂林等壮丽景观，精致美食和基本旅行提示的终极指南。",
                 metaKeywords: "中国旅游, 中国旅行, 北京旅游, 上海指南, 长城, 故宫, 兵马俑, 桂林, 中国美食, 中国旅行规划",
                 siteTitle: "探索中国",
+                navHome: "首页",
+                navCities: "热门城市",
+                navNature: "自然风光",
                 carouselTitle1: "万里长城", carouselSubtitle1: "宏伟的古代世界奇迹。",
                 carouselTitle2: "上海", carouselSubtitle2: "现代中国充满活力的脉搏。",
                 carouselTitle3: "桂林", carouselSubtitle3: "喀斯特山脉与宁静河流的交汇。",
@@ -332,6 +355,9 @@
                 metaDescription: "中国の驚異を探検してください。北京や上海などの象徴的な都市、桂林などの息をのむような風景、絶品料理、重要な旅行のヒントへの究極のガイド。",
                 metaKeywords: "中国旅行, 中国観光, 北京ツアー, 上海ガイド, 万里の長城, 紫禁城, 兵馬俑, 桂林, 中華料理, 中国旅行プランナー",
                 siteTitle: "中国を発見",
+                navHome: "ホーム",
+                navCities: "人気の都市",
+                navNature: "自然",
                 carouselTitle1: "万里の長城", carouselSubtitle1: "古代世界の壮大な驚異。",
                 carouselTitle2: "上海", carouselSubtitle2: "現代中国の活気に満ちた鼓動。",
                 carouselTitle3: "桂林", carouselSubtitle3: "カルスト山脈と穏やかな川の出会い。",
@@ -362,6 +388,9 @@
                 metaDescription: "중국의 경이로움을 탐험하세요. 베이징, 상하이와 같은 상징적인 도시, 구이린과 같은 숨막히는 풍경, 절묘한 요리, 필수 여행 팁에 대한 최고의 가이드.",
                 metaKeywords: "중국 여행, 중국 관광, 베이징 투어, 상하이 가이드, 만리장성, 자금성, 병마俑, 구이린, 중국 음식, 중국 여행 플래너",
                 siteTitle: "중국 발견",
+                navHome: "홈",
+                navCities: "인기 도시",
+                navNature: "자연",
                 carouselTitle1: "만리장성", carouselSubtitle1: "고대 세계의 장엄한 경이로움.",
                 carouselTitle2: "상하이", carouselSubtitle2: "현대 중국의 활기찬 맥박.",
                 carouselTitle3: "구이린", carouselSubtitle3: "카르스트 산과 고요한 강의 만남.",
@@ -392,6 +421,9 @@
                 metaDescription: "Исследуйте чудеса Китая. Ваш полный путеводитель по знаковым городам, таким как Пекин и Шанхай, захватывающим дух пейзажам, таким как Гуйлинь, изысканной кухне и основным советам для путешественников.",
                 metaKeywords: "путешествие в Китай, туризм в Китае, тур в Пекин, гид по Шанхаю, Великая стена, Запретный город, Терракотовая армия, Гуйлинь, китайская еда, планировщик поездок в Китай",
                 siteTitle: "Откройте для себя Китай",
+                navHome: "Главная",
+                navCities: "Популярные города",
+                navNature: "Природа",
                 carouselTitle1: "Великая Китайская стена", carouselSubtitle1: "Величественное чудо древнего мира.",
                 carouselTitle2: "Шанхай", carouselSubtitle2: "Яркий пульс современного Китая.",
                 carouselTitle3: "Гуйлинь", carouselSubtitle3: "Карстовые горы, встречающиеся со спокойными реками.",
@@ -422,6 +454,9 @@
                 metaDescription: "Explorez les merveilles de la Chine. Votre guide ultime des villes emblématiques comme Pékin и Shanghai, des paysages à couper le souffle comme Guilin, une cuisine exquise et des conseils de voyage essentiels.",
                 metaKeywords: "voyage en Chine, tourisme en Chine, visite de Pékin, guide de Shanghai, Grande Muraille, Cité Interdite, Armée de terre cuite, Guilin, cuisine chinoise, planificateur de voyage en Chine",
                 siteTitle: "Découvrir la Chine",
+                navHome: "Accueil",
+                navCities: "Villes populaires",
+                navNature: "Nature",
                 carouselTitle1: "La Grande Muraille", carouselSubtitle1: "Une merveille majestueuse du monde antique.",
                 carouselTitle2: "Shanghai", carouselSubtitle2: "Le pouls vibrant de la Chine moderne.",
                 carouselTitle3: "Guilin", carouselSubtitle3: "Montagnes karstiques rencontrant des rivières sereines.",
@@ -452,6 +487,9 @@
                 metaDescription: "Entdecken Sie die Wunder Chinas. Ihr ultimativer Führer zu ikonischen Städten wie Peking und Shanghai, atemberaubenden Landschaften wie Guilin, exquisiter Küche und wichtigen Reisetipps.",
                 metaKeywords: "China Reisen, Tourismus in China, Peking Tour, Shanghai Führer, Große Mauer, Verbotene Stadt, Terrakotta-Armee, Guilin, chinesisches Essen, China Reiseplaner",
                 siteTitle: "China entdecken",
+                navHome: "Startseite",
+                navCities: "Beliebte Städte",
+                navNature: "Natur",
                 carouselTitle1: "Die Große Mauer", carouselSubtitle1: "Ein majestätisches Wunder der antiken Welt.",
                 carouselTitle2: "Shanghai", carouselSubtitle2: "Der pulsierende Herzschlag des modernen China.",
                 carouselTitle3: "Guilin", carouselSubtitle3: "Karstberge treffen auf ruhige Flüsse.",
@@ -482,6 +520,9 @@
                 metaDescription: "Explore las maravillas de China. Su guía definitiva de ciudades icónicas como Pekín y Shanghái, paisajes impresionantes como Guilin, cocina exquisita y consejos de viaje esenciales.",
                 metaKeywords: "viajar a China, turismo en China, tour por Pekín, guía de Shanghái, Gran Muralla, Ciudad Prohibida, Ejército de Terracota, Guilin, comida china, planificador de viajes a China",
                 siteTitle: "Descubrir China",
+                navHome: "Inicio",
+                navCities: "Ciudades populares",
+                navNature: "Naturaleza",
                 carouselTitle1: "La Gran Muralla", carouselSubtitle1: "Una majestuosa maravilla del mundo antiguo.",
                 carouselTitle2: "Shanghái", carouselSubtitle2: "El pulso vibrante de la China moderna.",
                 carouselTitle3: "Guilin", carouselSubtitle3: "Montañas kársticas que se encuentran con ríos serenos.",

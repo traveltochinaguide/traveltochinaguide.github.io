@@ -78,6 +78,34 @@
       backLink.setAttribute('href', `./index.html?lang=${encodeURIComponent(lang)}`);
       backLink.textContent = t.backText || '← Back';
     }
+
+    // apply navigation labels (use t where available, otherwise language map)
+    function applyNavLabels(translationsForPage){
+      const navMap = {
+        'en': { navHome: 'Home', navCities: 'Popular Cities', navNature: 'Nature' },
+        'zh-CN': { navHome: '首页', navCities: '热门城市', navNature: '自然风光' },
+        'ja': { navHome: 'ホーム', navCities: '人気の都市', navNature: '自然' },
+        'ko': { navHome: '홈', navCities: '인기 도시', navNature: '자연' },
+        'ru': { navHome: 'Главная', navCities: 'Популярные города', navNature: 'Природа' },
+        'fr': { navHome: 'Accueil', navCities: 'Villes populaires', navNature: 'Nature' },
+        'de': { navHome: 'Startseite', navCities: 'Beliebte Städte', navNature: 'Natur' },
+        'es': { navHome: 'Inicio', navCities: 'Ciudades populares', navNature: 'Naturaleza' }
+      };
+      const chosen = navMap[lang] || navMap[lang.split('-')[0]] || navMap['en'];
+      document.querySelectorAll('[data-lang-key]').forEach(el => {
+        const key = el.getAttribute('data-lang-key');
+        if (!key) return;
+        // prefer page translations (t) if they include the key (e.g., city names)
+        if (translationsForPage && translationsForPage[key]) {
+          el.textContent = translationsForPage[key];
+        } else if (chosen && chosen[key]) {
+          el.textContent = chosen[key];
+        }
+      });
+    }
+
+    // call with the page translations object if present
+    try { applyNavLabels(t); } catch (e) { applyNavLabels(null); }
   }
 
   // expose
