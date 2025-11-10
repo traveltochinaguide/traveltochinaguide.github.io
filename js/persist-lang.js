@@ -92,6 +92,31 @@
   document.addEventListener('DOMContentLoaded', function(){
     patchNavAnchors();
     setTimeout(patchNavAnchors, 300);
+    // also ensure nav labels (top-level and dropdown) reflect the chosen language
+    try { setTimeout(setNavLabels, 50); setTimeout(setNavLabels, 350); } catch(e){}
   });
+
+  // set navigation labels for common keys when pages don't perform full translation
+  function setNavLabels(){
+    const lang = getPreferredLang();
+    const short = (lang && lang.indexOf('-')>-1) ? lang.split('-')[0] : lang;
+    const navMap = {
+      'en': { navHome: 'Home', navCities: 'Popular Cities', navNature: 'Nature', cityBeijing: 'Beijing', cityShanghai: 'Shanghai', cityXian: "Xi'an", cityGuilin: 'Guilin', natureZhangjiajie: 'Zhangjiajie', natureJiuzhaigou: 'Jiuzhaigou', natureYangtze: 'Yangtze' },
+      'zh-CN': { navHome: '首页', navCities: '热门城市', navNature: '自然风光', cityBeijing: '北京', cityShanghai: '上海', cityXian: '西安', cityGuilin: '桂林', natureZhangjiajie: '张家界', natureJiuzhaigou: '九寨沟', natureYangtze: '长江' },
+      'ja': { navHome: 'ホーム', navCities: '人気の都市', navNature: '自然', cityBeijing: '北京', cityShanghai: '上海', cityXian: '西安', cityGuilin: '桂林', natureZhangjiajie: '張家界', natureJiuzhaigou: '九寨溝', natureYangtze: '揚子江' },
+      'ko': { navHome: '홈', navCities: '인기 도시', navNature: '자연', cityBeijing: '베이징', cityShanghai: '상하이', cityXian: '시안', cityGuilin: '구이린', natureZhangjiajie: '장가계', natureJiuzhaigou: '구채구', natureYangtze: '양쯔강' },
+      'ru': { navHome: 'Главная', navCities: 'Популярные города', navNature: 'Природа', cityBeijing: 'Пекин', cityShanghai: 'Шанхай', cityXian: 'Сиань', cityGuilin: 'Гуйлинь', natureZhangjiajie: 'Чжанцзяцзе', natureJiuzhaigou: 'Цзючжайгоу', natureYangtze: 'Янцзы' },
+      'fr': { navHome: 'Accueil', navCities: 'Villes populaires', navNature: 'Nature', cityBeijing: 'Pékin', cityShanghai: 'Shanghai', cityXian: 'Xi'an', cityGuilin: 'Guilin', natureZhangjiajie: 'Zhangjiajie', natureJiuzhaigou: 'Jiuzhaigou', natureYangtze: 'Yangtze' },
+      'de': { navHome: 'Startseite', navCities: 'Beliebte Städte', navNature: 'Natur', cityBeijing: 'Peking', cityShanghai: 'Shanghai', cityXian: 'Xi'an', cityGuilin: 'Guilin', natureZhangjiajie: 'Zhangjiajie', natureJiuzhaigou: 'Jiuzhaigou', natureYangtze: 'Yangtze' },
+      'es': { navHome: 'Inicio', navCities: 'Ciudades populares', navNature: 'Naturaleza', cityBeijing: 'Pekín', cityShanghai: 'Shanghái', cityXian: 'Xi'an', cityGuilin: 'Guilin', natureZhangjiajie: 'Zhangjiajie', natureJiuzhaigou: 'Jiuzhaigou', natureYangtze: 'Yangtsé' }
+    };
+    const chosen = navMap[lang] || navMap[short] || navMap['en'];
+    if(!chosen) return;
+    document.querySelectorAll('[data-lang-key]').forEach(el => {
+      const key = el.getAttribute('data-lang-key');
+      if(!key) return;
+      if(chosen[key]) el.textContent = chosen[key];
+    });
+  }
 
 })();
