@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.travelchinaguide.dpdns.org/</loc>
-    <lastmod>2025-11-09</lastmod>
+    <lastmod>2025-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.travelchinaguide.dpdns.org/index.html</loc>
-    <lastmod>2025-11-09</lastmod>
+    <lastmod>2025-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.travelchinaguide.dpdns.org/beijing.html</loc>
-    <lastmod>2025-11-09</lastmod>
+    <lastmod>2025-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -50,8 +50,14 @@
   </url>
   <url>
     <loc>https://www.travelchinaguide.dpdns.org/yangtze.html</loc>
-    <lastmod>2025-11-10</lastmod>
+    <lastmod>2025-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.travelchinaguide.dpdns.org/iching.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>
