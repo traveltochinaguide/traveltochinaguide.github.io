@@ -36,7 +36,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2274290381465979" crossorigin="anonymous"></script>
   <header class="bg-white sticky top-0 shadow z-50">
     <div class="container mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="index.html" class="text-xl font-extrabold text-blue-700">Discover China</a>
+      <a href="index.html" class="text-xl font-extrabold text-blue-700">China Tour</a>
       <button class="nav-toggle md:hidden" data-nav-toggle data-nav-target="primary-nav" aria-label="Toggle menu" aria-expanded="false">☰</button>
       <div id="primary-nav" class="nav-links site-nav md:flex">
         <a href="index.html" class="px-3 py-2 text-sm font-medium tracking-wide text-gray-800 hover:text-blue-600 rounded transition-colors" data-lang-key="navHome">Home</a>
@@ -44,6 +44,7 @@
           <button type="button" class="px-3 py-2 text-sm font-medium tracking-wide text-gray-800 hover:text-blue-600 rounded transition-colors" data-lang-key="navCities" aria-haspopup="true" aria-expanded="false">Popular Cities</button>
           <div class="hidden group-hover:block focus-within:block absolute left-0 top-full mt-0 min-w-max w-56 bg-white rounded-md shadow-md p-2 z-50 dropdown-panel">
             <a href="beijing.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="cityBeijing">Beijing</a>
+            <a href="beijing.html#great-wall-tour" class="block px-3 py-1 text-sm text-gray-600 hover:bg-gray-100 whitespace-nowrap text-left ml-4">Great Wall tour</a>
             <a href="shanghai.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="cityShanghai">Shanghai</a>
             <a href="xian.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="cityXian">Xi'an</a>
             <a href="guilin.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="cityGuilin">Guilin</a>
@@ -80,7 +81,7 @@
     </article>
   </main>
 
-  <footer class="py-8 text-center text-sm text-gray-500">© 2025 Discover China</footer>
+  <footer class="py-8 text-center text-sm text-gray-500">© 2025 China Tour</footer>
 
   <script type="application/ld+json">
   {
@@ -92,14 +93,25 @@
     "image": "https://www.travelchinaguide.dpdns.org/beijing.html#image"
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    "name": "Beijing Great Wall Tour (Mutianyu & Badaling)",
+    "description": "Popular Beijing Great Wall tour options: Mutianyu for a quieter, family-friendly visit; Badaling for classic access and facilities. Half-day and full-day tours with cable car options.",
+    "url": "https://www.travelchinaguide.dpdns.org/beijing.html#great-wall-tour",
+    "image": "https://images.unsplash.com/photo-1583405584623-58f4b7d1380f?w=1920",
+    "keywords": "Beijing Great Wall tour, Mutianyu, Badaling, Great Wall day trip"
+  }
+  </script>
   <script src="./city.js"></script>
   <script src="/js/nav-toggle.js"></script>
   <script src="/js/persist-lang.js"></script>
   <script>
     const translations = {
       'en': {
-        pageTitle: 'Beijing — Discover China',
-        metaDesc: 'Beijing travel guide — top attractions, how to get there, transport, suggested itineraries and practical tips.',
+        pageTitle: 'Beijing — China Tour',
+        metaDesc: 'Beijing travel guide — top attractions, how to get there, transport, suggested itineraries and practical tips. Includes Beijing Great Wall tour recommendations and booking tips.',
         cityName: 'Beijing',
         contentHtml: `
           <h2 class="text-2xl font-bold mb-3">Quick overview</h2>
@@ -113,6 +125,14 @@
             <li><strong>Summer Palace</strong> — Lakes, gardens and palace architecture; combine with a boat ride.</li>
             <li><strong>Hutongs & Nanluoguxiang</strong> — Traditional alleys, cafés and small shops; good for walking tours.</li>
           </ul>
+
+          <h3 id="great-wall-tour" class="text-xl font-semibold mt-6 mb-2">Beijing Great Wall Tour — Mutianyu &amp; Badaling</h3>
+          <p>The <strong>Beijing Great Wall tour</strong> is the most popular day trip from the city. Typical <em>Beijing Great Wall tour</em> options include private transfers, shared shuttle buses, and guided excursions to <strong>Mutianyu</strong> (gentler slopes and restored sections) or <strong>Badaling</strong> (easier access and visitor facilities). Tours range from half-day to full-day and often include cable car or toboggan options.</p>
+          <p><strong>Duration:</strong> 4–8 hours depending on destination and transport. <strong>How to book:</strong> Book via local tour operators, reputable booking platforms, or your hotel concierge. For a quieter experience choose Mutianyu on weekdays; for the classic experience choose Badaling early in the morning.</p>
+          <figure class="mt-4">
+            <img src="https://images.unsplash.com/photo-1583405584623-58f4b7d1380f?w=1920" alt="Beijing Great Wall tour — Mutianyu section" width="1200" height="675" class="w-full h-auto rounded">
+            <figcaption class="text-sm text-gray-500 mt-2">Beijing Great Wall tour: Mutianyu section — recommended for families and photographers.</figcaption>
+          </figure>
 
           <h3 class="text-xl font-semibold mt-6 mb-2">How to get there</h3>
           <p><strong>By air:</strong> Beijing Capital (PEK) and Beijing Daxing (PKX) serve international flights. From airports use airport express train, taxis or Didi (ride-hailing).</p>
@@ -145,7 +165,7 @@
       },
       'zh-CN': {
         pageTitle: '北京 — 探索中国',
-        metaDesc: '北京旅游指南 — 主要景点、交通、推荐行程与实用贴士。',
+        metaDesc: '北京旅游指南 — 主要景点、交通、推荐行程与实用贴士。包含北京长城一日游推荐与预订贴士。',
         cityName: '北京',
         contentHtml: `
           <h2 class="text-2xl font-bold mb-3">城市概览</h2>
@@ -159,6 +179,14 @@
             <li><strong>颐和园</strong> — 湖泊与园林，适合搭配船游。</li>
             <li><strong>胡同 & 南锣鼓巷</strong> — 传统巷弄、小店与咖啡馆，适合徒步体验。</li>
           </ul>
+
+          <h3 id="great-wall-tour" class="text-xl font-semibold mt-6 mb-2">北京长城一日游 — 慕田峪 &amp; 八达岭</h3>
+          <p>北京的<strong>长城一日游</strong>是最受欢迎的市外行程。常见的长城行程（即 <em>Beijing Great Wall tour</em>）包含私家车接送、拼车班车或跟团导览，目的地通常为<strong>慕田峪</strong>（坡度平缓、适合家庭与摄影）或<strong>八达岭</strong>（交通便利、设施齐全）。行程可为半日或一日，部分包含缆车/滑车体验。</p>
+          <p><strong>时长：</strong>4–8小时，视交通与停留时间而定。<strong>预订方式：</strong>通过当地旅行社、主流预订平台或酒店礼宾部预订。工作日去慕田峪通常人少；若想体验经典景区，可选择早晨到达八达岭。</p>
+          <figure class="mt-4">
+            <img src="https://images.unsplash.com/photo-1583405584623-58f4b7d1380f?w=1920" alt="北京长城一日游 — 慕田峪" width="1200" height="675" class="w-full h-auto rounded">
+            <figcaption class="text-sm text-gray-500 mt-2">北京长城一日游：慕田峪段 — 适合家庭与摄影爱好者。</figcaption>
+          </figure>
 
           <h3 class="text-xl font-semibold mt-6 mb-2">如何抵达</h3>
           <p><strong>飞机：</strong>首都机场（PEK）与大兴机场（PKX）接待国际航班。可乘机场快轨、出租或使用滴滴。</p>

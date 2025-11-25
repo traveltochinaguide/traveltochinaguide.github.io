@@ -9,6 +9,10 @@
       const l = params.get('lang');
       if (l) return l;
     } catch(e) {}
+    try {
+      const ls = localStorage.getItem('preferredLanguage');
+      if (ls) return ls;
+    } catch (e) {}
     return navigator.language || navigator.userLanguage || 'en';
   }
 
