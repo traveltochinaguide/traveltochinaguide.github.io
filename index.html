@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-lang-key="metaTitle">China Tour - A Journey Through Culture, Scenery, and Cuisine</title>
+    <title data-lang-key="metaTitle">China Tour - Culture, Scenery &amp; Cuisine</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Explore the wonders of China. Your ultimate guide to iconic cities like Beijing and Shanghai, breathtaking landscapes like Guilin, exquisite cuisine, and essential travel tips." data-lang-key="metaDescription">
+    <meta name="description" content="Explore China with city guides (Beijing, Shanghai), Guilin scenery, Great Wall tours, authentic cuisine, and practical travel tips." data-lang-key="metaDescription">
     <meta name="keywords" content="China travel, tourism in China, Beijing tour, Shanghai guide, Great Wall, Forbidden City, Terracotta Army, Guilin, Chinese food, China trip planner" data-lang-key="metaKeywords">
     <meta name="author" content="Gemini AI">
 
@@ -157,6 +157,12 @@
                         <a href="guilin.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="cityGuilin">Guilin</a>
                     </div>
                 </div>
+                    <div class="relative group" tabindex="0">
+                        <button type="button" class="px-3 py-2 text-sm font-medium tracking-wide text-gray-800 hover:text-blue-600 rounded transition-colors" data-lang-key="navCulture" aria-haspopup="true" aria-expanded="false">Culture</button>
+                        <div class="hidden group-hover:block focus-within:block absolute left-0 top-full mt-0 min-w-max w-48 bg-white rounded-md shadow-md p-2 z-50 dropdown-panel">
+                            <a href="iching.html" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 whitespace-nowrap text-left" data-lang-key="cultureIching">I Ching</a>
+                        </div>
+                    </div>
                 <div class="relative group" tabindex="0">
                     <button type="button" class="px-3 py-2 text-sm font-medium tracking-wide text-gray-800 hover:text-blue-600 rounded transition-colors" data-lang-key="navNature" aria-haspopup="true" aria-expanded="false">Nature</button>
                     <div class="hidden group-hover:block focus-within:block absolute left-0 top-full mt-0 min-w-max w-56 bg-white rounded-md shadow-md p-2 z-50 dropdown-panel">
@@ -295,11 +301,13 @@
         const cityDetails = { beijing: { imgQuery: 'forbidden city,beijing', nameKey: 'cityBeijing', descKey: 'descBeijing', longDescKey: 'longDescBeijing' }, shanghai: { imgQuery: 'the bund,shanghai', nameKey: 'cityShanghai', descKey: 'descShanghai', longDescKey: 'longDescShanghai' }, xian: { imgQuery: 'terracotta army,xian', nameKey: 'cityXian', descKey: 'descXian', longDescKey: 'longDescXian' }, guilin: { imgQuery: 'li river,guilin,china', nameKey: 'cityGuilin', descKey: 'descGuilin', longDescKey: 'longDescGuilin' } };
         const translations = {
             'en': {
-                metaTitle: "China Tour - A Journey Through Culture, Scenery, and Cuisine",
-                metaDescription: "Explore the wonders of China. Your ultimate guide to iconic cities like Beijing and Shanghai, breathtaking landscapes like Guilin, exquisite cuisine, and essential travel tips.",
+                metaTitle: "China Tour - Culture, Scenery & Cuisine",
+                metaDescription: "Explore China with city guides (Beijing, Shanghai), Guilin scenery, Great Wall tours, authentic cuisine, and practical travel tips.",
                 metaKeywords: "China travel, tourism in China, Beijing tour, Shanghai guide, Great Wall, Forbidden City, Terracotta Army, Guilin, Chinese food, China trip planner",
                 siteTitle: "China Tour",
                 navHome: "Home",
+                navCulture: "Culture",
+                cultureIching: "I Ching",
                 navCities: "Popular Cities",
                 navNature: "Nature",
                 carouselTitle1: "The Great Wall", carouselSubtitle1: "A majestic wonder of the ancient world.",
@@ -328,11 +336,13 @@
                 contactNameLabel: "Name", contactEmailLabel: "Email", contactMessageLabel: "Message", contactButton: "Send Message"
             },
             'zh-CN': {
-                metaTitle: "探索中国 - 一场穿越文化、风景和美食的旅程",
-                metaDescription: "探索中国的奇迹。您通往北京、上海等标志性城市，桂林等壮丽景观，精致美食和基本旅行提示的终极指南。",
+                metaTitle: "探索中国 — 文化与风景",
+                metaDescription: "浏览北京、上海等城市指南，桂林风光，长城一日游，美食与实用旅行贴士。",
                 metaKeywords: "中国旅游, 中国旅行, 北京旅游, 上海指南, 长城, 故宫, 兵马俑, 桂林, 中国美食, 中国旅行规划",
                 siteTitle: "探索中国",
                 navHome: "首页",
+                navCulture: "文化",
+                cultureIching: "易经",
                 navCities: "热门城市",
                 navNature: "自然风光",
                 carouselTitle1: "万里长城", carouselSubtitle1: "宏伟的古代世界奇迹。",
@@ -361,11 +371,13 @@
                 contactNameLabel: "姓名", contactEmailLabel: "电子邮箱", contactMessageLabel: "消息", contactButton: "发送消息"
             },
             'ja': {
-                metaTitle: "中国を発見 - 文化、風景、料理を巡る旅",
-                metaDescription: "中国の驚異を探検してください。北京や上海などの象徴的な都市、桂林などの息をのむような風景、絶品料理、重要な旅行のヒントへの究極のガイド。",
+                metaTitle: "中国ツアー — 文化と絶景",
+                metaDescription: "北京・上海の都市ガイド、桂林の景色、万里の長城ツアー、料理と旅行の実用情報を紹介。",
                 metaKeywords: "中国旅行, 中国観光, 北京ツアー, 上海ガイド, 万里の長城, 紫禁城, 兵馬俑, 桂林, 中華料理, 中国旅行プランナー",
                 siteTitle: "中国を発見",
                 navHome: "ホーム",
+                navCulture: "文化",
+                cultureIching: "易経",
                 navCities: "人気の都市",
                 navNature: "自然",
                 carouselTitle1: "万里の長城", carouselSubtitle1: "古代世界の壮大な驚異。",
@@ -394,11 +406,13 @@
                 contactNameLabel: "お名前", contactEmailLabel: "メールアドレス", contactMessageLabel: "メッセージ", contactButton: "メッセージを送信"
             },
             'ko': {
-                metaTitle: "중국 발견 - 문화, 풍경, 요리를 통한 여정",
-                metaDescription: "중국의 경이로움을 탐험하세요. 베이징, 상하이와 같은 상징적인 도시, 구이린과 같은 숨막히는 풍경, 절묘한 요리, 필수 여행 팁에 대한 최고의 가이드.",
+                metaTitle: "중국 투어 — 문화와 풍경",
+                metaDescription: "베이징·상하이 가이드, 구이린 경관, 만리장성 투어, 현지 음식과 여행 팁을 제공합니다.",
                 metaKeywords: "중국 여행, 중국 관광, 베이징 투어, 상하이 가이드, 만리장성, 자금성, 병마俑, 구이린, 중국 음식, 중국 여행 플래너",
                 siteTitle: "중국 발견",
                 navHome: "홈",
+                navCulture: "문화",
+                cultureIching: "주역",
                 navCities: "인기 도시",
                 navNature: "자연",
                 carouselTitle1: "만리장성", carouselSubtitle1: "고대 세계의 장엄한 경이로움.",
@@ -427,11 +441,13 @@
                 contactNameLabel: "이름", contactEmailLabel: "이메일", contactMessageLabel: "메시지", contactButton: "메시지 보내기"
             },
             'ru': {
-                metaTitle: "Откройте для себя Китай - Путешествие по культуре, пейзажам и кухне",
-                metaDescription: "Исследуйте чудеса Китая. Ваш полный путеводитель по знаковым городам, таким как Пекин и Шанхай, захватывающим дух пейзажам, таким как Гуйлинь, изысканной кухне и основным советам для путешественников.",
+                metaTitle: "China Tour — культура и пейзажи",
+                metaDescription: "Гиды по Пекину и Шанхаю, пейзажи Гуйлина, туры к Великой стене, местная кухня и практические советы для путешествий.",
                 metaKeywords: "путешествие в Китай, туризм в Китае, тур в Пекин, гид по Шанхаю, Великая стена, Запретный город, Терракотовая армия, Гуйлинь, китайская еда, планировщик поездок в Китай",
                 siteTitle: "Откройте для себя Китай",
                 navHome: "Главная",
+                navCulture: "Культура",
+                cultureIching: "И-цзин",
                 navCities: "Популярные города",
                 navNature: "Природа",
                 carouselTitle1: "Великая Китайская стена", carouselSubtitle1: "Величественное чудо древнего мира.",
@@ -460,11 +476,13 @@
                 contactNameLabel: "Имя", contactEmailLabel: "Электронная почта", contactMessageLabel: "Сообщение", contactButton: "Отправить сообщение"
             },
             'fr': {
-                metaTitle: "Découvrir la Chine - Un voyage à travers la culture, les paysages et la cuisine",
-                metaDescription: "Explorez les merveilles de la Chine. Votre guide ultime des villes emblématiques comme Pékin и Shanghai, des paysages à couper le souffle comme Guilin, une cuisine exquise et des conseils de voyage essentiels.",
+                metaTitle: "China Tour — Culture & Paysages",
+                metaDescription: "Guides des villes (Pékin, Shanghai), paysages de Guilin, excursions à la Grande Muraille, cuisine locale et conseils pratiques de voyage.",
                 metaKeywords: "voyage en Chine, tourisme en Chine, visite de Pékin, guide de Shanghai, Grande Muraille, Cité Interdite, Armée de terre cuite, Guilin, cuisine chinoise, planificateur de voyage en Chine",
                 siteTitle: "Découvrir la Chine",
                 navHome: "Accueil",
+                navCulture: "Culture",
+                cultureIching: "I Ching",
                 navCities: "Villes populaires",
                 navNature: "Nature",
                 carouselTitle1: "La Grande Muraille", carouselSubtitle1: "Une merveille majestueuse du monde antique.",
@@ -493,11 +511,13 @@
                 contactNameLabel: "Nom", contactEmailLabel: "Email", contactMessageLabel: "Message", contactButton: "Envoyer le message"
             },
             'de': {
-                metaTitle: "China entdecken - Eine Reise durch Kultur, Landschaft und Küche",
-                metaDescription: "Entdecken Sie die Wunder Chinas. Ihr ultimativer Führer zu ikonischen Städten wie Peking und Shanghai, atemberaubenden Landschaften wie Guilin, exquisiter Küche und wichtigen Reisetipps.",
+                metaTitle: "China Tour — Kultur & Landschaften",
+                metaDescription: "Städteführer (Peking, Shanghai), Guilin-Landschaften, Große-Mauer-Touren, lokale Küche und praktische Reisetipps.",
                 metaKeywords: "China Reisen, Tourismus in China, Peking Tour, Shanghai Führer, Große Mauer, Verbotene Stadt, Terrakotta-Armee, Guilin, chinesisches Essen, China Reiseplaner",
                 siteTitle: "China entdecken",
                 navHome: "Startseite",
+                navCulture: "Kultur",
+                cultureIching: "I Ging",
                 navCities: "Beliebte Städte",
                 navNature: "Natur",
                 carouselTitle1: "Die Große Mauer", carouselSubtitle1: "Ein majestätisches Wunder der antiken Welt.",
@@ -526,11 +546,13 @@
                 contactNameLabel: "Name", contactEmailLabel: "E-Mail", contactMessageLabel: "Nachricht", contactButton: "Nachricht senden"
             },
             'es': {
-                metaTitle: "Descubrir China - Un viaje a través de la cultura, los paisajes y la gastronomía",
-                metaDescription: "Explore las maravillas de China. Su guía definitiva de ciudades icónicas como Pekín y Shanghái, paisajes impresionantes como Guilin, cocina exquisita y consejos de viaje esenciales.",
+                metaTitle: "China Tour — Cultura y Paisajes",
+                metaDescription: "Guías de ciudades (Pekín, Shanghái), paisajes de Guilin, excursiones a la Gran Muralla, gastronomía y consejos prácticos de viaje.",
                 metaKeywords: "viajar a China, turismo en China, tour por Pekín, guía de Shanghái, Gran Muralla, Ciudad Prohibida, Ejército de Terracota, Guilin, comida china, planificador de viajes a China",
                 siteTitle: "Descubrir China",
                 navHome: "Inicio",
+                navCulture: "Cultura",
+                cultureIching: "I Ching",
                 navCities: "Ciudades populares",
                 navNature: "Naturaleza",
                 carouselTitle1: "La Gran Muralla", carouselSubtitle1: "Una majestuosa maravilla del mundo antiguo.",

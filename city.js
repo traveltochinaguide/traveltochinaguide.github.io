@@ -86,14 +86,14 @@
     // apply navigation labels (use t where available, otherwise language map)
     function applyNavLabels(translationsForPage){
       const navMap = {
-        'en': { navHome: 'Home', navCities: 'Popular Cities', navNature: 'Nature' },
-        'zh-CN': { navHome: '首页', navCities: '热门城市', navNature: '自然风光' },
-        'ja': { navHome: 'ホーム', navCities: '人気の都市', navNature: '自然' },
-        'ko': { navHome: '홈', navCities: '인기 도시', navNature: '자연' },
-        'ru': { navHome: 'Главная', navCities: 'Популярные города', navNature: 'Природа' },
-        'fr': { navHome: 'Accueil', navCities: 'Villes populaires', navNature: 'Nature' },
-        'de': { navHome: 'Startseite', navCities: 'Beliebte Städte', navNature: 'Natur' },
-        'es': { navHome: 'Inicio', navCities: 'Ciudades populares', navNature: 'Naturaleza' }
+        'en': { navHome: 'Home', navCities: 'Popular Cities', navNature: 'Nature', navCulture: 'Culture' },
+        'zh-CN': { navHome: '首页', navCities: '热门城市', navNature: '自然风光', navCulture: '文化' },
+        'ja': { navHome: 'ホーム', navCities: '人気の都市', navNature: '自然', navCulture: '文化' },
+        'ko': { navHome: '홈', navCities: '인기 도시', navNature: '자연', navCulture: '문화' },
+        'ru': { navHome: 'Главная', navCities: 'Популярные города', navNature: 'Природа', navCulture: 'Культура' },
+        'fr': { navHome: 'Accueil', navCities: 'Villes populaires', navNature: 'Nature', navCulture: 'Culture' },
+        'de': { navHome: 'Startseite', navCities: 'Beliebte Städte', navNature: 'Natur', navCulture: 'Kultur' },
+        'es': { navHome: 'Inicio', navCities: 'Ciudades populares', navNature: 'Naturaleza', navCulture: 'Cultura' }
       };
       const chosen = navMap[lang] || navMap[lang.split('-')[0]] || navMap['en'];
       document.querySelectorAll('[data-lang-key]').forEach(el => {
