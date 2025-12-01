@@ -39,10 +39,35 @@
 
     // Canonical + OG/Twitter url
     const canonical = document.querySelector('link[rel="canonical"]');
+    // Best practice: set canonical to the clean, language-agnostic URL (no ?lang param).
+    // Use hreflang alternates to point to localized variants.
     if (canonical && options && options.canonicalPath) {
-      canonical.href = `https://www.travelchinaguide.dpdns.org/${options.canonicalPath}${lang ? `?lang=${encodeURIComponent(lang)}` : ''}`;
+      canonical.href = `https://www.travelchinaguide.dpdns.org/${options.canonicalPath}`;
     }
     const canonicalHref = canonical ? canonical.href : window.location.href;
+
+    // Ensure hreflang alternate links exist for supported locales (helps Google pick correct language URLs)
+    (function ensureHreflang() {
+      if (!options || !options.canonicalPath) return;
+      const langs = ['en','zh-CN','ja','ko','fr','de','es','ru'];
+      langs.forEach(code => {
+        const rel = document.querySelector(`link[rel="alternate"][hreflang="${code}"]`);
+        const href = `https://www.travelchinaguide.dpdns.org/${options.canonicalPath}?lang=${encodeURIComponent(code)}`;
+        if (rel) {
+          rel.href = href;
+        } else {
+          const l = document.createElement('link');
+          l.setAttribute('rel', 'alternate');
+          l.setAttribute('hreflang', code);
+          l.setAttribute('href', href);
+          document.head.appendChild(l);
+        }
+      });
+      // x-default fallback
+      let xdef = document.querySelector('link[rel="alternate"][hreflang="x-default"]');
+      const xhref = `https://www.travelchinaguide.dpdns.org/${options.canonicalPath}`;
+      if (xdef) xdef.href = xhref; else { const xd = document.createElement('link'); xd.setAttribute('rel','alternate'); xd.setAttribute('hreflang','x-default'); xd.setAttribute('href', xhref); document.head.appendChild(xd); }
+    })();
     upsertMetaByProperty('og:url', canonicalHref);
     upsertMetaByName('twitter:url', canonicalHref);
 
