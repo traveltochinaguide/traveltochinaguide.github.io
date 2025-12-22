@@ -1,0 +1,30 @@
+{
+  "name": "traveltochinaguide.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwindcss -i ./css/input.css -o ./css/output.css --minify",
+    "serve": "npx -y http-server ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/traveltochinaguide/traveltochinaguide.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/traveltochinaguide/traveltochinaguide.github.io/issues"
+  },
+  "homepage": "https://github.com/traveltochinaguide/traveltochinaguide.github.io#readme",
+  "devDependencies": {
+    "tailwindcss": "3.4"
+  },
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "fs-extra": "^11.3.3"
+  }
+}

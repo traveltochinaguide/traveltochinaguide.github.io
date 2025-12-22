@@ -2,17 +2,17 @@
    - Provides getLang() and applyCityContent(t, options)
    - options: { canonicalPath, ogImage, heroImage }
 */
-(function(){
+(function () {
   function getLang() {
     try {
       const params = new URLSearchParams(window.location.search);
       const l = params.get('lang');
       if (l) return l;
-    } catch(e) {}
+    } catch (e) { }
     try {
       const ls = localStorage.getItem('preferredLanguage');
       if (ls) return ls;
-    } catch (e) {}
+    } catch (e) { }
     return navigator.language || navigator.userLanguage || 'en';
   }
 
@@ -27,7 +27,7 @@
     m.setAttribute('content', content);
   }
 
-  function applyCityContent(t, options){
+  function applyCityContent(t, options) {
     const lang = getLang();
     // Title and meta
     if (t.pageTitle) document.getElementById('page-title').textContent = t.pageTitle;
@@ -49,7 +49,7 @@
     // Ensure hreflang alternate links exist for supported locales (helps Google pick correct language URLs)
     (function ensureHreflang() {
       if (!options || !options.canonicalPath) return;
-      const langs = ['en','zh-CN','ja','ko','fr','de','es','ru'];
+      const langs = ['en', 'zh-CN', 'ja', 'ko', 'fr', 'de', 'es', 'ru'];
       langs.forEach(code => {
         const rel = document.querySelector(`link[rel="alternate"][hreflang="${code}"]`);
         const href = `https://www.travelchinaguide.dpdns.org/${options.canonicalPath}?lang=${encodeURIComponent(code)}`;
@@ -66,7 +66,7 @@
       // x-default fallback
       let xdef = document.querySelector('link[rel="alternate"][hreflang="x-default"]');
       const xhref = `https://www.travelchinaguide.dpdns.org/${options.canonicalPath}`;
-      if (xdef) xdef.href = xhref; else { const xd = document.createElement('link'); xd.setAttribute('rel','alternate'); xd.setAttribute('hreflang','x-default'); xd.setAttribute('href', xhref); document.head.appendChild(xd); }
+      if (xdef) xdef.href = xhref; else { const xd = document.createElement('link'); xd.setAttribute('rel', 'alternate'); xd.setAttribute('hreflang', 'x-default'); xd.setAttribute('href', xhref); document.head.appendChild(xd); }
     })();
     upsertMetaByProperty('og:url', canonicalHref);
     upsertMetaByName('twitter:url', canonicalHref);
@@ -109,7 +109,7 @@
     }
 
     // apply navigation labels (use t where available, otherwise language map)
-    function applyNavLabels(translationsForPage){
+    function applyNavLabels(translationsForPage) {
       const navMap = {
         'en': { navHome: 'Home', navCities: 'Popular Cities', navNature: 'Nature', navCulture: 'Culture' },
         'zh-CN': { navHome: '首页', navCities: '热门城市', navNature: '自然风光', navCulture: '文化' },
@@ -140,4 +140,81 @@
   // expose
   window.getLang = getLang;
   window.applyCityContent = applyCityContent;
+})();
+
+/* Language Switcher Module for City Pages */
+(function () {
+  const supportedLangs = { 'en': 'English', 'zh-CN': '中文', 'ja': '日本語', 'ko': '한국어', 'ru': 'Русский', 'fr': 'Français', 'de': 'Deutsch', 'es': 'Español' };
+
+  function initLanguageSwitcher() {
+    const container = document.getElementById('language-switcher');
+    if (!container) return;
+    if (container.children.length > 0) return; // Already populated
+
+    let currentLang = document.documentElement.lang || 'en';
+
+    // Build Dropdown
+    const dropdown = document.createElement('div');
+    dropdown.className = 'relative inline-block text-left lang-dropdown';
+
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'lang-btn text-sm font-semibold py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 flex items-center gap-2 bg-white';
+    toggle.innerHTML = `
+      <svg class="h-4 w-4 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path d="M2.05 6.05h19.9M2.05 17.95h19.9M12 2.05v19.9"/></svg>
+      <span class="ml-2">${supportedLangs[currentLang] || currentLang.toUpperCase()}</span>
+      <svg class="h-4 w-4 text-gray-600 ml-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd" /></svg>`;
+
+    const menu = document.createElement('div');
+    menu.className = 'hidden origin-top-right absolute right-0 mt-2 w-36 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50';
+    const menuInner = document.createElement('div');
+    menuInner.className = 'py-1';
+
+    Object.entries(supportedLangs).forEach(([code, name]) => {
+      const item = document.createElement('button');
+      item.className = 'w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center justify-between';
+      item.innerHTML = `<span>${name}</span>${code === currentLang ? '<svg class="h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>' : ''}`;
+
+      item.addEventListener('click', () => {
+        // Navigate to static page
+        const pathParts = window.location.pathname.split('/').filter(p => p);
+        let pageName = pathParts.pop() || 'index.html';
+
+        // If current path ends in a lang code (root dirs), pageName might be the code.
+        if (Object.keys(supportedLangs).includes(pageName)) {
+          // e.g. /fr/ -> pop is 'fr'. Page is index.html
+          pageName = 'index.html';
+        }
+        // If pageName is just empty (root /), handled by || 'index.html'
+
+        // Clean pageName of any existing lang prefix logic?
+        // Actually, we just want the filename.
+        // If we are at /zh-CN/beijing.html, pageName is beijing.html.
+
+        let newUrl = '';
+        if (code === 'en') {
+          newUrl = '/' + pageName;
+        } else {
+          newUrl = '/' + code + '/' + pageName;
+        }
+        window.location.href = newUrl;
+      });
+      menuInner.appendChild(item);
+    });
+
+    menu.appendChild(menuInner);
+    dropdown.appendChild(toggle);
+    dropdown.appendChild(menu);
+    container.appendChild(dropdown);
+
+    // Toggle logic
+    toggle.addEventListener('click', (e) => { e.stopPropagation(); menu.classList.toggle('hidden'); });
+    document.addEventListener('click', () => menu.classList.add('hidden'));
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLanguageSwitcher);
+  } else {
+    initLanguageSwitcher();
+  }
 })();
