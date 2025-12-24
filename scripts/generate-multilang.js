@@ -1,51 +1,8 @@
 const fs = require('fs-extra');
 const path = require('path');
 const cheerio = require('cheerio');
-
-// Global Navigation Translations (Extracted from index.html)
-// These keys are missing in city pages but required for the shared header/nav.
-const GLOBAL_NAV_TRANSLATIONS = {
-    'en': {
-        navHome: "Home", navCities: "Popular Cities", navCulture: "Culture", cultureIching: "I Ching", navNature: "Nature",
-        cityBeijing: "Beijing", cityShanghai: "Shanghai", cityXian: "Xi'an", cityGuilin: "Guilin",
-        natureZhangjiajie: "Zhangjiajie", natureJiuzhaigou: "Jiuzhaigou", natureYangtze: "Yangtze River"
-    },
-    'zh-CN': {
-        navHome: "首页", navCities: "热门城市", navCulture: "文化", cultureIching: "易经", navNature: "自然风光",
-        cityBeijing: "北京", cityShanghai: "上海", cityXian: "西安", cityGuilin: "桂林",
-        natureZhangjiajie: "张家界", natureJiuzhaigou: "九寨沟", natureYangtze: "长江"
-    },
-    'ja': {
-        navHome: "ホーム", navCities: "人気の都市", navCulture: "文化", cultureIching: "易経", navNature: "自然",
-        cityBeijing: "北京", cityShanghai: "上海", cityXian: "西安", cityGuilin: "桂林",
-        natureZhangjiajie: "張家界", natureJiuzhaigou: "九寨溝", natureYangtze: "長江"
-    },
-    'ko': {
-        navHome: "홈", navCities: "인기 도시", navCulture: "문화", cultureIching: "주역", navNature: "자연",
-        cityBeijing: "베이징", cityShanghai: "상하이", cityXian: "시안", cityGuilin: "구이린",
-        natureZhangjiajie: "장가계", natureJiuzhaigou: "구채구", natureYangtze: "양쯔강"
-    },
-    'ru': {
-        navHome: "Главная", navCities: "Популярные города", navCulture: "Культура", cultureIching: "И-цзин", navNature: "Природа",
-        cityBeijing: "Пекин", cityShanghai: "Шанхай", cityXian: "Сиань", cityGuilin: "Гуйлинь",
-        natureZhangjiajie: "Чжанцзяцзе", natureJiuzhaigou: "Долина Цзючжайгоу", natureYangtze: "Река Янцзы"
-    },
-    'fr': {
-        navHome: "Accueil", navCities: "Villes populaires", navCulture: "Culture", cultureIching: "I Ching", navNature: "Nature",
-        cityBeijing: "Pékin", cityShanghai: "Shanghai", cityXian: "Xi'an", cityGuilin: "Guilin",
-        natureZhangjiajie: "Zhangjiajie", natureJiuzhaigou: "Vallée de Jiuzhaigou", natureYangtze: "Fleuve Yangtsé"
-    },
-    'de': {
-        navHome: "Startseite", navCities: "Beliebte Städte", navCulture: "Kultur", cultureIching: "I Ging", navNature: "Natur",
-        cityBeijing: "Peking", cityShanghai: "Shanghai", cityXian: "Xi'an", cityGuilin: "Guilin",
-        natureZhangjiajie: "Zhangjiajie", natureJiuzhaigou: "Jiuzhaigou-Tal", natureYangtze: "Yangtze-Fluss"
-    },
-    'es': {
-        navHome: "Inicio", navCities: "Ciudades populares", navCulture: "Cultura", cultureIching: "I Ching", navNature: "Naturaleza",
-        cityBeijing: "Pekín", cityShanghai: "Shanghái", cityXian: "Xi'an", cityGuilin: "Guilin",
-        natureZhangjiajie: "Zhangjiajie", natureJiuzhaigou: "Valle de Jiuzhaigou", natureYangtze: "Río Yangtsé"
-    }
-};
+// Import the new external translations (contains index.html data + global nav)
+const { translations: globalTranslations } = require('../js/translations.js');
 
 const langs = ['en', 'zh-CN', 'ja', 'ko', 'ru', 'fr', 'de', 'es'];
 const pages = [
@@ -59,11 +16,29 @@ const pages = [
     'yangtze.html',
     'iching.html'
 ];
+
+// Sitemap configuration
+const sitemapPriorities = {
+    'index.html': '1.0',
+    'default': '0.8'
+};
+const sitemapFreq = {
+    'index.html': 'daily',
+    'default': 'weekly'
+};
+
 const rootDir = path.resolve(__dirname, '..');
 const baseUrl = 'https://www.travelchinaguide.dpdns.org';
 
+function getTodayStr() {
+    return new Date().toISOString().split('T')[0];
+}
+
 (async () => {
-    console.log('Starting multi-language static generation...');
+    console.log('Starting multi-language static generation with SEO optimizations...');
+
+    // Store sitemap entries: { loc, lastmod, changefreq, priority }
+    const sitemapEntries = [];
 
     for (const pageName of pages) {
         const filePath = path.join(rootDir, pageName);
@@ -76,52 +51,33 @@ const baseUrl = 'https://www.travelchinaguide.dpdns.org';
         const html = await fs.readFile(filePath, 'utf-8');
         const $ = cheerio.load(html);
 
-        // Extract translation object
-        const scriptContent = $('script').filter((i, el) => {
-            return $(el).html().includes('const translations =');
-        }).html();
+        let localTranslations = {};
 
-        let translations = {};
-        if (scriptContent) {
-            try {
-                const match = scriptContent.match(/const translations\s*=\s*(\{[\s\S]*?\});/);
-                if (match && match[1]) {
-                    const getTrans = new Function(`return ${match[1]}`);
-                    translations = getTrans();
+        // Extract inline translations if present (for legacy pages)
+        if (pageName !== 'index.html') {
+            const scriptContent = $('script').filter((i, el) => {
+                const content = $(el).html();
+                return content && content.includes('const translations =');
+            }).html();
+
+            if (scriptContent) {
+                try {
+                    const match = scriptContent.match(/const translations\s*=\s*(\{[\s\S]*?\});/);
+                    if (match && match[1]) {
+                        const getTrans = new Function(`return ${match[1]}`);
+                        localTranslations = getTrans();
+                    }
+                } catch (e) {
+                    console.error(`Failed to parse inline translations for ${pageName}`, e);
                 }
-            } catch (e) {
-                console.error(`Failed to parse translations for ${pageName}`, e);
-                continue;
             }
         }
 
         // Generate files for each lang
         for (const lang of langs) {
-            if (lang !== 'en' && !translations[lang]) {
-                continue;
-                // If a specific language translation is missing for this page, skip it
-                // unless it's 'en' which is always expected to be present or derived.
-                if (!translations['en']) { // If even 'en' is missing, something is wrong.
-                    console.warn(`No translations found for 'en' or '${lang}' for page ${pageName}. Skipping.`);
-                    continue;
-                }
-                // If specific lang is missing, but 'en' exists, we can proceed with 'en' as fallback
-                // but the current logic explicitly skips if `translations[lang]` is falsey.
-                // For now, keeping the original skip logic for non-en.
-                continue;
-            }
-
-            // Start with page-specific translations for the current language, falling back to 'en' if needed.
-            let pageTranslations = (lang === 'en' && translations['en']) ? translations['en'] : (translations[lang] || translations['en'] || {});
-
-            // Merge GLOBAL_NAV_TRANSLATIONS into pageTranslations
-            if (GLOBAL_NAV_TRANSLATIONS[lang]) {
-                pageTranslations = { ...GLOBAL_NAV_TRANSLATIONS[lang], ...pageTranslations };
-            } else if (GLOBAL_NAV_TRANSLATIONS['en']) { // Fallback for global nav if specific lang is missing
-                pageTranslations = { ...GLOBAL_NAV_TRANSLATIONS['en'], ...pageTranslations };
-            }
-
-            const t = pageTranslations; // Use the merged translations
+            const globalForLang = globalTranslations[lang] || globalTranslations['en'] || {};
+            const localForLang = (lang === 'en' && localTranslations['en']) ? localTranslations['en'] : (localTranslations[lang] || localTranslations['en'] || {});
+            const t = { ...globalForLang, ...localForLang };
 
             const langDir = (lang === 'en') ? rootDir : path.join(rootDir, lang);
             await fs.ensureDir(langDir);
@@ -129,10 +85,68 @@ const baseUrl = 'https://www.travelchinaguide.dpdns.org';
             const destPath = path.join(langDir, pageName);
             const $page = cheerio.load(html);
 
+            // Calculate correct URL for this page/lang combination
+            const pageUrl = (lang === 'en') ? `${baseUrl}/${pageName}` : `${baseUrl}/${lang}/${pageName}`;
+
             // 1. Update HTML Lang Attribute
             $page('html').attr('lang', lang);
 
-            // 2. Generic data-lang-key substitution
+            // 2. SEO: Update Canonical Tag
+            let $canonical = $page('link[rel="canonical"]');
+            if ($canonical.length === 0) {
+                $page('head').append(`<link rel="canonical" href="${pageUrl}">`);
+            } else {
+                $canonical.attr('href', pageUrl);
+            }
+
+            // 3. SEO: Update JSON-LD URLs (localize them)
+            $page('script[type="application/ld+json"]').each((i, el) => {
+                try {
+                    const jsonContent = $(el).html();
+                    const data = JSON.parse(jsonContent);
+                    let modified = false;
+
+                    // Helper to recursively update URLs in the object
+                    const updateUrls = (obj) => {
+                        for (const key in obj) {
+                            if (typeof obj[key] === 'string') {
+                                // If string starts with baseUrl, replace it with localized version
+                                // We check if it matches the current page's generic EN url structure
+                                if (obj[key].startsWith(baseUrl)) {
+                                    // Basic logic: if we are in 'zh-CN', replace 'baseUrl/' with 'baseUrl/zh-CN/'
+                                    // but careful not to double-inject if not needing it (e.g. assets)
+                                    // We focus on page URLs ending in .html or root
+                                    const val = obj[key];
+                                    if ((val.endsWith('.html') || val.endsWith('/')) && !val.match(/\.(jpg|png|svg)$/)) {
+                                        // Construct localized URL
+                                        // remove baseUrl
+                                        const relative = val.replace(baseUrl, '');
+                                        // relative might be '/index.html' or '/beijing.html'
+                                        // new url = baseUrl + (lang=='en'?'':'/'+lang) + relative
+                                        const newUrl = baseUrl + (lang === 'en' ? '' : '/' + lang) + relative;
+                                        if (obj[key] !== newUrl) {
+                                            obj[key] = newUrl;
+                                            modified = true;
+                                        }
+                                    }
+                                }
+                            } else if (typeof obj[key] === 'object' && obj[key] !== null) {
+                                updateUrls(obj[key]);
+                            }
+                        }
+                    };
+
+                    updateUrls(data);
+
+                    if (modified) {
+                        $(el).html(JSON.stringify(data, null, 2));
+                    }
+                } catch (e) {
+                    // ignore parse errors or non-json contents
+                }
+            });
+
+            // 4. Content Replacement (data-lang-key)
             if (t) {
                 $page('[data-lang-key]').each((i, el) => {
                     const key = $(el).attr('data-lang-key');
@@ -147,7 +161,6 @@ const baseUrl = 'https://www.travelchinaguide.dpdns.org';
                     }
                 });
 
-                // 3. Helper for generic ID-based content
                 if (t.pageTitle) {
                     if ($page('#page-title').length) $page('#page-title').text(t.pageTitle);
                     else $page('title').text(t.pageTitle);
@@ -158,46 +171,67 @@ const baseUrl = 'https://www.travelchinaguide.dpdns.org';
                 if (t.cityName) $page('#city-name').text(t.cityName);
                 if (t.heroSubtitle) $page('#city-sub').text(t.heroSubtitle);
                 else if (t.metaDesc && $page('#city-sub').length) {
-                    // Ensure subtitle isn't empty if we have metaDesc fallback
                     $page('#city-sub').text(t.metaDesc);
                 }
                 if (t.contentHtml) {
                     $page('#city-content').html(t.contentHtml);
                 }
+                if (t.backText && $page('.back-link').length) {
+                    $page('.back-link').text(t.backText);
+                }
             }
 
-            // ---------------------------------------------------------
-            // 4. Update Hreflang Tags (SEO)
-            // ---------------------------------------------------------
+            // 5. Update Hreflang Tags
             $page('link[rel="alternate"][hreflang]').remove();
 
-            // x-default and en -> root
-            const rootUrl = `${baseUrl}/${pageName}`;
-            $page('head').append(`<link rel="alternate" href="${rootUrl}" hreflang="x-default">\n  `);
-            $page('head').append(`<link rel="alternate" href="${rootUrl}" hreflang="en">\n  `);
+            // Build map of all localized URLs for this page
+            const hreflangs = [];
+            hreflangs.push({ lang: 'x-default', url: `${baseUrl}/${pageName}` });
+            hreflangs.push({ lang: 'en', url: `${baseUrl}/${pageName}` });
 
-            // Other langs
             for (const l of langs) {
                 if (l === 'en') continue;
-                const url = `${baseUrl}/${l}/${pageName}`;
-                $page('head').append(`<link rel="alternate" href="${url}" hreflang="${l}">\n  `);
+                hreflangs.push({ lang: l, url: `${baseUrl}/${l}/${pageName}` });
             }
 
-            // ---------------------------------------------------------
-            // 5. Client-side JS Compatibility Fix
-            // ---------------------------------------------------------
+            hreflangs.forEach(h => {
+                $page('head').append(`<link rel="alternate" href="${h.url}" hreflang="${h.lang}">\n  `);
+            });
+
+            // 6. Client-side JS Compatibility
             let finalHtml = $page.html();
-
-            // Fix for Index
+            finalHtml = finalHtml.replace(/const\s+lang\s*=\s*['"]en['"]\s*;/g, `const lang = '${lang}';`);
             finalHtml = finalHtml.replace(/let\s+currentLang\s*=\s*['"]en['"]\s*;/g, `let currentLang = '${lang}';`);
-
-            // Fix for City Pages (If 'en', we explicitly set it to 'en' to disable auto-detection loop)
-            finalHtml = finalHtml.replace(/const\s+lang\s*=\s*getLang\(\)\s*;/g, `const lang = '${lang}';`);
 
             // Write File
             await fs.writeFile(destPath, finalHtml, 'utf-8');
-            console.log(`  -> Generated ${lang === 'en' ? '(Root)' : lang}/${pageName}`);
+            // console.log(`  -> Generated ${lang === 'en' ? '(Root)' : lang}/${pageName}`);
+
+            // Add to Sitemap Entries
+            sitemapEntries.push({
+                loc: pageUrl,
+                lastmod: getTodayStr(),
+                changefreq: sitemapFreq[pageName] || sitemapFreq['default'],
+                priority: sitemapPriorities[pageName] || sitemapPriorities['default']
+            });
         }
+        console.log(`Processed ${pageName} (${langs.length} languages)`);
     }
+
+    // Generate Sitemap.xml
+    console.log('Generating sitemap.xml...');
+    const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapEntries.map(entry => `  <url>
+    <loc>${entry.loc}</loc>
+    <lastmod>${entry.lastmod}</lastmod>
+    <changefreq>${entry.changefreq}</changefreq>
+    <priority>${entry.priority}</priority>
+  </url>`).join('\n')}
+</urlset>`;
+
+    await fs.writeFile(path.join(rootDir, 'sitemap.xml'), sitemapContent, 'utf-8');
+    console.log('sitemap.xml updated.');
     console.log('Done.');
 })();
+
