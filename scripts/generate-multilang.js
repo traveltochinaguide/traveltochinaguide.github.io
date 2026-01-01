@@ -14,7 +14,13 @@ const pages = [
     'zhangjiajie.html',
     'jiuzhaigou.html',
     'yangtze.html',
-    'iching.html'
+    'yangtze.html',
+    'iching.html',
+    'food.html',
+    'peking-duck.html',
+    'dim-sum.html',
+    'hotpot.html',
+    'dumplings.html'
 ];
 
 // Sitemap configuration
@@ -156,7 +162,11 @@ function getTodayStr() {
                         } else if (el.tagName === 'input' || el.tagName === 'textarea') {
                             $(el).attr('placeholder', t[key]);
                         } else {
-                            $(el).text(t[key]);
+                            if (typeof t[key] === 'string' && /<[a-z][\s\S]*>/i.test(t[key])) {
+                                $(el).html(t[key]);
+                            } else {
+                                $(el).text(t[key]);
+                            }
                         }
                     }
                 });

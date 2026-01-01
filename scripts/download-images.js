@@ -21,7 +21,19 @@ const images = [
     { name: 'food-peking-duck.jpg', url: 'https://source.unsplash.com/600x600/?peking+duck' },
     { name: 'food-dim-sum.jpg', url: 'https://source.unsplash.com/600x600/?dim+sum' },
     { name: 'food-hotpot.jpg', url: 'https://source.unsplash.com/600x600/?sichuan+hotpot' },
-    { name: 'food-dumplings.jpg', url: 'https://source.unsplash.com/600x600/?chinese+dumplings' }
+    { name: 'food-dumplings.jpg', url: 'https://source.unsplash.com/600x600/?chinese+dumplings' },
+
+    // New Food Page Assets
+    { name: 'hero-food.jpg', url: 'https://images.unsplash.com/photo-1541696490-8744a570242e?w=1600' }, // Banquet/Feast
+    { name: 'cuisine-sichuan.jpg', url: 'https://source.unsplash.com/600x400/?mapo+tofu,sichuan+food' },
+    { name: 'cuisine-cantonese.jpg', url: 'https://source.unsplash.com/600x400/?dim+sum,cantonese+food' },
+    { name: 'cuisine-jiangsu.jpg', url: 'https://source.unsplash.com/600x400/?sweet+sour+pork,chinese+food' }, // Approx
+    { name: 'cuisine-shandong.jpg', url: 'https://source.unsplash.com/600x400/?braised+sea+cucumber,chinese+food' }, // Hard to find, using generic
+    { name: 'dish-kung-pao.jpg', url: 'https://source.unsplash.com/600x600/?kung+pao+chicken' },
+    { name: 'dish-mapo-tofu.jpg', url: 'https://source.unsplash.com/600x600/?mapo+tofu' },
+    { name: 'dish-spring-rolls.jpg', url: 'https://source.unsplash.com/600x600/?spring+rolls' },
+    { name: 'dish-chow-mein.jpg', url: 'https://source.unsplash.com/600x600/?chow+mein' },
+    { name: 'dish-wontons.jpg', url: 'https://source.unsplash.com/600x600/?wonton+soup' }
 ];
 
 const downloadImage = (url, filepath) => {
