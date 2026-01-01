@@ -1,721 +1,673 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/index.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/index.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/zh-CN/index.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/zh-CN/index.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ja/index.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ja/index.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ko/index.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ko/index.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ru/index.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ru/index.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/fr/index.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/fr/index.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/de/index.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/de/index.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/es/index.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/es/index.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/beijing.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/beijing.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/zh-CN/beijing.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/zh-CN/beijing.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ja/beijing.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ja/beijing.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ko/beijing.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ko/beijing.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ru/beijing.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ru/beijing.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/fr/beijing.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/fr/beijing.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/de/beijing.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/de/beijing.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/es/beijing.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/es/beijing.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/shanghai.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/shanghai.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/zh-CN/shanghai.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/zh-CN/shanghai.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ja/shanghai.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ja/shanghai.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ko/shanghai.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ko/shanghai.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ru/shanghai.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ru/shanghai.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/fr/shanghai.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/fr/shanghai.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/de/shanghai.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/de/shanghai.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/es/shanghai.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/es/shanghai.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/xian.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/xian.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/zh-CN/xian.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/zh-CN/xian.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ja/xian.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ja/xian.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ko/xian.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ko/xian.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ru/xian.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ru/xian.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/fr/xian.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/fr/xian.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/de/xian.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/de/xian.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/es/xian.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/es/xian.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/guilin.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/guilin.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/zh-CN/guilin.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/zh-CN/guilin.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ja/guilin.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ja/guilin.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ko/guilin.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ko/guilin.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ru/guilin.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ru/guilin.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/fr/guilin.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/fr/guilin.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/de/guilin.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/de/guilin.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/es/guilin.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/es/guilin.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/zhangjiajie.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/zhangjiajie.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/zh-CN/zhangjiajie.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/zh-CN/zhangjiajie.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ja/zhangjiajie.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ja/zhangjiajie.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ko/zhangjiajie.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ko/zhangjiajie.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ru/zhangjiajie.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ru/zhangjiajie.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/fr/zhangjiajie.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/fr/zhangjiajie.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/de/zhangjiajie.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/de/zhangjiajie.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/es/zhangjiajie.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/es/zhangjiajie.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/jiuzhaigou.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/jiuzhaigou.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/zh-CN/jiuzhaigou.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/zh-CN/jiuzhaigou.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ja/jiuzhaigou.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ja/jiuzhaigou.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ko/jiuzhaigou.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ko/jiuzhaigou.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ru/jiuzhaigou.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ru/jiuzhaigou.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/fr/jiuzhaigou.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/fr/jiuzhaigou.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/de/jiuzhaigou.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/de/jiuzhaigou.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/es/jiuzhaigou.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/es/jiuzhaigou.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/yangtze.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/yangtze.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/zh-CN/yangtze.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/zh-CN/yangtze.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ja/yangtze.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ja/yangtze.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ko/yangtze.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ko/yangtze.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ru/yangtze.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ru/yangtze.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/fr/yangtze.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/fr/yangtze.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/de/yangtze.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/de/yangtze.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/es/yangtze.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/es/yangtze.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/yangtze.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/iching.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/zh-CN/yangtze.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/zh-CN/iching.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ja/yangtze.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ja/iching.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ko/yangtze.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ko/iching.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ru/yangtze.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ru/iching.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/fr/yangtze.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/fr/iching.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/de/yangtze.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/de/iching.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/es/yangtze.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/es/iching.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/iching.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/food.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/zh-CN/iching.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/zh-CN/food.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ja/iching.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ja/food.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ko/iching.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ko/food.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ru/iching.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ru/food.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/fr/iching.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/fr/food.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/de/iching.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/de/food.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/es/iching.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/es/food.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/food.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/peking-duck.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/zh-CN/food.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/zh-CN/peking-duck.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ja/food.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ja/peking-duck.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ko/food.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ko/peking-duck.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ru/food.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ru/peking-duck.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/fr/food.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/fr/peking-duck.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/de/food.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/de/peking-duck.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/es/food.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/es/peking-duck.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/peking-duck.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/dim-sum.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/zh-CN/peking-duck.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/zh-CN/dim-sum.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ja/peking-duck.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ja/dim-sum.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ko/peking-duck.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ko/dim-sum.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ru/peking-duck.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ru/dim-sum.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/fr/peking-duck.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/fr/dim-sum.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/de/peking-duck.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/de/dim-sum.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/es/peking-duck.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/es/dim-sum.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/dim-sum.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/hotpot.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/zh-CN/dim-sum.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/zh-CN/hotpot.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ja/dim-sum.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ja/hotpot.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ko/dim-sum.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ko/hotpot.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ru/dim-sum.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ru/hotpot.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/fr/dim-sum.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/fr/hotpot.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/de/dim-sum.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/de/hotpot.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/es/dim-sum.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/es/hotpot.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/hotpot.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/dumplings.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/zh-CN/hotpot.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/zh-CN/dumplings.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ja/hotpot.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ja/dumplings.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ko/hotpot.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ko/dumplings.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ru/hotpot.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/ru/dumplings.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/fr/hotpot.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/fr/dumplings.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/de/hotpot.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/de/dumplings.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.travelchinaguide.dpdns.org/es/hotpot.html</loc>
-    <lastmod>2026-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.travelchinaguide.dpdns.org/dumplings.html</loc>
-    <lastmod>2026-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.travelchinaguide.dpdns.org/zh-CN/dumplings.html</loc>
-    <lastmod>2026-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ja/dumplings.html</loc>
-    <lastmod>2026-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ko/dumplings.html</loc>
-    <lastmod>2026-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.travelchinaguide.dpdns.org/ru/dumplings.html</loc>
-    <lastmod>2026-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.travelchinaguide.dpdns.org/fr/dumplings.html</loc>
-    <lastmod>2026-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.travelchinaguide.dpdns.org/de/dumplings.html</loc>
-    <lastmod>2026-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.travelchinaguide.dpdns.org/es/dumplings.html</loc>
+    <loc>https://www.traveltochinaguide.github.io/es/dumplings.html</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

@@ -2,7 +2,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const cheerio = require('cheerio');
 // Import the new external translations (contains index.html data + global nav)
-const { translations: globalTranslations } = require('../js/translations.js');
+const { translations: globalTranslations, cityDetails } = require('../js/translations.js');
 
 const langs = ['en', 'zh-CN', 'ja', 'ko', 'ru', 'fr', 'de', 'es'];
 const pages = [
@@ -13,7 +13,6 @@ const pages = [
     'guilin.html',
     'zhangjiajie.html',
     'jiuzhaigou.html',
-    'yangtze.html',
     'yangtze.html',
     'iching.html',
     'food.html',
@@ -34,7 +33,7 @@ const sitemapFreq = {
 };
 
 const rootDir = path.resolve(__dirname, '..');
-const baseUrl = 'https://www.travelchinaguide.dpdns.org';
+const baseUrl = 'https://www.traveltochinaguide.github.io'; // Updated to GitHub Pages URL standard
 
 function getTodayStr() {
     return new Date().toISOString().split('T')[0];
@@ -55,14 +54,16 @@ function getTodayStr() {
 
         console.log(`Processing ${pageName}...`);
         const html = await fs.readFile(filePath, 'utf-8');
-        const $ = cheerio.load(html);
+
+        // --- 1. PRE-PROCESS HTML (WebP Replacement) ---
 
         let localTranslations = {};
 
         // Extract inline translations if present (for legacy pages)
+        const $temp = cheerio.load(html);
         if (pageName !== 'index.html') {
-            const scriptContent = $('script').filter((i, el) => {
-                const content = $(el).html();
+            const scriptContent = $temp('script').filter((i, el) => {
+                const content = $temp(el).html();
                 return content && content.includes('const translations =');
             }).html();
 
@@ -83,7 +84,18 @@ function getTodayStr() {
         for (const lang of langs) {
             const globalForLang = globalTranslations[lang] || globalTranslations['en'] || {};
             const localForLang = (lang === 'en' && localTranslations['en']) ? localTranslations['en'] : (localTranslations[lang] || localTranslations['en'] || {});
+
+            // Merge global + local + cityDetails for this lang (for the modal)
             const t = { ...globalForLang, ...localForLang };
+
+            // Prepare the minimal data object to be injected
+            // We need to provide 'translations[lang]' and 'cityDetails' for the modal to work client-side
+            const clientData = {
+                translations: {
+                    [lang]: t
+                },
+                cityDetails: cityDetails // This is language agnostic or contains keys
+            };
 
             const langDir = (lang === 'en') ? rootDir : path.join(rootDir, lang);
             await fs.ensureDir(langDir);
@@ -94,10 +106,10 @@ function getTodayStr() {
             // Calculate correct URL for this page/lang combination
             const pageUrl = (lang === 'en') ? `${baseUrl}/${pageName}` : `${baseUrl}/${lang}/${pageName}`;
 
-            // 1. Update HTML Lang Attribute
+            // --- A. HTML Structure Updates ---
             $page('html').attr('lang', lang);
 
-            // 2. SEO: Update Canonical Tag
+            // SEO: Canonical
             let $canonical = $page('link[rel="canonical"]');
             if ($canonical.length === 0) {
                 $page('head').append(`<link rel="canonical" href="${pageUrl}">`);
@@ -105,72 +117,47 @@ function getTodayStr() {
                 $canonical.attr('href', pageUrl);
             }
 
-            // 3. SEO: Update JSON-LD URLs (localize them)
-            $page('script[type="application/ld+json"]').each((i, el) => {
-                try {
-                    const jsonContent = $(el).html();
-                    const data = JSON.parse(jsonContent);
-                    let modified = false;
-
-                    // Helper to recursively update URLs in the object
-                    const updateUrls = (obj) => {
-                        for (const key in obj) {
-                            if (typeof obj[key] === 'string') {
-                                // If string starts with baseUrl, replace it with localized version
-                                // We check if it matches the current page's generic EN url structure
-                                if (obj[key].startsWith(baseUrl)) {
-                                    // Basic logic: if we are in 'zh-CN', replace 'baseUrl/' with 'baseUrl/zh-CN/'
-                                    // but careful not to double-inject if not needing it (e.g. assets)
-                                    // We focus on page URLs ending in .html or root
-                                    const val = obj[key];
-                                    if ((val.endsWith('.html') || val.endsWith('/')) && !val.match(/\.(jpg|png|svg)$/)) {
-                                        // Construct localized URL
-                                        // remove baseUrl
-                                        const relative = val.replace(baseUrl, '');
-                                        // relative might be '/index.html' or '/beijing.html'
-                                        // new url = baseUrl + (lang=='en'?'':'/'+lang) + relative
-                                        const newUrl = baseUrl + (lang === 'en' ? '' : '/' + lang) + relative;
-                                        if (obj[key] !== newUrl) {
-                                            obj[key] = newUrl;
-                                            modified = true;
-                                        }
-                                    }
-                                }
-                            } else if (typeof obj[key] === 'object' && obj[key] !== null) {
-                                updateUrls(obj[key]);
-                            }
-                        }
-                    };
-
-                    updateUrls(data);
-
-                    if (modified) {
-                        $(el).html(JSON.stringify(data, null, 2));
-                    }
-                } catch (e) {
-                    // ignore parse errors or non-json contents
+            // --- B. CSS/JS Cleanup ---
+            // Remove the massive external translations.js
+            $page('script[src="/js/translations.js"]').remove();
+            $page('script[src="/js/persist-lang.js"]').remove(); // No longer needed for static nav? Maybe keep for preference saving.
+            // Remove inline translations script
+            $page('script').each((i, el) => {
+                const content = $page(el).html();
+                if (content && content.includes('const translations =')) {
+                    $page(el).remove();
                 }
             });
 
-            // 4. Content Replacement (data-lang-key)
+            // Inject Minimal Data
+            const dataScript = `<script>
+                window.translations = ${JSON.stringify(clientData.translations)};
+                window.cityDetails = ${JSON.stringify(clientData.cityDetails)};
+                window.currentLang = '${lang}';
+            </script>`;
+            $page('body').append(dataScript);
+
+
+            // --- C. Content Localization (Server-Side Rendering) ---
             if (t) {
                 $page('[data-lang-key]').each((i, el) => {
-                    const key = $(el).attr('data-lang-key');
+                    const key = $page(el).attr('data-lang-key');
                     if (t[key]) {
                         if (el.tagName === 'meta') {
-                            $(el).attr('content', t[key]);
+                            $page(el).attr('content', t[key]);
                         } else if (el.tagName === 'input' || el.tagName === 'textarea') {
-                            $(el).attr('placeholder', t[key]);
+                            $page(el).attr('placeholder', t[key]);
                         } else {
                             if (typeof t[key] === 'string' && /<[a-z][\s\S]*>/i.test(t[key])) {
-                                $(el).html(t[key]);
+                                $page(el).html(t[key]);
                             } else {
-                                $(el).text(t[key]);
+                                $page(el).text(t[key]);
                             }
                         }
                     }
                 });
 
+                // Special handling for specific IDs
                 if (t.pageTitle) {
                     if ($page('#page-title').length) $page('#page-title').text(t.pageTitle);
                     else $page('title').text(t.pageTitle);
@@ -180,7 +167,8 @@ function getTodayStr() {
                 }
                 if (t.cityName) $page('#city-name').text(t.cityName);
                 if (t.heroSubtitle) $page('#city-sub').text(t.heroSubtitle);
-                else if (t.metaDesc && $page('#city-sub').length) {
+                else if (t.metaDesc && $page('#city-sub').length && !$page('#city-sub').text().trim()) {
+                    // Only fallback if empty
                     $page('#city-sub').text(t.metaDesc);
                 }
                 if (t.contentHtml) {
@@ -191,10 +179,46 @@ function getTodayStr() {
                 }
             }
 
-            // 5. Update Hreflang Tags
-            $page('link[rel="alternate"][hreflang]').remove();
+            // --- D. Link Localization ---
+            // Rewrite local links: href="beijing.html" -> href="/beijing.html" (en) or href="/zh-CN/beijing.html"
+            $page('a[href]').each((i, el) => {
+                const href = $page(el).attr('href');
+                if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:')) {
+                    // Check if it's one of our known pages
+                    let cleanHref = href.replace(/^\.\//, '').replace(/^\//, ''); // dim-sum.html
 
-            // Build map of all localized URLs for this page
+                    if (cleanHref.includes('#')) {
+                        // Handle anchor links food.html#hotpot
+                        const parts = cleanHref.split('#');
+                        cleanHref = parts[0];
+                        const hash = parts[1];
+
+                        if (pages.includes(cleanHref)) {
+                            const prefix = (lang === 'en') ? '' : `/${lang}`;
+                            $page(el).attr('href', `${prefix}/${cleanHref}#${hash}`);
+                        }
+                    } else {
+                        if (pages.includes(cleanHref)) {
+                            const prefix = (lang === 'en') ? '' : `/${lang}`;
+                            $page(el).attr('href', `${prefix}/${cleanHref}`);
+                        }
+                    }
+                }
+            });
+
+            // --- E. Image Optimization (WebP) ---
+            $page('img[src$=".jpg"], img[src$=".png"]').each((i, el) => {
+                const src = $page(el).attr('src');
+                if (src && !src.startsWith('http') && !src.startsWith('data:')) {
+                    // Check if webp exists (we assume it does if the optimizer ran)
+                    const webpSrc = src.replace(/\.(jpg|png)$/i, '.webp');
+                    $page(el).attr('src', webpSrc);
+                }
+            });
+
+
+            // --- F. SEO: hreflang ---
+            $page('link[rel="alternate"][hreflang]').remove();
             const hreflangs = [];
             hreflangs.push({ lang: 'x-default', url: `${baseUrl}/${pageName}` });
             hreflangs.push({ lang: 'en', url: `${baseUrl}/${pageName}` });
@@ -208,14 +232,8 @@ function getTodayStr() {
                 $page('head').append(`<link rel="alternate" href="${h.url}" hreflang="${h.lang}">\n  `);
             });
 
-            // 6. Client-side JS Compatibility
-            let finalHtml = $page.html();
-            finalHtml = finalHtml.replace(/const\s+lang\s*=\s*['"]en['"]\s*;/g, `const lang = '${lang}';`);
-            finalHtml = finalHtml.replace(/let\s+currentLang\s*=\s*['"]en['"]\s*;/g, `let currentLang = '${lang}';`);
-
             // Write File
-            await fs.writeFile(destPath, finalHtml, 'utf-8');
-            // console.log(`  -> Generated ${lang === 'en' ? '(Root)' : lang}/${pageName}`);
+            await fs.writeFile(destPath, $page.html(), 'utf-8');
 
             // Add to Sitemap Entries
             sitemapEntries.push({
@@ -225,7 +243,7 @@ function getTodayStr() {
                 priority: sitemapPriorities[pageName] || sitemapPriorities['default']
             });
         }
-        console.log(`Processed ${pageName} (${langs.length} languages)`);
+        // console.log(`Processed ${pageName}`);
     }
 
     // Generate Sitemap.xml
@@ -244,4 +262,3 @@ ${sitemapEntries.map(entry => `  <url>
     console.log('sitemap.xml updated.');
     console.log('Done.');
 })();
-

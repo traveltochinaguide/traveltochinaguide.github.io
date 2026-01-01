@@ -12,61 +12,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalCityImage = document.getElementById('modal-city-image');
     const modalCityDescription = document.getElementById('modal-city-description');
 
-    let currentLang = 'en';
+    // Get current language from the injected global variable (set by build script)
+    // Fallback to 'en' if undefined (e.g. local dev without build)
+    const currentLang = window.currentLang || 'en';
+
     let currentSlide = 0;
     let slideInterval;
     let currentOpenCityId = null;
 
-    // Helper to get correct absolute path for assets locally and on production
-    // For GitHub Pages custom domain at root, / works. 
-    // If user is running locally without a root server, this might fail, but http-server usually serves root.
-
     // --- CORE FUNCTIONS ---
-    const updateMetaTags = (lang) => {
-        if (!translations[lang]) return;
-        document.querySelector('title').textContent = translations[lang].metaTitle;
-        document.querySelector('meta[name="description"]').setAttribute('content', translations[lang].metaDescription);
-        document.querySelector('meta[name="keywords"]').setAttribute('content', translations[lang].metaKeywords);
-        document.querySelector('meta[property="og:title"]').setAttribute('content', translations[lang].metaTitle);
-        document.querySelector('meta[property="og:description"]').setAttribute('content', translations[lang].metaDescription);
-        document.querySelector('meta[property="twitter:title"]').setAttribute('content', translations[lang].metaTitle);
-        document.querySelector('meta[property="twitter:description"]').setAttribute('content', translations[lang].metaDescription);
-    };
 
-    const translateElement = (element) => {
-        const key = element.getAttribute('data-lang-key');
-        if (key && translations[currentLang] && translations[currentLang][key]) {
-            if (element.tagName === 'TEXTAREA' || element.tagName === 'INPUT') {
-                // handled by placeholder key
-            } else {
-                element.innerHTML = translations[currentLang][key];
-            }
-        }
-        const placeholderKey = element.getAttribute('data-lang-key-placeholder');
-        if (placeholderKey && translations[currentLang] && translations[currentLang][placeholderKey]) {
-            element.placeholder = translations[currentLang][placeholderKey];
-        }
-    };
-
-    const setLanguage = (lang) => {
-        if (!translations[lang]) return;
-        currentLang = lang;
-        mainContent.classList.remove('fade-in');
-        void mainContent.offsetWidth; // Trigger reflow
-        mainContent.classList.add('fade-in');
-        document.querySelectorAll('[data-lang-key], [data-lang-key-placeholder]').forEach(translateElement);
-        document.documentElement.lang = lang;
-        updateActiveButton(lang);
-        updateMetaTags(lang);
-        localStorage.setItem('preferredLanguage', lang);
-    };
+    // Note: client-side text replacement (translateElement, updateMetaTags) is REMOVED 
+    // because the HTML is now statically generated with the correct language content.
 
     const updateActiveButton = (activeLang) => {
-        // update the compact toggle label (do not change toggle bg color)
+        // update the compact toggle label
         const langCurrent = document.getElementById('lang-current');
         if (langCurrent && supportedLangs[activeLang]) langCurrent.textContent = supportedLangs[activeLang];
 
-        // update menu items: show check icon for selected item and emphasize label
+        // update menu items
         document.querySelectorAll('.lang-option').forEach(item => {
             const check = item.querySelector('.check-icon');
             if (item.getAttribute('data-lang') === activeLang) {
@@ -80,12 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // ensure toggle has current language for ARIA but keep visual neutral
         const toggleEl = document.getElementById('lang-toggle');
         if (toggleEl) {
             toggleEl.setAttribute('data-lang', activeLang);
-            // remove any active blue state from toggle to keep it neutral
-            toggleEl.classList.remove('active');
         }
     };
 
@@ -114,17 +75,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // City Detail Modal Functions
     const showCityModal = (cityId) => {
-        const city = cityDetails[cityId];
+        // Use injected window.cityDetails and window.translations
+        if (!window.cityDetails || !window.translations) return;
+
+        const city = window.cityDetails[cityId];
         if (!city) return;
         currentOpenCityId = cityId;
 
-        // Ensure translations are available
-        if (translations[currentLang] && translations[currentLang][city.nameKey]) {
-            modalCityName.textContent = translations[currentLang][city.nameKey];
-            // Use local image if available, fallback to query (though we should have locals for all)
-            modalCityImage.src = city.localImg || '/images/hero-great-wall.jpg';
-            modalCityImage.alt = translations[currentLang][city.nameKey];
-            modalCityDescription.innerHTML = translations[currentLang][city.longDescKey];
+        const t = window.translations[currentLang];
+
+        if (t && t[city.nameKey]) {
+            modalCityName.textContent = t[city.nameKey];
+            // Use WebP if available (simple check: replace ext)
+            let imgSrc = city.localImg || '/images/hero-great-wall.webp';
+            if (imgSrc.endsWith('.jpg')) imgSrc = imgSrc.replace('.jpg', '.webp');
+
+            modalCityImage.src = imgSrc;
+            modalCityImage.alt = t[city.nameKey];
+            modalCityDescription.innerHTML = t[city.longDescKey];
 
             modal.classList.remove('hidden');
             setTimeout(() => {
@@ -143,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- INITIALIZATION ---
-    // Make sure to reference global objects if they are used
     const supportedLangs = { 'en': 'EN', 'zh-CN': '中', 'ja': '日', 'ko': '한', 'ru': 'РУ', 'fr': 'FR', 'de': 'DE', 'es': 'ES' };
 
     // Build an accessible dropdown language selector
@@ -156,7 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.setAttribute('aria-haspopup', 'true');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.className = 'lang-btn text-sm font-semibold py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 flex items-center gap-2 bg-white';
-    // Add a small globe icon + current lang + chevron
     toggle.innerHTML = `
     <svg class="h-4 w-4 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path d="M2.05 6.05h19.9M2.05 17.95h19.9M12 2.05v19.9"/></svg>
     <span id="lang-current" class="ml-2">${supportedLangs[currentLang] || 'EN'}</span>
@@ -180,27 +146,28 @@ document.addEventListener('DOMContentLoaded', () => {
         item.setAttribute('data-lang', code);
         item.setAttribute('role', 'menuitem');
         item.setAttribute('aria-checked', 'false');
-        // show label + code and a check icon on the right (hidden by default)
         item.innerHTML = `
         <span class="flex items-center justify-between w-full">
             <span class="truncate">${name} <span class="ml-2 text-xs text-gray-500">(${code})</span></span>
             <svg class="check-icon hidden h-4 w-4 text-green-600 flex-shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 11 8 15 16 6"></polyline></svg>
         </span>`;
         item.addEventListener('click', () => {
-            // Update preference immediately so the next page doesn't redirect back
+            // Save preference
             localStorage.setItem('preferredLanguage', code);
 
-            // Static Navigation Logic
-            // Detect if we are on a page other than index.html
+            // Static URL Navigation Logic
             const path = window.location.pathname;
-            let pageName = path.split('/').pop() || 'index.html';
+            let parts = path.split('/').filter(p => p);
 
-            // If pageName is empty (root directory), default to index.html
-            if (pageName === '') pageName = 'index.html';
+            const knownLangs = Object.keys(supportedLangs);
+            let pageName = 'index.html';
 
-            // Construct new URL
-            // If target lang is 'en', go to root /pageName
-            // If target lang is other, go to /lang/pageName
+            if (parts.length > 0 && knownLangs.includes(parts[0])) {
+                pageName = parts[1] || 'index.html';
+            } else {
+                pageName = parts[0] || 'index.html';
+            }
+
             const newUrl = (code === 'en') ? '/' + pageName : '/' + code + '/' + pageName;
             window.location.href = newUrl;
         });
@@ -209,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     menu.appendChild(menuInner);
     dropdown.appendChild(menu);
-    languageSwitcher.appendChild(dropdown);
+    if (languageSwitcher) languageSwitcher.appendChild(dropdown);
 
     // Dropdown open/close helpers
     const langToggle = document.getElementById('lang-toggle');
@@ -218,45 +185,48 @@ document.addEventListener('DOMContentLoaded', () => {
     function closeLangMenu() { langMenu.classList.add('hidden'); langToggle.setAttribute('aria-expanded', 'false'); }
     function toggleLangMenu() { if (langMenu.classList.contains('hidden')) openLangMenu(); else closeLangMenu(); }
 
-    langToggle.addEventListener('click', (e) => { e.stopPropagation(); toggleLangMenu(); });
-    // close when clicking outside
+    if (langToggle) langToggle.addEventListener('click', (e) => { e.stopPropagation(); toggleLangMenu(); });
     document.addEventListener('click', (e) => { if (dropdown && !dropdown.contains(e.target)) closeLangMenu(); });
-    // close on escape
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLangMenu(); });
 
-    if (typeof carouselData !== 'undefined') {
+    // Carousel Init
+    const carouselData = [
+        { id: 'great-wall', titleKey: 'carouselTitle1', subtitleKey: 'carouselSubtitle1', imgQuery: 'great wall,china' },
+        { id: 'shanghai', titleKey: 'carouselTitle2', subtitleKey: 'carouselSubtitle2', imgQuery: 'shanghai,skyline' },
+        { id: 'guilin', titleKey: 'carouselTitle3', subtitleKey: 'carouselSubtitle3', imgQuery: 'guilin,li river' },
+        { id: 'xian', titleKey: 'carouselTitle4', subtitleKey: 'carouselSubtitle4', imgQuery: 'terracotta army,xian' }
+    ];
+
+    if (carouselContainer && window.translations && window.translations[currentLang]) {
+        const t = window.translations[currentLang];
         carouselData.forEach((slide, index) => {
-            if (index === 0) return; // Skip first slide as it is hardcoded in HTML for SEO/LCP
+            if (index === 0) return; // Skip first slide
             const slideEl = document.createElement('div');
             slideEl.className = 'carousel-slide absolute inset-0 w-full h-full opacity-0';
-            // default image for slides (kept for great-wall)
-            const defaultImg = '/images/hero-great-wall.jpg';
-            // user-provided fixed images for specific slides
-            const shanghaiImg = '/images/hero-shanghai.jpg';
-            const guilinImg = '/images/hero-guilin.jpg';
-            // Xi'an fixed image provided by user
-            const xianImg = '/images/hero-xian.jpg';
-            let imgSrc = defaultImg;
+
+            const shanghaiImg = '/images/hero-shanghai.webp';
+            const guilinImg = '/images/hero-guilin.webp';
+            const xianImg = '/images/hero-xian.webp';
+            let imgSrc = '/images/hero-great-wall.webp';
+
             if (slide.id === 'shanghai') imgSrc = shanghaiImg;
             if (slide.id === 'guilin') imgSrc = guilinImg;
             if (slide.id === 'xian') imgSrc = xianImg;
-            slideEl.innerHTML = `<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div><img loading="lazy" decoding="async" src="${imgSrc}" width="1920" height="1080" class="w-full h-full object-cover" alt="${slide.imgQuery}" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000000/FFFFFF?text=Image';"><div class="absolute inset-0 flex items-center justify-center"><div class="text-center text-white p-8 max-w-3xl"><h2 class="text-5xl md:text-7xl font-extrabold mb-4 text-shadow-lg" data-lang-key="${slide.titleKey}"></h2><p class="text-xl md:text-2xl text-shadow" data-lang-key="${slide.subtitleKey}"></p></div></div>`;
+
+            slideEl.innerHTML = `<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <img loading="lazy" decoding="async" src="${imgSrc}" width="1920" height="1080" class="w-full h-full object-cover" alt="${slide.imgQuery}">
+            <div class="absolute inset-0 flex items-center justify-center"><div class="text-center text-white p-8 max-w-3xl">
+            <h2 class="text-5xl md:text-7xl font-extrabold mb-4 text-shadow-lg">${t[slide.titleKey]}</h2>
+            <p class="text-xl md:text-2xl text-shadow">${t[slide.subtitleKey]}</p></div></div>`;
+
             carouselContainer.insertBefore(slideEl, carouselDotsContainer);
 
             const dot = document.createElement('button');
             dot.className = 'carousel-dot w-3 h-3 bg-white/50 rounded-full';
             dot.addEventListener('click', () => { showSlide(index); stopCarousel(); });
-            carouselDotsContainer.appendChild(dot);
+            if (carouselDotsContainer) carouselDotsContainer.appendChild(dot);
         });
     }
-
-    // Color map for city cards (gradient background)
-    const cityColors = {
-        beijing: 'linear-gradient(135deg,#fb923c,#ef4444)',
-        shanghai: 'linear-gradient(135deg,#7c3aed,#4f46e5)',
-        xian: 'linear-gradient(135deg,#f59e0b,#f97316)',
-        guilin: 'linear-gradient(135deg,#14b8a6,#10b981)'
-    };
 
     if (document.getElementById('prev-slide')) document.getElementById('prev-slide').addEventListener('click', () => { prevSlide(); stopCarousel(); startCarousel(); });
     if (document.getElementById('next-slide')) document.getElementById('next-slide').addEventListener('click', () => { nextSlide(); stopCarousel(); startCarousel(); });
@@ -264,26 +234,23 @@ document.addEventListener('DOMContentLoaded', () => {
         carouselContainer.addEventListener('mouseenter', stopCarousel);
         carouselContainer.addEventListener('mouseleave', startCarousel);
     }
+
+    // CITY MODAL TRIGGERS
+    if (cityGrid) {
+        cityGrid.addEventListener('click', (e) => {
+            const btn = e.target.closest('button[data-city-id]');
+            if (btn) {
+                const cityId = btn.getAttribute('data-city-id');
+                showCityModal(cityId);
+            }
+        });
+    }
+
     if (modalCloseBtn) modalCloseBtn.addEventListener('click', hideCityModal);
     if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) hideCityModal(); });
 
-    // Initialization Logic
-    const htmlLang = document.documentElement.lang;
-    if (htmlLang) {
-        currentLang = htmlLang;
-        updateActiveButton(currentLang);
-        localStorage.setItem('preferredLanguage', currentLang);
-    }
-
+    // Initialize UI
+    updateActiveButton(currentLang);
     showSlide(0);
     startCarousel();
-
-    // Preserve current language when navigating from nature cards
-    // Attach after initial language is set so `currentLang` is correct
-    // Ensure nature links use correct static paths (no query params needed)
-    document.querySelectorAll('a.nature-link').forEach(a => {
-        a.addEventListener('click', (e) => {
-            // Logic handled by static paths
-        });
-    });
 });
