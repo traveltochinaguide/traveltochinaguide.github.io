@@ -12,3 +12,32 @@ html,body{font-family:var(--site-font);-webkit-font-smoothing:antialiased;-moz-o
 }
 /* small utility to ensure dropdowns inside nav behave */
 .site-header .dropdown-panel{position:absolute}
+
+/* ── Google AdSense Ad Placements ── */
+
+/* Top & Bottom banner ads */
+.ad-banner-top,
+.ad-banner-bottom{
+  max-width:728px;
+  margin:0 auto;
+  padding:10px 16px;
+  text-align:center;
+  overflow:hidden;
+}
+.ad-banner-top{background:#f9fafb;border-bottom:1px solid #e5e7eb}
+.ad-banner-bottom{background:#f9fafb;border-top:1px solid #e5e7eb}
+
+/* Sidebar ads – fixed position, only visible on wide screens */
+.ad-sidebar{
+  position:fixed;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:40;
+  display:none;          /* hidden by default */
+}
+.ad-sidebar-left{left:10px}
+.ad-sidebar-right{right:10px}
+
+@media (min-width:1280px){
+  .ad-sidebar{display:block}
+}
