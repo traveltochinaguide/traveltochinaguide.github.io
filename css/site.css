@@ -39,5 +39,11 @@ html,body{font-family:var(--site-font);-webkit-font-smoothing:antialiased;-moz-o
 .ad-sidebar-right{right:10px}
 
 @media (min-width:1280px){
+  /* Show sidebar ads */
   .ad-sidebar{display:block}
+  /* Add padding to body so the main content shrinks and avoids overlapping the fixed ads */
+  body {
+    padding-left:180px;
+    padding-right:180px;
+  }
 }
