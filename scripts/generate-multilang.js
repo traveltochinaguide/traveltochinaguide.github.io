@@ -33,7 +33,7 @@ const sitemapFreq = {
 };
 
 const rootDir = path.resolve(__dirname, '..');
-const baseUrl = 'https://www.traveltochinaguide.github.io'; // Updated to GitHub Pages URL standard
+const baseUrl = 'https://travelchinaguide.dpdns.org'; // Custom domain
 
 function getTodayStr() {
     return new Date().toISOString().split('T')[0];
@@ -117,11 +117,10 @@ function getTodayStr() {
                 $canonical.attr('href', pageUrl);
             }
 
-            // --- B. CSS/JS Cleanup ---
-            // Remove the massive external translations.js
-            $page('script[src="/js/translations.js"]').remove();
-            $page('script[src="/js/persist-lang.js"]').remove(); // No longer needed for static nav? Maybe keep for preference saving.
-            // Remove inline translations script
+ // --- B. CSS/JS Cleanup ---
+ // Remove the massive external translations.js
+ $page('script[src="/js/translations.js"]').remove();
+ // Remove inline translations script
             $page('script').each((i, el) => {
                 const content = $page(el).html();
                 if (content && content.includes('const translations =')) {
@@ -129,13 +128,21 @@ function getTodayStr() {
                 }
             });
 
-            // Inject Minimal Data
-            const dataScript = `<script>
-                window.translations = ${JSON.stringify(clientData.translations)};
-                window.cityDetails = ${JSON.stringify(clientData.cityDetails)};
-                window.currentLang = '${lang}';
-            </script>`;
-            $page('body').append(dataScript);
+ // Inject Minimal Data
+ const dataScript = `<script>
+ window.translations = ${JSON.stringify(clientData.translations)};
+ window.cityDetails = ${JSON.stringify(clientData.cityDetails)};
+ window.currentLang = '${lang}';
+ </script>`;
+ $page('body').append(dataScript);
+
+ // Inject language switcher + persist-lang scripts (replaces old city.js)
+ if (!$page('script[src="/js/lang-switcher.js"]').length) {
+ $page('body').append('<script src="/js/lang-switcher.js" defer></script>');
+ }
+ if (!$page('script[src="/js/persist-lang.js"]').length) {
+ $page('body').append('<script src="/js/persist-lang.js" defer></script>');
+ }
 
 
             // --- C. Content Localization (Server-Side Rendering) ---
