@@ -1,49 +1,89 @@
-/* site.css - small, shared styles for font and nav */
+/* site.css - shared styles for font, nav, and ads */
 :root{--site-font: "Inter", "Noto Sans SC", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif}
 html,body{font-family:var(--site-font);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background:#f7f8fa}
-/* header/nav styles (small overrides alongside Tailwind) */
+
+/* ── Header / Nav ── */
 .site-header .nav-links{display:flex;gap:.5rem;align-items:center}
 .site-header .nav-toggle{display:none;border:0;background:transparent;font-size:1.25rem}
+
+/* Desktop dropdown */
+.site-header .dropdown-panel{position:absolute}
+.site-header .nav-dropdown.open .dropdown-panel{display:block !important}
+
+@media (min-width:768px){
+  /* Desktop: dropdowns relative to parent */
+  .site-header .nav-dropdown{position:relative}
+}
+
 @media (max-width:767px){
   .site-header .nav-toggle{display:inline-flex}
-  .site-header .nav-links{display:none;flex-direction:column;position:absolute;right:1rem;top:100%;background:#fff;border-radius:.5rem;box-shadow:0 6px 18px rgba(15,23,42,.08);width:14rem;padding:.5rem;z-index:60}
+  .site-header .nav-links{display:none;flex-direction:column;position:absolute;right:1rem;top:100%;background:#fff;border-radius:.5rem;box-shadow:0 6px 18px rgba(15,23,42,.08);width:15rem;padding:.75rem;z-index:60}
   .site-header .nav-links.open{display:flex}
-  .site-header .nav-links a{width:100%}
+  .site-header .nav-links a,
+  .site-header .nav-links button{width:100%;text-align:left}
+
+  /* Mobile: dropdown panels expand inline */
+  .site-header .nav-dropdown{position:static;width:100%}
+  .site-header .nav-dropdown .dropdown-panel{
+    position:static !important;
+    width:100% !important;
+    min-width:0 !important;
+    box-shadow:none !important;
+    border-radius:0 !important;
+    margin:0 !important;
+    padding-left:1rem !important;
+    padding-right:0 !important;
+    background:#f9fafb;
+  }
+  .site-header .nav-dropdown.open .dropdown-panel{display:block !important}
+
+  /* Language switcher mobile */
+  .site-header #language-switcher{width:100%;justify-content:flex-start;margin-top:.5rem}
+  .site-header #language-switcher .lang-dropdown{width:100%;position:static}
+  .site-header #language-switcher .lang-btn{width:100%;justify-content:center}
+  .site-header #language-switcher .lang-menu{
+    position:static !important;
+    width:100% !important;
+    min-width:0 !important;
+    box-shadow:none !important;
+    border-radius:0 !important;
+    margin:0 !important;
+    ring:0 !important;
+    background:#f9fafb !important;
+  }
 }
-/* small utility to ensure dropdowns inside nav behave */
-.site-header .dropdown-panel{position:absolute}
 
 /* ── Google AdSense Ad Placements ── */
 
 /* Top & Bottom banner ads */
 .ad-banner-top,
 .ad-banner-bottom{
-  max-width:728px;
-  margin:0 auto;
-  padding:10px 16px;
-  text-align:center;
-  overflow:hidden;
+ max-width:728px;
+ margin:0 auto;
+ padding:10px 16px;
+ text-align:center;
+ overflow:hidden;
 }
 .ad-banner-top{background:#f9fafb;border-bottom:1px solid #e5e7eb}
 .ad-banner-bottom{background:#f9fafb;border-top:1px solid #e5e7eb}
 
 /* Sidebar ads – fixed position, only visible on wide screens */
 .ad-sidebar{
-  position:fixed;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:40;
-  display:none;          /* hidden by default */
+ position:fixed;
+ top:50%;
+ transform:translateY(-50%);
+ z-index:40;
+ display:none; /* hidden by default */
 }
 .ad-sidebar-left{left:10px}
 .ad-sidebar-right{right:10px}
 
 @media (min-width:1280px){
-  /* Show sidebar ads */
-  .ad-sidebar{display:block}
-  /* Add padding to body so the main content shrinks and avoids overlapping the fixed ads */
-  body {
-    padding-left:180px;
-    padding-right:180px;
-  }
+ /* Show sidebar ads */
+ .ad-sidebar{display:block}
+ /* Add padding to body so the main content shrinks and avoids overlapping the fixed ads */
+ body {
+ padding-left:180px;
+ padding-right:180px;
+ }
 }

@@ -41,9 +41,9 @@
 
     dropdown.appendChild(toggle);
 
-    const menu = document.createElement('div');
-    menu.id = 'lang-menu';
-    menu.className = 'hidden origin-top-right absolute right-0 mt-2 w-36 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50';
+  const menu = document.createElement('div');
+  menu.id = 'lang-menu';
+  menu.className = 'lang-menu hidden origin-top-right absolute right-0 mt-2 w-36 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50';
     const menuInner = document.createElement('div');
     menuInner.className = 'py-1';
     menuInner.setAttribute('role', 'menu');
