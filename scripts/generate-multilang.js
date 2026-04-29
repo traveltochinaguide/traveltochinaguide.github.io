@@ -154,13 +154,17 @@ function getTodayStr() {
                             $page(el).attr('content', t[key]);
                         } else if (el.tagName === 'input' || el.tagName === 'textarea') {
                             $page(el).attr('placeholder', t[key]);
-                        } else {
-                            if (typeof t[key] === 'string' && /<[a-z][\s\S]*>/i.test(t[key])) {
-                                $page(el).html(t[key]);
-                            } else {
-                                $page(el).text(t[key]);
-                            }
-                        }
+ } else {
+ if (typeof t[key] === 'string' && /<[a-z][\s\S]*>/i.test(t[key])) {
+ $page(el).html(t[key]);
+ } else if ($page(el).attr('aria-haspopup')) {
+ // Dropdown toggle button: rebuild with text + chevron SVG preserved
+ const chevronSvg = '<svg class="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 20 20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"/></svg>';
+ $page(el).html(t[key] + '\n' + chevronSvg);
+ } else {
+ $page(el).text(t[key]);
+ }
+ }
                     }
                 });
 
