@@ -80,10 +80,10 @@
     dropdown.appendChild(menu);
     container.appendChild(dropdown);
 
-    // Toggle open/close
-    function openMenu() { menu.classList.remove('hidden'); toggle.setAttribute('aria-expanded', 'true'); }
-    function closeMenu() { menu.classList.add('hidden'); toggle.setAttribute('aria-expanded', 'false'); }
-    toggle.addEventListener('click', (e) => { e.stopPropagation(); menu.classList.contains('hidden') ? openMenu() : closeMenu(); });
+// Toggle open/close
+ function openMenu() { menu.classList.remove('hidden'); menu.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); }
+ function closeMenu() { menu.classList.add('hidden'); menu.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
+ toggle.addEventListener('click', (e) => { e.stopPropagation(); menu.classList.contains('hidden') ? openMenu() : closeMenu(); });
     document.addEventListener('click', (e) => { if (!dropdown.contains(e.target)) closeMenu(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
   }

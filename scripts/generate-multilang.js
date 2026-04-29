@@ -190,32 +190,32 @@ function getTodayStr() {
                 }
             }
 
-            // --- D. Link Localization ---
-            // Rewrite local links: href="beijing.html" -> href="/beijing.html" (en) or href="/zh-CN/beijing.html"
-            $page('a[href]').each((i, el) => {
-                const href = $page(el).attr('href');
-                if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:')) {
-                    // Check if it's one of our known pages
-                    let cleanHref = href.replace(/^\.\//, '').replace(/^\//, ''); // dim-sum.html
+// --- D. Link Localization ---
+ // Rewrite local links: href="beijing.html" -> href="/beijing.html" (en) or href="/zh-CN/beijing.html"
+ $page('a[href]').each((i, el) => {
+ const href = $page(el).attr('href');
+ if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:')) {
+ // Normalize: remove leading ./ or single /
+ let cleanHref = href.replace(/^\.\//, '').replace(/^\//, '');
 
-                    if (cleanHref.includes('#')) {
-                        // Handle anchor links food.html#hotpot
-                        const parts = cleanHref.split('#');
-                        cleanHref = parts[0];
-                        const hash = parts[1];
+ if (cleanHref.includes('#')) {
+  // Handle anchor links: food.html#hotpot
+  const parts = cleanHref.split('#');
+  cleanHref = parts[0];
+  const hash = parts[1];
 
-                        if (pages.includes(cleanHref)) {
-                            const prefix = (lang === 'en') ? '' : `/${lang}`;
-                            $page(el).attr('href', `${prefix}/${cleanHref}#${hash}`);
-                        }
-                    } else {
-                        if (pages.includes(cleanHref)) {
-                            const prefix = (lang === 'en') ? '' : `/${lang}`;
-                            $page(el).attr('href', `${prefix}/${cleanHref}`);
-                        }
-                    }
-                }
-            });
+  if (pages.includes(cleanHref)) {
+   const prefix = (lang === 'en') ? '' : `/${lang}`;
+   $page(el).attr('href', `${prefix}/${cleanHref}#${hash}`);
+  }
+ } else {
+  if (pages.includes(cleanHref)) {
+   const prefix = (lang === 'en') ? '' : `/${lang}`;
+   $page(el).attr('href', `${prefix}/${cleanHref}`);
+  }
+ }
+ }
+ });
 
             // --- E. Image Optimization (WebP) ---
             $page('img[src$=".jpg"], img[src$=".png"]').each((i, el) => {
