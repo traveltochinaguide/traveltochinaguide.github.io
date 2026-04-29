@@ -120,13 +120,13 @@ function getTodayStr() {
  // --- B. CSS/JS Cleanup ---
  // Remove the massive external translations.js
  $page('script[src="/js/translations.js"]').remove();
- // Remove inline translations script
-            $page('script').each((i, el) => {
-                const content = $page(el).html();
-                if (content && content.includes('const translations =')) {
-                    $page(el).remove();
-                }
-            });
+ // Remove inline translations script (both `const translations =` and `window.translations =`)
+ $page('script').each((i, el) => {
+ const content = $page(el).html();
+ if (content && (content.includes('const translations =') || content.includes('window.translations ='))) {
+ $page(el).remove();
+ }
+ });
 
  // Inject Minimal Data
  const dataScript = `<script>
