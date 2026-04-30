@@ -196,7 +196,12 @@ function getTodayStr() {
                     // Only fallback if empty
                     $page('#city-sub').text(t.metaDesc);
                 }
-                if (t.contentHtml) {
+                // Translate #city-content body text
+                // Priority: contentHtml (food pages) > longDescKey (city pages)
+                const pageCityData = allCityDetails[pageNameWithoutExt];
+                if (pageCityData && pageCityData.longDescKey && t[pageCityData.longDescKey]) {
+                    $page('#city-content').html(t[pageCityData.longDescKey]);
+                } else if (t.contentHtml) {
                     $page('#city-content').html(t.contentHtml);
                 }
                 if (t.backText && $page('.back-link').length) {
