@@ -13,7 +13,12 @@ const pages = [
     { name: 'zhangjiajie.html', freq: 'weekly', priority: 0.8 },
     { name: 'jiuzhaigou.html', freq: 'weekly', priority: 0.8 },
     { name: 'yangtze.html', freq: 'weekly', priority: 0.8 },
-    { name: 'iching.html', freq: 'monthly', priority: 0.7 }
+    { name: 'iching.html', freq: 'monthly', priority: 0.7 },
+    { name: 'food.html', freq: 'weekly', priority: 0.8 },
+    { name: 'peking-duck.html', freq: 'monthly', priority: 0.6 },
+    { name: 'dim-sum.html', freq: 'monthly', priority: 0.6 },
+    { name: 'hotpot.html', freq: 'monthly', priority: 0.6 },
+    { name: 'dumplings.html', freq: 'monthly', priority: 0.6 }
 ];
 
 (async () => {
