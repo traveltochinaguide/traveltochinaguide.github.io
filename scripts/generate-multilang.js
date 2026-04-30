@@ -90,11 +90,12 @@ function getTodayStr() {
 
             // Prepare the minimal data object to be injected
             // We need to provide 'translations[lang]' and 'cityDetails' for the modal to work client-side
+            const allCityDetails = { beijing: { imgQuery: 'forbidden city,beijing', localImg: '/images/hero-great-wall.webp', nameKey: 'cityBeijing', descKey: 'descBeijing', longDescKey: 'longDescBeijing' }, shanghai: { imgQuery: 'the bund,shanghai', localImg: '/images/hero-shanghai.webp', nameKey: 'cityShanghai', descKey: 'descShanghai', longDescKey: 'longDescShanghai' }, xian: { imgQuery: 'terracotta army,xian', localImg: '/images/hero-xian.webp', nameKey: 'cityXian', descKey: 'descXian', longDescKey: 'longDescXian' }, guilin: { imgQuery: 'li river,guilin,china', localImg: '/images/hero-guilin.webp', nameKey: 'cityGuilin', descKey: 'descGuilin', longDescKey: 'longDescGuilin' }, zhangjiajie: { imgQuery: 'zhangjiajie,avatar mountain,china', localImg: '/images/hero-zhangjiajie.webp', nameKey: 'cityZhangjiajie', descKey: 'descZhangjiajie', longDescKey: 'longDescZhangjiajie' }, jiuzhaigou: { imgQuery: 'jiuzhaigou,colorful lake,china', localImg: '/images/hero-jiuzhaigou.webp', nameKey: 'cityJiuzhaigou', descKey: 'descJiuzhaigou', longDescKey: 'longDescJiuzhaigou' }, yangtze: { imgQuery: 'yangtze river,three gorges,china', localImg: '/images/hero-yangtze.webp', nameKey: 'cityYangtze', descKey: 'descYangtze', longDescKey: 'longDescYangtze' }, iching: { imgQuery: 'iching,book of changes,china', localImg: '/images/hero-iching.webp', nameKey: 'cityIching', descKey: 'descIching', longDescKey: 'longDescIching' } };
             const clientData = {
                 translations: {
                     [lang]: t
                 },
-                cityDetails: cityDetails // This is language agnostic or contains keys
+                cityDetails: allCityDetails
             };
 
             const langDir = (lang === 'en') ? rootDir : path.join(rootDir, lang);
@@ -122,8 +123,8 @@ function getTodayStr() {
  $page('script[src="/js/translations.js"]').remove();
  // Remove inline translations script (both `const translations =` and `window.translations =`)
  $page('script').each((i, el) => {
- const content = $page(el).html();
- if (content && (content.includes('const translations =') || content.includes('window.translations ='))) {
+ const scriptContent = $page(el).html();
+ if (scriptContent && (scriptContent.includes('const translations =') || scriptContent.includes('window.translations =') || scriptContent.includes('window.cityDetails ='))) {
  $page(el).remove();
  }
  });
@@ -169,15 +170,28 @@ function getTodayStr() {
                 });
 
                 // Special handling for specific IDs
-                if (t.pageTitle) {
-                    if ($page('#page-title').length) $page('#page-title').text(t.pageTitle);
-                    else $page('title').text(t.pageTitle);
+                if (t.metaTitle) {
+                    if ($page('#page-title').length) $page('#page-title').text(t.metaTitle);
+                    else $page('title').text(t.metaTitle);
                 }
                 if (t.metaDesc) {
                     if ($page('#meta-desc').length) $page('#meta-desc').attr('content', t.metaDesc);
                 }
-                if (t.cityName) $page('#city-name').text(t.cityName);
-                if (t.heroSubtitle) $page('#city-sub').text(t.heroSubtitle);
+                // Translate #city-name using cityDetails mapping (city page)
+                const pageNameWithoutExt = pageName.replace(/\.html$/, '');
+                const pageCityMap = {
+                    'beijing': 'cityBeijing', 'shanghai': 'cityShanghai', 'xian': 'cityXian',
+                    'guilin': 'cityGuilin', 'zhangjiajie': 'cityZhangjiajie', 'jiuzhaigou': 'cityJiuzhaigou',
+                    'yangtze': 'cityYangtze', 'iching': 'cityIching'
+                };
+                const nameKey = pageCityMap[pageNameWithoutExt];
+                if (nameKey && t[nameKey]) {
+                    $page('#city-name').text(t[nameKey]);
+                }
+                // Fallback: translate #city-sub (subtitle) from metaDesc or pageDescription
+                if (t.metaDesc) {
+                    $page('#city-sub').text(t.metaDesc);
+                }
                 else if (t.metaDesc && $page('#city-sub').length && !$page('#city-sub').text().trim()) {
                     // Only fallback if empty
                     $page('#city-sub').text(t.metaDesc);
