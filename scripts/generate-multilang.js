@@ -118,6 +118,11 @@ function getTodayStr() {
                 $canonical.attr('href', pageUrl);
             }
 
+            // SEO: OpenGraph & Twitter URL — use language-specific URL
+            $page('meta[property="og:url"], meta[property="twitter:url"]').each((i, el) => {
+                $page(el).attr('content', pageUrl);
+            });
+
  // --- B. CSS/JS Cleanup ---
  // Remove the massive external translations.js
  $page('script[src="/js/translations.js"]').remove();
