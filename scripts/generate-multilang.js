@@ -188,17 +188,13 @@ function getTodayStr() {
                 if (nameKey && t[nameKey]) {
                     $page('#city-name').text(t[nameKey]);
                 }
-                // Fallback: translate #city-sub (subtitle) from metaDesc or pageDescription
-                if (t.metaDesc) {
-                    $page('#city-sub').text(t.metaDesc);
-                }
-                else if (t.metaDesc && $page('#city-sub').length && !$page('#city-sub').text().trim()) {
-                    // Only fallback if empty
-                    $page('#city-sub').text(t.metaDesc);
+// Translate #city-sub from descKey (city description), NOT metaDesc (SEO description)
+                const pageCityData = allCityDetails[pageNameWithoutExt];
+                if (pageCityData && pageCityData.descKey && t[pageCityData.descKey]) {
+                    $page('#city-sub').text(t[pageCityData.descKey]);
                 }
                 // Translate #city-content body text
                 // Priority: contentHtml (food pages) > longDescKey (city pages)
-                const pageCityData = allCityDetails[pageNameWithoutExt];
                 if (pageCityData && pageCityData.longDescKey && t[pageCityData.longDescKey]) {
                     $page('#city-content').html(t[pageCityData.longDescKey]);
                 } else if (t.contentHtml) {
