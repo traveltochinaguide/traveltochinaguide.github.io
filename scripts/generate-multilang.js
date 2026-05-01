@@ -210,7 +210,33 @@ function getTodayStr() {
                 }
             }
 
-// --- D. Link Localization ---
+            // --- C2. JSON-LD Schema Localization (Food Pages) ---
+            const foodPageJsonLdMap = {
+                'peking-duck': { titleKey: 'titlePekingDuck', descKey: 'metaDescPekingDuck' },
+                'dim-sum':     { titleKey: 'titleDimSum',     descKey: 'metaDescDimSum'     },
+                'hotpot':      { titleKey: 'titleHotpot',      descKey: 'metaDescHotpot'      },
+                'dumplings':   { titleKey: 'titleDumplings',   descKey: 'metaDescDumplings'   }
+            };
+            const pageNameBase = pageName.replace(/\.html$/, '');
+            const foodPageData = foodPageJsonLdMap[pageNameBase];
+            if (foodPageData && t[foodPageData.titleKey] && t[foodPageData.descKey]) {
+                $page('script[type="application/ld+json"]').each((i, el) => {
+                    const raw = $page(el).html();
+                    if (!raw) return;
+                    try {
+                        const data = JSON.parse(raw);
+                        if (data['@type'] === 'Article') {
+                            data.headline = t[foodPageData.titleKey];
+                            data.description = t[foodPageData.descKey];
+                            $page(el).html('\n        ' + JSON.stringify(data, null, 4) + '\n    ');
+                        }
+                    } catch (e) {
+                        // Not JSON or parse error — leave unchanged
+                    }
+                });
+            }
+
+            // --- D. Link Localization ---
  // Rewrite local links: href="beijing.html" -> href="/beijing.html" (en) or href="/zh-CN/beijing.html"
  $page('a[href]').each((i, el) => {
  const href = $page(el).attr('href');
