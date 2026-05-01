@@ -210,12 +210,20 @@ function getTodayStr() {
                 }
             }
 
-            // --- C2. JSON-LD Schema Localization (Food Pages) ---
+            // --- C2. JSON-LD Schema — Upgrade Article → Recipe (Food Pages) ---
             const foodPageJsonLdMap = {
-                'peking-duck': { titleKey: 'titlePekingDuck', descKey: 'metaDescPekingDuck' },
-                'dim-sum':     { titleKey: 'titleDimSum',     descKey: 'metaDescDimSum'     },
-                'hotpot':      { titleKey: 'titleHotpot',      descKey: 'metaDescHotpot'      },
-                'dumplings':   { titleKey: 'titleDumplings',   descKey: 'metaDescDumplings'   }
+                'peking-duck': { titleKey: 'titlePekingDuck', descKey: 'metaDescPekingDuck',
+                  ingredientsKey: 'recipeIngredientPekingDuck', instructionsKey: 'recipeInstructionsPekingDuck',
+                  contentKey: 'contentPekingDuck' },
+                'dim-sum':     { titleKey: 'titleDimSum',     descKey: 'metaDescDimSum',
+                  ingredientsKey: 'recipeIngredientDimSum',     instructionsKey: 'recipeInstructionsDimSum',
+                  contentKey: 'contentDimSum' },
+                'hotpot':      { titleKey: 'titleHotpot',      descKey: 'metaDescHotpot',
+                  ingredientsKey: 'recipeIngredientHotpot',    instructionsKey: 'recipeInstructionsHotpot',
+                  contentKey: 'contentHotpot' },
+                'dumplings':   { titleKey: 'titleDumplings',   descKey: 'metaDescDumplings',
+                  ingredientsKey: 'recipeIngredientDumplings', instructionsKey: 'recipeInstructionsDumplings',
+                  contentKey: 'contentDumplings' }
             };
             const pageNameBase = pageName.replace(/\.html$/, '');
             const foodPageData = foodPageJsonLdMap[pageNameBase];
@@ -225,9 +233,30 @@ function getTodayStr() {
                     if (!raw) return;
                     try {
                         const data = JSON.parse(raw);
-                        if (data['@type'] === 'Article') {
+                        if (data['@type'] === 'Article' || data['@type'] === 'Recipe') {
+                            // Upgrade to Recipe schema
+                            data['@type'] = 'Recipe';
+                            data.name = t[foodPageData.titleKey];
                             data.headline = t[foodPageData.titleKey];
                             data.description = t[foodPageData.descKey];
+                            // Add recipeIngredient if present
+                            if (t[foodPageData.ingredientsKey]) {
+                                data.recipeIngredient = t[foodPageData.ingredientsKey].split(',').map(s => s.trim());
+                            }
+                            // Add recipeInstructions if present (array of strings or already-structured)
+                            if (t[foodPageData.instructionsKey]) {
+                                const rawSteps = t[foodPageData.instructionsKey];
+                                let steps = typeof rawSteps === 'string' ? JSON.parse(rawSteps) : rawSteps;
+                                data.recipeInstructions = steps.map((step, idx) => ({
+                                    '@type': 'HowToStep',
+                                    'name': String(idx + 1),
+                                    'text': step
+                                }));
+                            }
+                            // Add articleBody for full content
+                            if (t[foodPageData.contentKey]) {
+                                data.articleBody = t[foodPageData.contentKey].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+                            }
                             $page(el).html('\n        ' + JSON.stringify(data, null, 4) + '\n    ');
                         }
                     } catch (e) {
