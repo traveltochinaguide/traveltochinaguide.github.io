@@ -265,8 +265,78 @@ function getTodayStr() {
                 });
             }
 
+// --- C3. BreadcrumbList JSON-LD Schema ---
+            // pageNameBase already declared above (line ~228) for food pages
+
+            // Determine breadcrumb items based on page type
+            let breadcrumbItems = null;
+
+            if (['beijing','shanghai','xian','guilin','zhangjiajie','jiuzhaigou','yangtze'].includes(pageNameBase)) {
+                // City pages: Home → Popular Cities → [City]
+                const cityNameMap = {
+                    'beijing': 'cityBeijing', 'shanghai': 'cityShanghai', 'xian': 'cityXian',
+                    'guilin': 'cityGuilin', 'zhangjiajie': 'cityZhangjiajie',
+                    'jiuzhaigou': 'cityJiuzhaigou', 'yangtze': 'cityYangtze'
+                };
+                const cityNameKey = cityNameMap[pageNameBase];
+                const cityName = t[cityNameKey] || pageNameBase.charAt(0).toUpperCase() + pageNameBase.slice(1);
+                breadcrumbItems = [
+                    { name: t.navHome || 'Home', path: 'index.html' },
+                    { name: t.navCities || 'Popular Cities', path: 'index.html' },
+                    { name: cityName, path: pageName }
+                ];
+            } else if (['iching'].includes(pageNameBase)) {
+                // Culture page: Home → Culture → I Ching
+                const ichingNameKey = 'cityIching';
+                const ichingName = t[ichingNameKey] || 'I Ching';
+                breadcrumbItems = [
+                    { name: t.navHome || 'Home', path: 'index.html' },
+                    { name: t.navCulture || 'Culture', path: 'iching.html' },
+                    { name: ichingName, path: pageName }
+                ];
+            } else if (['peking-duck','dim-sum','dumplings','hotpot'].includes(pageNameBase)) {
+                // Food detail pages: Home → Cuisine → [Dish]
+                const foodTitleMap = {
+                    'peking-duck': 'titlePekingDuck', 'dim-sum': 'titleDimSum',
+                    'dumplings': 'titleDumplings', 'hotpot': 'titleHotpot'
+                };
+                const foodNameKey = foodTitleMap[pageNameBase];
+                const foodName = t[foodNameKey] || pageNameBase;
+                breadcrumbItems = [
+                    { name: t.navHome || 'Home', path: 'index.html' },
+                    { name: t.navFood || 'Cuisine', path: 'food.html' },
+                    { name: foodName, path: pageName }
+                ];
+            } else if (pageName === 'food.html') {
+                // Food listing page: Home → Cuisine
+                breadcrumbItems = [
+                    { name: t.navHome || 'Home', path: 'index.html' },
+                    { name: t.navFood || 'Cuisine', path: 'food.html' }
+                ];
+            }
+
+            if (breadcrumbItems) {
+                const breadcrumbSchema = {
+                    '@context': 'https://schema.org',
+                    '@type': 'BreadcrumbList',
+                    'itemListElement': breadcrumbItems.map((item, idx) => {
+                        const itemUrl = (lang === 'en')
+                            ? `${baseUrl}/${item.path}`
+                            : `${baseUrl}/${lang}/${item.path}`;
+                        return {
+                            '@type': 'ListItem',
+                            'position': idx + 1,
+                            'name': item.name,
+                            'item': itemUrl
+                        };
+                    })
+                };
+                const breadcrumbScript = `\n  <script type="application/ld+json">\n  ${JSON.stringify(breadcrumbSchema, null, 4)}\n  </script>\n`;
+                $page('head').append(breadcrumbScript);
+            }
+
             // --- D. Link Localization ---
- // Rewrite local links: href="beijing.html" -> href="/beijing.html" (en) or href="/zh-CN/beijing.html"
+// Rewrite local links: href="beijing.html" -> href="/beijing.html" (en) or href="/zh-CN/beijing.html"
  $page('a[href]').each((i, el) => {
  const href = $page(el).attr('href');
  if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:')) {
