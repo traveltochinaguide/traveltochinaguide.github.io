@@ -120,7 +120,10 @@ const translations = {
   contentHotpot: "<p>Hot pot or hotpot, also known as steamboat, is a cooking method that originates from China, prepared with a simmering pot of soup stock at the dining table, containing a variety of East Asian foodstuffs and ingredients.</p><p>Typical ingredients include thinly sliced meat, leaf vegetables, mushrooms, won tons, egg dumplings, tofu, and seafood. The cooked food is usually eaten with a dipping sauce.</p>",
   titleDumplings: "Dumplings (Jiaozi)",
   subtitleDumplings: "The Taste of Tradition and Prosperity",
-  contentDumplings: "<p>Jiaozi are a kind of Chinese dumpling, commonly eaten in China and other parts of East Asia. They are one of the major foods eaten during the Chinese New Year and year-round in the northern provinces.</p><p>They consist of a ground meat and/or vegetable filling wrapped into a thinly rolled piece of dough, which is then sealed by pressing the edges together.</p>"
+  contentDumplings: "<p>Jiaozi are a kind of Chinese dumpling, commonly eaten in China and other parts of East Asia. They are one of the major foods eaten during the Chinese New Year and year-round in the northern provinces.</p><p>They consist of a ground meat and/or vegetable filling wrapped into a thinly rolled piece of dough, which is then sealed by pressing the edges together.</p>",
+  carouselTitle4: "Xi'an",
+  carouselSubtitle4: "The ancient starting point of the Silk Road and home to the Terracotta Army.",
+  cityZhangjiajie: "Zhangjiajie"
  },
  'zh-CN': {
   metaTitle: "探索中国 — 文化与风景",
@@ -327,7 +330,10 @@ const translations = {
   natureYangtze: "Yangtze River",
   natureZhangjiajie: "Zhangjiajie",
   tipPaymentDesc: "Mobile payments like Alipay and WeChat Pay are dominant. It's recommended to set them up for convenience. Major credit cards are accepted in hotels and large stores.",
-  tipVisaDesc: "China has implemented a visa-free policy for many countries, including those in Europe and Asia, for short-term trips. However, policies are updated frequently. We strongly recommend checking the latest official announcements from your local Chinese Embassy or Consulate before your trip to confirm if you qualify for visa-free entry."
+  tipVisaDesc: "China has implemented a visa-free policy for many countries, including those in Europe and Asia, for short-term trips. However, policies are updated frequently. We strongly recommend checking the latest official announcements from your local Chinese Embassy or Consulate before your trip to confirm if you qualify for visa-free entry.",
+  carouselTitle4: "Xi'an",
+  carouselSubtitle4: "The ancient starting point of the Silk Road and home to the Terracotta Army.",
+  cityZhangjiajie: "Zhangjiajie"
  },
  'ko': {
   siteTitle: "차이나 투어",
@@ -429,7 +435,10 @@ const translations = {
   natureYangtze: "Yangtze River",
   natureZhangjiajie: "Zhangjiajie",
   tipPaymentDesc: "Mobile payments like Alipay and WeChat Pay are dominant. It's recommended to set them up for convenience. Major credit cards are accepted in hotels and large stores.",
-  tipVisaDesc: "China has implemented a visa-free policy for many countries, including those in Europe and Asia, for short-term trips. However, policies are updated frequently. We strongly recommend checking the latest official announcements from your local Chinese Embassy or Consulate before your trip to confirm if you qualify for visa-free entry."
+  tipVisaDesc: "China has implemented a visa-free policy for many countries, including those in Europe and Asia, for short-term trips. However, policies are updated frequently. We strongly recommend checking the latest official announcements from your local Chinese Embassy or Consulate before your trip to confirm if you qualify for visa-free entry.",
+  carouselTitle4: "Xi'an",
+  carouselSubtitle4: "The ancient starting point of the Silk Road and home to the Terracotta Army.",
+  cityZhangjiajie: "Zhangjiajie"
  },
  'ru': {
   siteTitle: "Тур по Китаю",
@@ -531,7 +540,10 @@ const translations = {
   natureYangtze: "Yangtze River",
   natureZhangjiajie: "Zhangjiajie",
   tipPaymentDesc: "Mobile payments like Alipay and WeChat Pay are dominant. It's recommended to set them up for convenience. Major credit cards are accepted in hotels and large stores.",
-  tipVisaDesc: "China has implemented a visa-free policy for many countries, including those in Europe and Asia, for short-term trips. However, policies are updated frequently. We strongly recommend checking the latest official announcements from your local Chinese Embassy or Consulate before your trip to confirm if you qualify for visa-free entry."
+  tipVisaDesc: "China has implemented a visa-free policy for many countries, including those in Europe and Asia, for short-term trips. However, policies are updated frequently. We strongly recommend checking the latest official announcements from your local Chinese Embassy or Consulate before your trip to confirm if you qualify for visa-free entry.",
+  carouselTitle4: "Xi'an",
+  carouselSubtitle4: "The ancient starting point of the Silk Road and home to the Terracotta Army.",
+  cityZhangjiajie: "Zhangjiajie"
  },
  'fr': {
   siteTitle: "Tour de Chine",
@@ -633,7 +645,10 @@ const translations = {
   natureYangtze: "Yangtze River",
   natureZhangjiajie: "Zhangjiajie",
   tipPaymentDesc: "Mobile payments like Alipay and WeChat Pay are dominant. It's recommended to set them up for convenience. Major credit cards are accepted in hotels and large stores.",
-  tipVisaDesc: "China has implemented a visa-free policy for many countries, including those in Europe and Asia, for short-term trips. However, policies are updated frequently. We strongly recommend checking the latest official announcements from your local Chinese Embassy or Consulate before your trip to confirm if you qualify for visa-free entry."
+  tipVisaDesc: "China has implemented a visa-free policy for many countries, including those in Europe and Asia, for short-term trips. However, policies are updated frequently. We strongly recommend checking the latest official announcements from your local Chinese Embassy or Consulate before your trip to confirm if you qualify for visa-free entry.",
+  carouselTitle4: "Xi'an",
+  carouselSubtitle4: "The ancient starting point of the Silk Road and home to the Terracotta Army.",
+  cityZhangjiajie: "Zhangjiajie"
  },
  'de': {
   siteTitle: "China Rundreise",
@@ -735,7 +750,10 @@ const translations = {
   natureYangtze: "Yangtze River",
   natureZhangjiajie: "Zhangjiajie",
   tipPaymentDesc: "Mobile payments like Alipay and WeChat Pay are dominant. It's recommended to set them up for convenience. Major credit cards are accepted in hotels and large stores.",
-  tipVisaDesc: "China has implemented a visa-free policy for many countries, including those in Europe and Asia, for short-term trips. However, policies are updated frequently. We strongly recommend checking the latest official announcements from your local Chinese Embassy or Consulate before your trip to confirm if you qualify for visa-free entry."
+  tipVisaDesc: "China has implemented a visa-free policy for many countries, including those in Europe and Asia, for short-term trips. However, policies are updated frequently. We strongly recommend checking the latest official announcements from your local Chinese Embassy or Consulate before your trip to confirm if you qualify for visa-free entry.",
+  carouselTitle4: "Xi'an",
+  carouselSubtitle4: "The ancient starting point of the Silk Road and home to the Terracotta Army.",
+  cityZhangjiajie: "Zhangjiajie"
  },
  'es': {
   siteTitle: "Tour por China",
@@ -837,7 +855,10 @@ const translations = {
   natureYangtze: "Yangtze River",
   natureZhangjiajie: "Zhangjiajie",
   tipPaymentDesc: "Mobile payments like Alipay and WeChat Pay are dominant. It's recommended to set them up for convenience. Major credit cards are accepted in hotels and large stores.",
-  tipVisaDesc: "China has implemented a visa-free policy for many countries, including those in Europe and Asia, for short-term trips. However, policies are updated frequently. We strongly recommend checking the latest official announcements from your local Chinese Embassy or Consulate before your trip to confirm if you qualify for visa-free entry."
+  tipVisaDesc: "China has implemented a visa-free policy for many countries, including those in Europe and Asia, for short-term trips. However, policies are updated frequently. We strongly recommend checking the latest official announcements from your local Chinese Embassy or Consulate before your trip to confirm if you qualify for visa-free entry.",
+  carouselTitle4: "Xi'an",
+  carouselSubtitle4: "The ancient starting point of the Silk Road and home to the Terracotta Army.",
+  cityZhangjiajie: "Zhangjiajie"
  }
 };
 
