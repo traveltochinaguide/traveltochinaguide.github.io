@@ -19,7 +19,8 @@ const pages = [
     'peking-duck.html',
     'dim-sum.html',
     'hotpot.html',
-    'dumplings.html'
+    'dumplings.html',
+    'visa.html'
 ];
 
 // Sitemap configuration
