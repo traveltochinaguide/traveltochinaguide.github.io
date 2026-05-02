@@ -373,6 +373,13 @@ function getTodayStr() {
                 }
             });
 
+            // --- E2. LCP Image Priority Hints ---
+            // Add fetchpriority="high" to above-the-fold hero images (the LCP elements)
+            // 1. Explicitly eager-loaded images (e.g. index.html carousel)
+            $page('img[loading="eager"]').attr('fetchpriority', 'high');
+            // 2. City-page hero images (id="city-image") — these are above the fold
+            $page('img#city-image').attr('fetchpriority', 'high');
+
 
             // --- F. SEO: hreflang ---
             $page('link[rel="alternate"][hreflang]').remove();
