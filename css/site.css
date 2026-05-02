@@ -86,7 +86,7 @@ html,body{font-family:var(--site-font);-webkit-font-smoothing:antialiased;-moz-o
   box-shadow:none !important;
   border-radius:0 !important;
   margin:0 !important;
-  ring:0 !important;
+  outline:0 !important;
   background:#f3f4f6 !important;
   max-height:0;
   overflow:hidden;
