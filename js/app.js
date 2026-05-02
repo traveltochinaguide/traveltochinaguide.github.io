@@ -152,9 +152,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const dot = document.createElement('button');
             dot.className = 'carousel-dot w-3 h-3 bg-white/50 rounded-full';
             dot.setAttribute('role', 'button');
+            dot.setAttribute('tabindex', '0');
             dot.setAttribute('aria-label', t[slide.dotKey] || ('Slide ' + (index + 1)));
             dot.setAttribute('aria-pressed', String(index === 0));
-            dot.addEventListener('click', () => { showSlide(index); stopCarousel(); });
+            dot.addEventListener('click', () => { showSlide(index); stopCarousel(); startCarousel(); });
+            dot.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') { showSlide(index); stopCarousel(); startCarousel(); e.preventDefault(); }
+            });
             if (carouselDotsContainer) carouselDotsContainer.appendChild(dot);
         });
     }
@@ -164,6 +168,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (carouselContainer) {
         carouselContainer.addEventListener('mouseenter', stopCarousel);
         carouselContainer.addEventListener('mouseleave', startCarousel);
+    }
+    // Keyboard accessibility: arrow key navigation when carousel container is focused
+    if (carouselContainer) {
+        carouselContainer.setAttribute('tabindex', '0');
+        carouselContainer.setAttribute('role', 'region');
+        carouselContainer.setAttribute('aria-label', 'Carousel');
+        carouselContainer.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') { prevSlide(); stopCarousel(); startCarousel(); e.preventDefault(); }
+            if (e.key === 'ArrowRight') { nextSlide(); stopCarousel(); startCarousel(); e.preventDefault(); }
+        });
     }
 
     // CITY MODAL TRIGGERS
