@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateCarouselDots = (index) => {
         document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
             dot.classList.toggle('active', i === index);
+            dot.setAttribute('aria-pressed', String(i === index));
         });
     };
 
@@ -118,10 +119,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
  // Carousel Init
     const carouselData = [
-        { id: 'great-wall', titleKey: 'carouselTitle1', subtitleKey: 'carouselSubtitle1', altKey: 'carouselAlt1', imgQuery: 'great wall,china' },
-        { id: 'shanghai', titleKey: 'carouselTitle2', subtitleKey: 'carouselSubtitle2', altKey: 'carouselAlt2', imgQuery: 'shanghai,skyline' },
-        { id: 'guilin', titleKey: 'carouselTitle3', subtitleKey: 'carouselSubtitle3', altKey: 'carouselAlt3', imgQuery: 'guilin,li river' },
-        { id: 'xian', titleKey: 'carouselTitle4', subtitleKey: 'carouselSubtitle4', altKey: 'carouselAlt4', imgQuery: 'terracotta army,xian' }
+        { id: 'great-wall', titleKey: 'carouselTitle1', subtitleKey: 'carouselSubtitle1', altKey: 'carouselAlt1', dotKey: 'carouselDot1', imgQuery: 'great wall,china' },
+        { id: 'shanghai', titleKey: 'carouselTitle2', subtitleKey: 'carouselSubtitle2', altKey: 'carouselAlt2', dotKey: 'carouselDot2', imgQuery: 'shanghai,skyline' },
+        { id: 'guilin', titleKey: 'carouselTitle3', subtitleKey: 'carouselSubtitle3', altKey: 'carouselAlt3', dotKey: 'carouselDot3', imgQuery: 'guilin,li river' },
+        { id: 'xian', titleKey: 'carouselTitle4', subtitleKey: 'carouselSubtitle4', altKey: 'carouselAlt4', dotKey: 'carouselDot4', imgQuery: 'terracotta army,xian' }
     ];
 
     if (carouselContainer && window.translations && window.translations[currentLang]) {
@@ -150,6 +151,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const dot = document.createElement('button');
             dot.className = 'carousel-dot w-3 h-3 bg-white/50 rounded-full';
+            dot.setAttribute('role', 'button');
+            dot.setAttribute('aria-label', t[slide.dotKey] || ('Slide ' + (index + 1)));
+            dot.setAttribute('aria-pressed', String(index === 0));
             dot.addEventListener('click', () => { showSlide(index); stopCarousel(); });
             if (carouselDotsContainer) carouselDotsContainer.appendChild(dot);
         });
