@@ -364,6 +364,106 @@ function getTodayStr() {
                 $page('head').append(breadcrumbScript);
             }
 
+            // --- C4. FAQPage JSON-LD Schema (visa.html only) ---
+            if (pageName === 'visa.html' && t.visaFreeCountriesTitle) {
+                const faqItems = [];
+
+                // Q1: Visa-free entry
+                if (t.visaFreeCountriesTitle && t.visaFreeCountriesDesc) {
+                    const q1Parts = [t.visaFreeCountriesDesc || ''];
+                    if (t.visaEurope) q1Parts.push(`${t.visaEurope}`);
+                    if (t.visaAsia) q1Parts.push(`${t.visaAsia}`);
+                    if (t.visaAmericas) q1Parts.push(`${t.visaAmericas}`);
+                    if (t.visaOceania) q1Parts.push(`${t.visaOceania}`);
+                    if (t.visaOther) q1Parts.push(`${t.visaOther}`);
+                    faqItems.push({
+                        '@type': 'Question',
+                        'name': t.visaFreeCountriesTitle,
+                        'acceptedAnswer': {
+                            '@type': 'Answer',
+                            'text': q1Parts.filter(Boolean).join(' ')
+                        }
+                    });
+                }
+
+                // Q2: Common visa types
+                if (t.visaTypesTitle) {
+                    const q2Parts = [];
+                    if (t.visaTypeL && t.visaTypeLDesc) q2Parts.push(`${t.visaTypeL}: ${t.visaTypeLDesc}`);
+                    if (t.visaTypeM && t.visaTypeMDesc) q2Parts.push(`${t.visaTypeM}: ${t.visaTypeMDesc}`);
+                    if (t.visaTypeF && t.visaTypeFDesc) q2Parts.push(`${t.visaTypeF}: ${t.visaTypeFDesc}`);
+                    if (t.visaTypeQ2 && t.visaTypeQ2Desc) q2Parts.push(`${t.visaTypeQ2}: ${t.visaTypeQ2Desc}`);
+                    if (q2Parts.length > 0) {
+                        faqItems.push({
+                            '@type': 'Question',
+                            'name': t.visaTypesTitle,
+                            'acceptedAnswer': { '@type': 'Answer', 'text': q2Parts.join(' ') }
+                        });
+                    }
+                }
+
+                // Q3: Document requirements
+                if (t.visaReqTitle) {
+                    const q3Parts = [];
+                    if (t.visaReqPassport) q3Parts.push(t.visaReqPassport);
+                    if (t.visaReqPhoto) q3Parts.push(t.visaReqPhoto);
+                    if (t.visaReqForm) q3Parts.push(t.visaReqForm);
+                    if (t.visaReqItinerary) q3Parts.push(t.visaReqItinerary);
+                    if (t.visaReqProof) q3Parts.push(t.visaReqProof);
+                    if (t.visaReqFee) q3Parts.push(t.visaReqFee);
+                    if (q3Parts.length > 0) {
+                        faqItems.push({
+                            '@type': 'Question',
+                            'name': t.visaReqTitle,
+                            'acceptedAnswer': { '@type': 'Answer', 'text': q3Parts.join('. ') }
+                        });
+                    }
+                }
+
+                // Q4: How to apply
+                if (t.visaApplyTitle) {
+                    const q4Parts = [];
+                    if (t.visaApplyStep1Title && t.visaApplyStep1Desc) q4Parts.push(`${t.visaApplyStep1Title}: ${t.visaApplyStep1Desc}`);
+                    if (t.visaApplyStep2Title && t.visaApplyStep2Desc) q4Parts.push(`${t.visaApplyStep2Title}: ${t.visaApplyStep2Desc}`);
+                    if (t.visaApplyStep3Title && t.visaApplyStep3Desc) q4Parts.push(`${t.visaApplyStep3Title}: ${t.visaApplyStep3Desc}`);
+                    if (t.visaApplyStep4Title && t.visaApplyStep4Desc) q4Parts.push(`${t.visaApplyStep4Title}: ${t.visaApplyStep4Desc}`);
+                    if (t.visaApplyStep5Title && t.visaApplyStep5Desc) q4Parts.push(`${t.visaApplyStep5Title}: ${t.visaApplyStep5Desc}`);
+                    if (q4Parts.length > 0) {
+                        faqItems.push({
+                            '@type': 'Question',
+                            'name': t.visaApplyTitle,
+                            'acceptedAnswer': { '@type': 'Answer', 'text': q4Parts.join(' ') }
+                        });
+                    }
+                }
+
+                // Q5: Essential travel tips
+                if (t.visaTipsTitle) {
+                    const q5Parts = [];
+                    if (t.visaTip1Title && t.visaTip1Desc) q5Parts.push(`${t.visaTip1Title}: ${t.visaTip1Desc}`);
+                    if (t.visaTip2Title && t.visaTip2Desc) q5Parts.push(`${t.visaTip2Title}: ${t.visaTip2Desc}`);
+                    if (t.visaTip3Title && t.visaTip3Desc) q5Parts.push(`${t.visaTip3Title}: ${t.visaTip3Desc}`);
+                    if (t.visaTip4Title && t.visaTip4Desc) q5Parts.push(`${t.visaTip4Title}: ${t.visaTip4Desc}`);
+                    if (q5Parts.length > 0) {
+                        faqItems.push({
+                            '@type': 'Question',
+                            'name': t.visaTipsTitle,
+                            'acceptedAnswer': { '@type': 'Answer', 'text': q5Parts.join(' ') }
+                        });
+                    }
+                }
+
+                if (faqItems.length > 0) {
+                    const faqSchema = {
+                        '@context': 'https://schema.org',
+                        '@type': 'FAQPage',
+                        'mainEntity': faqItems
+                    };
+                    const faqScript = `\n  <script type="application/ld+json">\n  ${JSON.stringify(faqSchema, null, 4)}\n  </script>\n`;
+                    $page('head').append(faqScript);
+                }
+            }
+
             // --- D. Link Localization ---
 // Rewrite local links: href="beijing.html" -> href="/beijing.html" (en) or href="/zh-CN/beijing.html"
  $page('a[href]').each((i, el) => {
