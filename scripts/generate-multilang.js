@@ -403,6 +403,11 @@ function getTodayStr() {
             $page('img#city-image').attr('fetchpriority', 'high');
 
 
+            // --- E3. Preload type hints ---
+            // Add explicit type="image/webp" to WebP preloads so browsers don't need to content-sniff
+            $page('link[rel="preload"][href$=".webp"]').attr('type', 'image/webp');
+
+
             // --- F. SEO: hreflang ---
             $page('link[rel="alternate"][hreflang]').remove();
             const hreflangs = [];
