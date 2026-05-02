@@ -211,6 +211,26 @@ function getTodayStr() {
                 }
             }
 
+            // --- C1. WebSite JSON-LD Localization (index.html only) ---
+            // The WebSite schema in index.html has hardcoded EN name/description.
+            // Update them from the already-localized translations.
+            if (pageName === 'index.html') {
+                $page('script[type="application/ld+json"]').each((i, el) => {
+                    const raw = $page(el).html();
+                    if (!raw) return;
+                    try {
+                        const data = JSON.parse(raw);
+                        if (data['@type'] === 'WebSite') {
+                            if (t.siteTitle) data.name = t.siteTitle;
+                            if (t.metaDescription) data.description = t.metaDescription;
+                            $page(el).html('\n        ' + JSON.stringify(data, null, 4) + '\n    ');
+                        }
+                    } catch (e) {
+                        // Not JSON or parse error — leave unchanged
+                    }
+                });
+            }
+
             // --- C2. JSON-LD Schema — Upgrade Article → Recipe (Food Pages) ---
             const foodPageJsonLdMap = {
                 'peking-duck': { titleKey: 'titlePekingDuck', descKey: 'metaDescPekingDuck',
