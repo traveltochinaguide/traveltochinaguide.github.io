@@ -166,6 +166,9 @@ function getTodayStr() {
                         } else if (el.tagName === 'img') {
                             // Translate img alt text (accessibility — localized alt for all languages)
                             $page(el).attr('alt', t[key]);
+                        } else if ($page(el).attr('aria-label') !== undefined) {
+                            // Translate aria-label (e.g. icon-only buttons like carousel prev/next)
+                            $page(el).attr('aria-label', t[key]);
                         } else {
  if (typeof t[key] === 'string' && /<[a-z][\s\S]*>/i.test(t[key])) {
  $page(el).html(t[key]);
