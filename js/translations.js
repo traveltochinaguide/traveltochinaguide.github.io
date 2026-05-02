@@ -191,6 +191,8 @@ const translations = {
   visaTypeQ2: "Q2 Family Visit Visa",
   visaTypeQ2Desc: "For visits to Chinese citizens or residents who are immediate family. Longer validity and multiple entry options available.",
   visaTypesTitle: "Common Visa Types",
+  themeColor: "#2563eb",
+  colorScheme: "normal"
  },
   'zh-CN': {
   metaTitle: "探索中国 — 文化与风景",
@@ -363,8 +365,10 @@ const translations = {
   visaTypeQ2: "Q2 探亲签证",
   visaTypeQ2Desc: "用于探访中国公民或在华居民的直系亲属。可获得更长的有效期和多次入境选项。",
   visaTypesTitle: "常见签证类型",
+  themeColor: "#2563eb",
+  colorScheme: "normal"
  },
- 'ja': {
+'ja': {
   siteTitle: "チャイナツアー",
   navHome: "ホーム",
   navCulture: "文化",
@@ -535,6 +539,8 @@ const translations = {
   visaTypeQ2: "Q2 家族訪問ビザ",
   visaTypeQ2Desc: "中国の市民または在住者の直近の家族訪問向け。より長い有効期間と複数入境オプションがあります。",
   visaTypesTitle: "一般的なビザの種類",
+  themeColor: "#2563eb",
+  colorScheme: "normal"
  },
  'ko': {
   siteTitle: "차이나 투어",
@@ -707,6 +713,8 @@ const translations = {
   visaTypeQ2: "Q2 가족 방문 비트",
   visaTypeQ2Desc: "중국의 시민 또는 거주자의直近 가족 방문용. 더 긴 유효 기간과 다중 입국 옵션이 있습니다.",
   visaTypesTitle: "흔한 비트 종류",
+  themeColor: "#2563eb",
+  colorScheme: "normal"
  },
  'ru': {
   siteTitle: "Тур по Китаю",
@@ -879,6 +887,8 @@ const translations = {
   visaTypeQ2: "Виза для посещения семьи (Q2)",
   visaTypeQ2Desc: "Для визитов к китайским гражданам или резидентам, являющимся близкими родственниками. Доступны более длительный срок действия и многократный въезд.",
   visaTypesTitle: "Распространенные типы виз",
+  themeColor: "#2563eb",
+  colorScheme: "normal"
  },
  'fr': {
   siteTitle: "Tour de Chine",
@@ -1051,6 +1061,8 @@ const translations = {
   visaTypeQ2: "Visa de visite familiale Q2",
   visaTypeQ2Desc: "Pour les visites aux citoyens chinois ou aux résidents qui sont des membres de la famille immédiate. Options de validité prolongée et d'entrée multiple disponibles.",
   visaTypesTitle: "Types de visas courants",
+  themeColor: "#2563eb",
+  colorScheme: "normal"
  },
  'de': {
   siteTitle: "China Rundreise",
@@ -1223,6 +1235,8 @@ const translations = {
   visaTypeQ2: "Familienbesuchsvisum Q2",
   visaTypeQ2Desc: "Für Besuche bei chinesischen Bürgern oder Einwohnern, die unmittelbare Familienangehörige sind. Längere Gültigkeit und Optionen für mehrfache Einreise verfügbar.",
   visaTypesTitle: "Häufige Visumarten",
+  themeColor: "#2563eb",
+  colorScheme: "normal"
  },
  'es': {
   siteTitle: "Tour por China",
@@ -1395,6 +1409,8 @@ const translations = {
   visaTypeQ2: "Visa de visita familiar Q2",
   visaTypeQ2Desc: "Para visitas a ciudadanos chinos o residentes que son familiares directos. Opciones de validez prolongada y entrada múltiple disponibles.",
   visaTypesTitle: "Tipos de visa comunes",
+  themeColor: "#2563eb",
+  colorScheme: "normal"
 
  }
 };

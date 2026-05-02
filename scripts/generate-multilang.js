@@ -408,6 +408,24 @@ function getTodayStr() {
             $page('link[rel="preload"][href$=".webp"]').attr('type', 'image/webp');
 
 
+            // --- E4. Mobile Browser Chrome: theme-color + color-scheme ---
+            // Sets browser chrome color on mobile devices (improves UX/brand feel)
+            // Remove any existing ones first (in case of re-runs)
+            $page('meta[name="theme-color"]').remove();
+            $page('meta[name="color-scheme"]').remove();
+            // Insert right after viewport meta tag for correct ordering
+            if (t.themeColor) {
+                $page('meta[name="viewport"]').after(
+                    `\n    <meta name="theme-color" content="${t.themeColor}">`
+                );
+            }
+            if (t.colorScheme) {
+                $page('meta[name="viewport"]').after(
+                    `\n    <meta name="color-scheme" content="${t.colorScheme}">`
+                );
+            }
+
+
             // --- F. SEO: hreflang ---
             $page('link[rel="alternate"][hreflang]').remove();
             const hreflangs = [];
