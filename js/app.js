@@ -118,10 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
  // Carousel Init
     const carouselData = [
-        { id: 'great-wall', titleKey: 'carouselTitle1', subtitleKey: 'carouselSubtitle1', imgQuery: 'great wall,china' },
-        { id: 'shanghai', titleKey: 'carouselTitle2', subtitleKey: 'carouselSubtitle2', imgQuery: 'shanghai,skyline' },
-        { id: 'guilin', titleKey: 'carouselTitle3', subtitleKey: 'carouselSubtitle3', imgQuery: 'guilin,li river' },
-        { id: 'xian', titleKey: 'carouselTitle4', subtitleKey: 'carouselSubtitle4', imgQuery: 'terracotta army,xian' }
+        { id: 'great-wall', titleKey: 'carouselTitle1', subtitleKey: 'carouselSubtitle1', altKey: 'carouselAlt1', imgQuery: 'great wall,china' },
+        { id: 'shanghai', titleKey: 'carouselTitle2', subtitleKey: 'carouselSubtitle2', altKey: 'carouselAlt2', imgQuery: 'shanghai,skyline' },
+        { id: 'guilin', titleKey: 'carouselTitle3', subtitleKey: 'carouselSubtitle3', altKey: 'carouselAlt3', imgQuery: 'guilin,li river' },
+        { id: 'xian', titleKey: 'carouselTitle4', subtitleKey: 'carouselSubtitle4', altKey: 'carouselAlt4', imgQuery: 'terracotta army,xian' }
     ];
 
     if (carouselContainer && window.translations && window.translations[currentLang]) {
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (slide.id === 'xian') imgSrc = xianImg;
 
             slideEl.innerHTML = `<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            <img loading="lazy" decoding="async" src="${imgSrc}" width="1920" height="1080" class="w-full h-full object-cover" alt="${slide.imgQuery}">
+            <img loading="lazy" decoding="async" src="${imgSrc}" width="1920" height="1080" class="w-full h-full object-cover" alt="${t[slide.altKey] || slide.imgQuery}">
             <div class="absolute inset-0 flex items-center justify-center"><div class="text-center text-white p-8 max-w-3xl">
             <h2 class="text-5xl md:text-7xl font-extrabold mb-4 text-shadow-lg">${t[slide.titleKey]}</h2>
             <p class="text-xl md:text-2xl text-shadow">${t[slide.subtitleKey]}</p></div></div>`;
