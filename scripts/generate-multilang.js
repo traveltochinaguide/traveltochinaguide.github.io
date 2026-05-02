@@ -361,6 +361,15 @@ function getTodayStr() {
                     })
                 };
                 const breadcrumbScript = `\n  <script type="application/ld+json">\n  ${JSON.stringify(breadcrumbSchema, null, 4)}\n  </script>\n`;
+                // Remove any existing BreadcrumbList JSON-LD scripts first (make idempotent — running multiple times won't duplicate)
+                $page('head').find('script[type="application/ld+json"]').each((i, el) => {
+                    try {
+                        const data = JSON.parse($page(el).html());
+                        if (data['@type'] === 'BreadcrumbList') {
+                            $page(el).remove();
+                        }
+                    } catch (e) { /* not JSON, leave it */ }
+                });
                 $page('head').append(breadcrumbScript);
             }
 
@@ -460,6 +469,15 @@ function getTodayStr() {
                         'mainEntity': faqItems
                     };
                     const faqScript = `\n  <script type="application/ld+json">\n  ${JSON.stringify(faqSchema, null, 4)}\n  </script>\n`;
+                    // Remove any existing FAQPage JSON-LD scripts first (make idempotent)
+                    $page('head').find('script[type="application/ld+json"]').each((i, el) => {
+                        try {
+                            const data = JSON.parse($page(el).html());
+                            if (data['@type'] === 'FAQPage') {
+                                $page(el).remove();
+                            }
+                        } catch (e) { /* not JSON, leave it */ }
+                    });
                     $page('head').append(faqScript);
                 }
             }
