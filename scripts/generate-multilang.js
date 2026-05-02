@@ -161,9 +161,12 @@ function getTodayStr() {
                     if (t[key]) {
                         if (el.tagName === 'meta') {
                             $page(el).attr('content', t[key]);
-                        } else if (el.tagName === 'input' || el.tagName === 'textarea') {
+} else if (el.tagName === 'input' || el.tagName === 'textarea') {
                             $page(el).attr('placeholder', t[key]);
- } else {
+                        } else if (el.tagName === 'img') {
+                            // Translate img alt text (accessibility — localized alt for all languages)
+                            $page(el).attr('alt', t[key]);
+                        } else {
  if (typeof t[key] === 'string' && /<[a-z][\s\S]*>/i.test(t[key])) {
  $page(el).html(t[key]);
  } else if ($page(el).attr('aria-haspopup')) {

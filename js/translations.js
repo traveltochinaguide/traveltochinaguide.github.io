@@ -192,7 +192,21 @@ const translations = {
   visaTypeQ2Desc: "For visits to Chinese citizens or residents who are immediate family. Longer validity and multiple entry options available.",
   visaTypesTitle: "Common Visa Types",
   themeColor: "#2563eb",
-  colorScheme: "normal"
+
+    altGreatWall: "The Great Wall",
+    altBeijing: "Beijing",
+    altShanghai: "Shanghai",
+    altXian: "Xi'an",
+    altGuilin: "Guilin",
+    altZhangjiajie: "Zhangjiajie",
+    altJiuzhaigou: "Jiuzhaigou",
+    altYangtze: "Yangtze River",
+    altPekingDuck: "Peking Duck",
+    altDimSum: "Dim Sum",
+    altHotpot: "Hotpot",
+    altDumplings: "Dumplings",
+    altCityImage: "City Image",
+    colorScheme: "normal"
  },
   'zh-CN': {
   metaTitle: "探索中国 — 文化与风景",
@@ -366,7 +380,21 @@ const translations = {
   visaTypeQ2Desc: "用于探访中国公民或在华居民的直系亲属。可获得更长的有效期和多次入境选项。",
   visaTypesTitle: "常见签证类型",
   themeColor: "#2563eb",
-  colorScheme: "normal"
+
+    altGreatWall: "长城",
+    altBeijing: "北京",
+    altShanghai: "上海",
+    altXian: "西安",
+    altGuilin: "桂林",
+    altZhangjiajie: "张家界",
+    altJiuzhaigou: "九寨沟",
+    altYangtze: "长江",
+    altPekingDuck: "北京烤鸭",
+    altDimSum: "点心",
+    altHotpot: "火锅",
+    altDumplings: "饺子",
+    altCityImage: "城市图片",
+    colorScheme: "normal"
  },
 'ja': {
   siteTitle: "チャイナツアー",
@@ -540,7 +568,21 @@ const translations = {
   visaTypeQ2Desc: "中国の市民または在住者の直近の家族訪問向け。より長い有効期間と複数入境オプションがあります。",
   visaTypesTitle: "一般的なビザの種類",
   themeColor: "#2563eb",
-  colorScheme: "normal"
+
+    altGreatWall: "万里の長城",
+    altBeijing: "北京",
+    altShanghai: "上海",
+    altXian: "西安",
+    altGuilin: "桂林",
+    altZhangjiajie: "张家界",
+    altJiuzhaigou: "九寨溝",
+    altYangtze: "長江",
+    altPekingDuck: "北京ダック",
+    altDimSum: "点心（ディムサム）",
+    altHotpot: "火鍋",
+    altDumplings: "餃子",
+    altCityImage: "都市画像",
+    colorScheme: "normal"
  },
  'ko': {
   siteTitle: "차이나 투어",
@@ -714,7 +756,21 @@ const translations = {
   visaTypeQ2Desc: "중국의 시민 또는 거주자의直近 가족 방문용. 더 긴 유효 기간과 다중 입국 옵션이 있습니다.",
   visaTypesTitle: "흔한 비트 종류",
   themeColor: "#2563eb",
-  colorScheme: "normal"
+
+    altGreatWall: "만리장성",
+    altBeijing: "베이징",
+    altShanghai: "상하이",
+    altXian: "시안",
+    altGuilin: "구이린",
+    altZhangjiajie: "장자제",
+    altJiuzhaigou: "구저이거우",
+    altYangtze: "양쯔강",
+    altPekingDuck: "북경오리",
+    altDimSum: "딤섬",
+    altHotpot: "핫팟",
+    altDumplings: "만두",
+    altCityImage: "도시 이미지",
+    colorScheme: "normal"
  },
  'ru': {
   siteTitle: "Тур по Китаю",
@@ -888,7 +944,21 @@ const translations = {
   visaTypeQ2Desc: "Для визитов к китайским гражданам или резидентам, являющимся близкими родственниками. Доступны более длительный срок действия и многократный въезд.",
   visaTypesTitle: "Распространенные типы виз",
   themeColor: "#2563eb",
-  colorScheme: "normal"
+
+    altGreatWall: "Великая Китайская Стена",
+    altBeijing: "Пекин",
+    altShanghai: "Шанхай",
+    altXian: "Сиань",
+    altGuilin: "Гуйлинь",
+    altZhangjiajie: "Чжанцзяцзе",
+    altJiuzhaigou: "Цзючжайгоу",
+    altYangtze: "Река Янцзы",
+    altPekingDuck: "Пекинская утка",
+    altDimSum: "Димянь (димсам)",
+    altHotpot: "Хотпот (китайский самовар)",
+    altDumplings: "Цзяоцзы (пельмени)",
+    altCityImage: "Изображение города",
+    colorScheme: "normal"
  },
  'fr': {
   siteTitle: "Tour de Chine",
@@ -1062,7 +1132,21 @@ const translations = {
   visaTypeQ2Desc: "Pour les visites aux citoyens chinois ou aux résidents qui sont des membres de la famille immédiate. Options de validité prolongée et d'entrée multiple disponibles.",
   visaTypesTitle: "Types de visas courants",
   themeColor: "#2563eb",
-  colorScheme: "normal"
+
+    altGreatWall: "La Grande Muraille",
+    altBeijing: "Pékin",
+    altShanghai: "Shanghai",
+    altXian: "Xi'an",
+    altGuilin: "Guilin",
+    altZhangjiajie: "Zhangjiajie",
+    altJiuzhaigou: "Jiuzhaigou",
+    altYangtze: "Le Fleuve Yangtzé",
+    altPekingDuck: "Canard laqué de Péking",
+    altDimSum: "Dim Sum",
+    altHotpot: "Hotpot",
+    altDumplings: "Jiaozi (Boulettes)",
+    altCityImage: "Image de la ville",
+    colorScheme: "normal"
  },
  'de': {
   siteTitle: "China Rundreise",
@@ -1236,7 +1320,21 @@ const translations = {
   visaTypeQ2Desc: "Für Besuche bei chinesischen Bürgern oder Einwohnern, die unmittelbare Familienangehörige sind. Längere Gültigkeit und Optionen für mehrfache Einreise verfügbar.",
   visaTypesTitle: "Häufige Visumarten",
   themeColor: "#2563eb",
-  colorScheme: "normal"
+
+    altGreatWall: "Die Große Mauer",
+    altBeijing: "Peking",
+    altShanghai: "Shanghai",
+    altXian: "Xi'an",
+    altGuilin: "Guilin",
+    altZhangjiajie: "Zhangjiajie",
+    altJiuzhaigou: "Jiuzhaigou",
+    altYangtze: "Der Jangtsekiang",
+    altPekingDuck: "Pekingente",
+    altDimSum: "Dim Sum",
+    altHotpot: "Hotpot",
+    altDumplings: "Jiaozi (Teigtaschen)",
+    altCityImage: "Stadtbild",
+    colorScheme: "normal"
  },
  'es': {
   siteTitle: "Tour por China",
@@ -1410,7 +1508,21 @@ const translations = {
   visaTypeQ2Desc: "Para visitas a ciudadanos chinos o residentes que son familiares directos. Opciones de validez prolongada y entrada múltiple disponibles.",
   visaTypesTitle: "Tipos de visa comunes",
   themeColor: "#2563eb",
-  colorScheme: "normal"
+
+    altGreatWall: "La Gran Muralla China",
+    altBeijing: "Pekín",
+    altShanghai: "Shanghái",
+    altXian: "Xi'an",
+    altGuilin: "Guilín",
+    altZhangjiajie: "Zhangjiajie",
+    altJiuzhaigou: "Jiuzhaigou",
+    altYangtze: "Río Yangtsé",
+    altPekingDuck: "Pato Pekinés",
+    altDimSum: "Dim Sum",
+    altHotpot: "Hotpot",
+    altDumplings: "Jiaozi (Dumplings)",
+    altCityImage: "Imagen de la ciudad",
+    colorScheme: "normal"
 
  }
 };
