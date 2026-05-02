@@ -1,40 +1,172 @@
 <!DOCTYPE html><html lang="en"><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title id="page-title">China Tour - Culture, Scenery &amp; Cuisine</title>
-  <meta name="description" id="meta-desc" content="Explore China with city guides (Beijing, Shanghai), Guilin scenery, Great Wall tours, authentic cuisine, and practical travel tips.">
-  <link rel="canonical" href="https://travelchinaguide.dpdns.org/yangtze.html">
-  <meta name="robots" content="index, follow">
-  <meta property="og:url" content="https://travelchinaguide.dpdns.org/yangtze.html">
-  <meta property="twitter:url" content="https://travelchinaguide.dpdns.org/yangtze.html">
-  <meta property="og:image" content="https://www.travelchinaguide.dpdns.org/images/hero-yangtze.webp">
-  <meta name="twitter:image" content="https://www.travelchinaguide.dpdns.org/images/hero-yangtze.webp">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Inline SVG favicon to avoid 404 during local testing -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%233b82f6'/%3E%3Ctext%20x='50'%20y='60'%20font-size='60'%20text-anchor='middle'%20fill='white'%3EC%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+    <title data-lang-key="metaTitle">China Tour - Culture, Scenery &amp; Cuisine</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore China with city guides (Beijing, Shanghai), Guilin scenery, Great Wall tours, authentic cuisine, and practical travel tips." data-lang-key="metaDescription">
+    <meta name="keywords" content="China travel, tourism in China, Beijing tour, Shanghai guide, Great Wall, Forbidden City, Terracotta Army, Guilin, Chinese food, China trip planner" data-lang-key="metaKeywords">
+    <meta name="author" content="China Tour Guide">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://travelchinaguide.dpdns.org/index.html">
+    <meta property="og:title" content="China Tour - Culture, Scenery &amp; Cuisine" data-lang-key="metaTitle">
+    <meta property="og:description" content="Explore China with city guides (Beijing, Shanghai), Guilin scenery, Great Wall tours, authentic cuisine, and practical travel tips." data-lang-key="metaDescription">
+    <meta property="og:image" content="https://www.travelchinaguide.dpdns.org/images/hero-great-wall.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://travelchinaguide.dpdns.org/index.html">
+    <meta property="twitter:title" content="China Tour - Culture, Scenery &amp; Cuisine" data-lang-key="metaTitle">
+    <meta property="twitter:description" content="Explore China with city guides (Beijing, Shanghai), Guilin scenery, Great Wall tours, authentic cuisine, and practical travel tips." data-lang-key="metaDescription">
+    <meta property="twitter:image" content="https://www.travelchinaguide.dpdns.org/images/hero-great-wall.webp">
+
+    <!-- Preload LCP hero image (Great Wall) -->
+    <link rel="preload" as="image" href="/images/hero-great-wall.webp">
+
+    <link rel="canonical" href="https://travelchinaguide.dpdns.org/index.html">
+    <meta name="robots" content="index, follow">
+        <!-- Tailwind CSS for styling -->
+    <!-- Tailwind CSS (Local Build) -->
+    <link rel="stylesheet" href="/css/output.css">
+
+    <!-- Google Fonts preload + shared site CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;family=Noto+Sans+SC:wght@400;500;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" onload="this.rel='stylesheet'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="/css/site.css">
+    <!-- Preconnect for image hosts to improve image fetch latency -->
+
+    <style>
+        /* page-specific tweaks (kept small) */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        .card-img {
+            transition: transform 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background-color: #2563eb;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.7s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .carousel-slide {
+            transition: opacity 1.2s ease-in-out;
+        }
 
-  <link rel="stylesheet" href="/css/output.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Noto+Sans+SC:wght@400;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/site.css">
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-05YEPPRR5S"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+        #city-detail-modal {
+            transition: opacity 0.3s ease;
+        }
 
-    gtag('config', 'G-05YEPPRR5S');
-  </script>
+        #city-detail-modal-content {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
 
+        .prose h1,
+        .prose h2,
+        .prose h3 {
+            margin-top: 1.25em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
 
+        .prose p {
+            margin-bottom: 1em;
+            line-height: 1.75;
+        }
 
+        .prose ul {
+            list-style-position: outside;
+            padding-left: 1.5rem;
+        }
 
+        .prose li {
+            margin-bottom: 0.5em;
+        }
 
+        .gradient-text {
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
 
+        .section-heading {
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
 
+        .carousel-dot {
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
+        .carousel-dot.active {
+            background-color: white;
+            transform: scale(1.25);
+        }
+    </style>
 
+    <!-- JSON-LD for SEO -->
+    <script type="application/ld+json">
+        {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "China Tour",
+    "url": "https://www.travelchinaguide.dpdns.org/",
+    "description": "Explore China with city guides (Beijing, Shanghai), Guilin scenery, Great Wall tours, authentic cuisine, and practical travel tips.",
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.travelchinaguide.dpdns.org/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    }
+}
+    </script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-05YEPPRR5S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
+        gtag('config', 'G-05YEPPRR5S');
+    </script>
 
 
 
@@ -206,531 +338,68 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+    
+    
+    
+    
+    
+    
+    
+      
   
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Popular Cities",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Yangtze River",
-            "item": "https://travelchinaguide.dpdns.org/yangtze.html"
-        }
-    ]
-}
-  </script>
-
-
-
-
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Popular Cities",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Yangtze River",
-            "item": "https://travelchinaguide.dpdns.org/yangtze.html"
-        }
-    ]
-}
-  </script>
-
-
-
-
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Popular Cities",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Yangtze River",
-            "item": "https://travelchinaguide.dpdns.org/yangtze.html"
-        }
-    ]
-}
-  </script>
-
-
-
-
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Popular Cities",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Yangtze River",
-            "item": "https://travelchinaguide.dpdns.org/yangtze.html"
-        }
-    ]
-}
-  </script>
-
-
-
-
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Popular Cities",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Yangtze River",
-            "item": "https://travelchinaguide.dpdns.org/yangtze.html"
-        }
-    ]
-}
-  </script>
-
-
-
-
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Popular Cities",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Yangtze River",
-            "item": "https://travelchinaguide.dpdns.org/yangtze.html"
-        }
-    ]
-}
-  </script>
-
-
-
-
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Popular Cities",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Yangtze River",
-            "item": "https://travelchinaguide.dpdns.org/yangtze.html"
-        }
-    ]
-}
-  </script>
-
-
-
-
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Popular Cities",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Yangtze River",
-            "item": "https://travelchinaguide.dpdns.org/yangtze.html"
-        }
-    ]
-}
-  </script>
-
-
-
-
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Popular Cities",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Yangtze River",
-            "item": "https://travelchinaguide.dpdns.org/yangtze.html"
-        }
-    ]
-}
-  </script>
-
-
-
-
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Popular Cities",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Yangtze River",
-            "item": "https://travelchinaguide.dpdns.org/yangtze.html"
-        }
-    ]
-}
-  </script>
-
-
-
-
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Popular Cities",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Yangtze River",
-            "item": "https://travelchinaguide.dpdns.org/yangtze.html"
-        }
-    ]
-}
-  </script>
-
-
-
-
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Popular Cities",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Yangtze River",
-            "item": "https://travelchinaguide.dpdns.org/yangtze.html"
-        }
-    ]
-}
-  </script>
-
-
-
-
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Popular Cities",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Yangtze River",
-            "item": "https://travelchinaguide.dpdns.org/yangtze.html"
-        }
-    ]
-}
-  </script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2274290381465979" crossorigin="anonymous"></script>
 
   
   
@@ -741,49 +410,428 @@
   
   
   
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Popular Cities",
-            "item": "https://travelchinaguide.dpdns.org/index.html"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Yangtze River",
-            "item": "https://travelchinaguide.dpdns.org/yangtze.html"
-        }
-    ]
-}
-  </script>
-<link rel="alternate" href="https://travelchinaguide.dpdns.org/yangtze.html" hreflang="x-default">
-  <link rel="alternate" href="https://travelchinaguide.dpdns.org/yangtze.html" hreflang="en">
-  <link rel="alternate" href="https://travelchinaguide.dpdns.org/zh-CN/yangtze.html" hreflang="zh-CN">
-  <link rel="alternate" href="https://travelchinaguide.dpdns.org/ja/yangtze.html" hreflang="ja">
-  <link rel="alternate" href="https://travelchinaguide.dpdns.org/ko/yangtze.html" hreflang="ko">
-  <link rel="alternate" href="https://travelchinaguide.dpdns.org/ru/yangtze.html" hreflang="ru">
-  <link rel="alternate" href="https://travelchinaguide.dpdns.org/fr/yangtze.html" hreflang="fr">
-  <link rel="alternate" href="https://travelchinaguide.dpdns.org/de/yangtze.html" hreflang="de">
-  <link rel="alternate" href="https://travelchinaguide.dpdns.org/es/yangtze.html" hreflang="es">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link rel="alternate" href="https://travelchinaguide.dpdns.org/index.html" hreflang="x-default">
+  <link rel="alternate" href="https://travelchinaguide.dpdns.org/index.html" hreflang="en">
+  <link rel="alternate" href="https://travelchinaguide.dpdns.org/zh-CN/index.html" hreflang="zh-CN">
+  <link rel="alternate" href="https://travelchinaguide.dpdns.org/ja/index.html" hreflang="ja">
+  <link rel="alternate" href="https://travelchinaguide.dpdns.org/ko/index.html" hreflang="ko">
+  <link rel="alternate" href="https://travelchinaguide.dpdns.org/ru/index.html" hreflang="ru">
+  <link rel="alternate" href="https://travelchinaguide.dpdns.org/fr/index.html" hreflang="fr">
+  <link rel="alternate" href="https://travelchinaguide.dpdns.org/de/index.html" hreflang="de">
+  <link rel="alternate" href="https://travelchinaguide.dpdns.org/es/index.html" hreflang="es">
   </head>
 <!-- Google tag (gtag.js) -->
 
 
 
-<body class="text-gray-800">
-  <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2274290381465979" crossorigin="anonymous"></script>
-  <header class="site-header bg-white/90 backdrop-blur-xl sticky top-0 z-50 shadow-md shadow-gray-200/20">
+<body class="text-gray-700 antialiased">
+
+    <!-- Header & Navigation -->
+ <header class="site-header bg-white/90 backdrop-blur-xl sticky top-0 z-50 shadow-md shadow-gray-200/20">
  <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
  <div class="text-xl font-extrabold text-blue-700 flex items-center gap-2 shrink-0">
  <a href="/index.html" class="text-xl font-extrabold text-blue-700">China Tour</a>
@@ -827,43 +875,252 @@
  </nav>
  </header>
 
-  <main class="container mx-auto px-6 py-12">
-    <article class="bg-white rounded-2xl shadow-lg overflow-hidden">
-      <div class="relative">
-        <link rel="preload" as="image" href="/images/hero-yangtze.webp">
-        <img id="city-image" src="/images/hero-yangtze.webp" alt="Yangtze River" width="1600" height="900" class="w-full h-72 sm:h-96 object-cover" fetchpriority="high">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
-        <div class="absolute left-6 sm:left-12 bottom-6 sm:bottom-10 text-white max-w-3xl">
-          <h1 id="city-name" class="text-3xl sm:text-5xl font-extrabold drop-shadow-lg leading-tight">Yangtze River</h1>
-          <p id="city-sub" class="mt-2 text-sm sm:text-base text-white/90 max-w-2xl">Cruise through the majestic Three Gorges, a lifeline of Chinese civilization.</p>
-          <div id="hero-badges" class="mt-4 flex flex-wrap gap-3"></div>
+    <!-- Top Banner Ad -->
+    <div class="ad-banner-top">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2274290381465979" data-ad-slot="5999599693" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Left Sidebar Ad (wide screens only) -->
+    <div class="ad-sidebar ad-sidebar-left">
+        <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-2274290381465979" data-ad-slot="5999599693"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Right Sidebar Ad (wide screens only) -->
+    <div class="ad-sidebar ad-sidebar-right">
+        <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-2274290381465979" data-ad-slot="5999599693"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <main id="main-content">
+        <!-- Hero Carousel Section -->
+        <section id="hero-carousel" class="relative w-full h-[75vh] overflow-hidden">
+            <!-- Slides will be inserted here by JS -->
+            <div class="carousel-slide absolute inset-0 w-full h-full opacity-100">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <!-- Eager load the LCP image -->
+                <img loading="eager" decoding="sync" src="/images/hero-great-wall.webp" width="1920" height="1080" class="w-full h-full object-cover" alt="The Great Wall" fetchpriority="high">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-center text-white p-8 max-w-3xl">
+                        <h2 class="text-5xl md:text-7xl font-extrabold mb-4 text-shadow-lg" data-lang-key="carouselTitle1">The Great Wall</h2>
+                        <p class="text-xl md:text-2xl text-shadow" data-lang-key="carouselSubtitle1">A majestic wonder of the ancient world.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex space-x-3" id="carousel-dots">
+                <!-- Dots will be inserted here -->
+            </div>
+            <button id="prev-slide" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/60 hover:bg-white text-gray-800 p-3 rounded-full shadow-xl z-10 transition-all duration-300 hover:scale-110">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button id="next-slide" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/60 hover:bg-white text-gray-800 p-3 rounded-full shadow-xl z-10 transition-all duration-300 hover:scale-110">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </section>
+
+        <!-- Famous Cities Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl section-heading mb-4" data-lang-key="citiesTitle">Iconic Cities</h2>
+                <p class="text-gray-600 mb-16 max-w-2xl mx-auto text-lg" data-lang-key="citiesDescription">From imperial capitals to futuristic metropolises, discover the vibrant heart of China.</p>
+                <div id="city-card-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Beijing -->
+                    <a href="/beijing.html" class="block city-link">
+                        <div class="card rounded-2xl shadow-lg overflow-hidden">
+                            <img src="/images/hero-great-wall.webp" alt="Beijing" width="400" height="300" class="w-full h-56 object-cover card-img">
+                            <div class="p-6 bg-white">
+                                <h3 class="font-bold text-xl" data-lang-key="cityBeijing">Beijing</h3>
+                                <p class="text-gray-600 mt-2" data-lang-key="descBeijing">The imperial capital, home to the Forbidden City and the Great Wall.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Shanghai -->
+                    <a href="/shanghai.html" class="block city-link">
+                        <div class="card rounded-2xl shadow-lg overflow-hidden">
+                            <img src="/images/hero-shanghai.webp" alt="Shanghai" width="400" height="300" class="w-full h-56 object-cover card-img">
+                            <div class="p-6 bg-white">
+                                <h3 class="font-bold text-xl" data-lang-key="cityShanghai">Shanghai</h3>
+                                <p class="text-gray-600 mt-2" data-lang-key="descShanghai">A dazzling metropolis showcasing China's futuristic ambition and colonial past.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Xi'an -->
+                    <a href="/xian.html" class="block city-link">
+                        <div class="card rounded-2xl shadow-lg overflow-hidden">
+                            <img src="/images/hero-xian.webp" alt="Xi'an" width="400" height="300" class="w-full h-56 object-cover card-img">
+                            <div class="p-6 bg-white">
+                                <h3 class="font-bold text-xl" data-lang-key="cityXian">Xi'an</h3>
+                                <p class="text-gray-600 mt-2" data-lang-key="descXian">The ancient starting point of the Silk Road and home to the Terracotta Army.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Guilin -->
+                    <a href="/guilin.html" class="block city-link">
+                        <div class="card rounded-2xl shadow-lg overflow-hidden">
+                            <img src="/images/hero-guilin.webp" alt="Guilin" width="400" height="300" class="w-full h-56 object-cover card-img">
+                            <div class="p-6 bg-white">
+                                <h3 class="font-bold text-xl" data-lang-key="cityGuilin">Guilin</h3>
+                                <p class="text-gray-600 mt-2" data-lang-key="descGuilin">Famous for its stunning karst landscapes along the Li River.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nature Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl section-heading text-center mb-4" data-lang-key="natureTitle">Breathtaking Nature</h2>
+                <p class="text-gray-600 text-center mb-16 max-w-2xl mx-auto text-lg" data-lang-key="natureDescription">Discover diverse landscapes that have inspired poets and artists for centuries.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <a href="/zhangjiajie.html" class="block nature-link">
+                        <div class="card rounded-2xl shadow-lg overflow-hidden">
+                            <img src="/images/hero-zhangjiajie.webp" alt="Zhangjiajie" width="400" height="300" class="w-full h-56 object-cover card-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/f1c40f/ffffff?text=Zhangjiajie';">
+                            <div class="p-6 bg-white">
+                                <h3 class="font-bold text-xl" data-lang-key="natureZhangjiajie">Zhangjiajie</h3>
+                                <p class="text-gray-600 mt-2" data-lang-key="descZhangjiajie">Pillar-like mountains that inspired the Hallelujah Mountains in Avatar.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/jiuzhaigou.html" class="block nature-link">
+                        <div class="card rounded-2xl shadow-lg overflow-hidden">
+                            <img src="/images/hero-jiuzhaigou.webp" alt="Jiuzhaigou" width="400" height="300" class="w-full h-56 object-cover card-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/3498db/ffffff?text=Jiuzhaigou';">
+                            <div class="p-6 bg-white">
+                                <h3 class="font-bold text-xl" data-lang-key="natureJiuzhaigou">Jiuzhaigou Valley</h3>
+                                <p class="text-gray-600 mt-2" data-lang-key="descJiuzhaigou">A wonderland of colorful lakes, layered waterfalls, and snow-capped peaks.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/yangtze.html" class="block nature-link">
+                        <div class="card rounded-2xl shadow-lg overflow-hidden">
+                            <img src="/images/hero-yangtze.webp" alt="Yangtze River" width="400" height="300" class="w-full h-56 object-cover card-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1abc9c/ffffff?text=Yangtze+River';">
+                            <div class="p-6 bg-white">
+                                <h3 class="font-bold text-xl" data-lang-key="natureYangtze">Yangtze River</h3>
+                                <p class="text-gray-600 mt-2" data-lang-key="descYangtze">Cruise through the majestic Three Gorges, a lifeline of Chinese civilization.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cuisine Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <a href="/food.html" class="block hover:text-blue-600 transition-colors">
+                    <h2 class="text-4xl md:text-5xl section-heading text-center mb-4" data-lang-key="cuisineTitle">A Culinary Journey</h2>
+                </a>
+                <p class="text-gray-600 text-center mb-16 max-w-2xl mx-auto text-lg" data-lang-key="cuisineDescription">Taste the incredible diversity of Chinese food, with flavors for every palate.</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
+                    <a href="/food.html#peking-duck" class="block text-center group"><img src="/images/hero-peking-duck.webp" alt="Peking Duck" class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full object-cover border-4 border-white shadow-xl transform group-hover:scale-110 transition-transform duration-300" onerror="this.onerror=null;this.src='https://placehold.co/200x200/c0392b/ffffff?text=Peking+Duck';">
+                        <h4 class="font-bold mt-4 text-lg" data-lang-key="foodDuck">Peking Duck</h4>
+                    </a>
+                    <a href="/food.html#dim-sum" class="block text-center group"><img src="/images/hero-dim-sum.webp" alt="Dim Sum" class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full object-cover border-4 border-white shadow-xl transform group-hover:scale-110 transition-transform duration-300" onerror="this.onerror=null;this.src='https://placehold.co/200x200/d35400/ffffff?text=Dim+Sum';">
+                        <h4 class="font-bold mt-4 text-lg" data-lang-key="foodDimSum">Dim Sum</h4>
+                    </a>
+                    <a href="/food.html#hotpot" class="block text-center group"><img src="/images/hero-hotpot.webp" alt="Hotpot" class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full object-cover border-4 border-white shadow-xl transform group-hover:scale-110 transition-transform duration-300" onerror="this.onerror=null;this.src='https://placehold.co/200x200/8e44ad/ffffff?text=Hotpot';">
+                        <h4 class="font-bold mt-4 text-lg" data-lang-key="foodHotpot">Hotpot</h4>
+                    </a>
+                    <a href="/food.html#dumplings" class="block text-center group"><img src="/images/hero-dumplings.webp" alt="Dumplings" class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full object-cover border-4 border-white shadow-xl transform group-hover:scale-110 transition-transform duration-300" onerror="this.onerror=null;this.src='https://placehold.co/200x200/27ae60/ffffff?text=Dumplings';">
+                        <h4 class="font-bold mt-4 text-lg" data-lang-key="foodDumplings">Dumplings</h4>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Tips Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-4xl md:text-5xl section-heading text-center mb-16" data-lang-key="tipsTitle">Essential Travel Tips</h2>
+                <div class="space-y-8">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg flex items-start space-x-6">
+                        <div class="bg-blue-100 text-blue-600 p-4 rounded-full flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                </path>
+                            </svg></div>
+                        <div>
+                            <h3 class="font-bold text-xl mb-1" data-lang-key="tipVisaTitle">Visa &amp; Entry</h3>
+                            <p class="text-gray-600" data-lang-key="tipVisaDesc">China has implemented a visa-free policy for many countries, including those in Europe and Asia, for short-term trips. However, policies are updated frequently. We strongly recommend checking the latest official announcements from your local Chinese Embassy or Consulate before your trip to confirm if you qualify for visa-free entry.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg flex items-start space-x-6">
+                        <div class="bg-green-100 text-green-600 p-4 rounded-full flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z">
+                                </path>
+                            </svg></div>
+                        <div>
+                            <h3 class="font-bold text-xl mb-1" data-lang-key="tipPaymentTitle">Payment Methods</h3>
+                            <p class="text-gray-600" data-lang-key="tipPaymentDesc">Mobile payments like Alipay and WeChat Pay are dominant. It's recommended to set them up for convenience. Major credit cards are accepted in hotels and large stores.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section (simplified) -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl section-heading mb-4" data-lang-key="contactTitle">Contact Us</h2>
+                <p class="text-gray-600 mb-4 max-w-2xl mx-auto text-lg" data-lang-key="contactDescription">Have questions? We'd love to hear from you. Send us a message and we'll get back to you.</p>
+                <p class="text-lg font-medium"><a href="mailto:yangyangokok98@gmail.com" class="text-blue-600 hover:underline">yangyangokok98@gmail.com</a></p>
+                <p class="text-sm text-gray-500 mt-4">We typically respond within 48 hours.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Banner Ad -->
+    <div class="ad-banner-bottom">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2274290381465979" data-ad-slot="5999599693" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-10 text-center">
+            <p class="text-lg" data-lang-key="footerText">© 2026 China Tour. All Rights Reserved.</p>
+            <p class="text-sm text-gray-400 mt-2" data-lang-key="footerDisclaimer">This is a presentation website. All images are from Unsplash for illustrative purposes.</p>
         </div>
-      </div>
-      <div class="p-8">
-        <div id="city-content" class="prose text-gray-700"><p>The Yangtze is China's longest river, famous for the dramatic Three Gorges and popular river cruises that combine scenery with cultural visits.</p><h3>Highlights</h3><ul><li><strong>Three Gorges</strong> – steep-sided gorges carved by the river offering spectacular views.</li><li><strong>Yangtze Cruises</strong> – multi-day cruise options between Chongqing and Yichang.</li><li><strong>Cultural stops</strong> – riverside towns, temples and local markets.</li></ul></div>
-      </div>
-    </article>
-  </main>
+    </footer>
 
-  <footer class="py-8 text-center text-sm text-gray-500">© 2026 China Tour</footer>
+    <!-- City Detail Modal -->
+    <div id="city-detail-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden items-center justify-center p-4 opacity-0">
+        <div id="city-detail-modal-content" class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto transform scale-95 opacity-0">
+            <div class="sticky top-0 bg-white/80 backdrop-blur-lg p-4 flex justify-between items-center border-b z-10">
+                <h2 id="modal-city-name" class="text-3xl font-bold"></h2>
+                <button id="modal-close-btn" class="text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-full p-2 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="p-6 md:p-8">
+                <img id="modal-city-image" src="" alt="City Image" width="800" height="600" class="w-full h-64 md:h-96 object-cover rounded-xl mb-6 shadow-lg">
+                <div id="modal-city-description" class="text-gray-700 leading-relaxed mb-8 prose max-w-none"></div>
+            </div>
+        </div>
+    </div>
 
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "TouristDestination",
-  "name": "Yangtze River",
-  "description": "Yangtze River \u2013China's longest river, offering river cruises, dramatic gorges and cultural sites.",
-  "url": "https://www.travelchinaguide.dpdns.org/yangtze.html",
-  "image": "https://www.travelchinaguide.dpdns.org/yangtze.html#image",
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 30.95,
-    "longitude": 110.5
-  }
-}
-  </script>
-  <script src="/js/nav-toggle.js"></script>
-  
+
+    <script src="/js/nav-toggle.js"></script>
+    
+    
+    <script src="/js/app.js" defer=""></script>
+
+
+
+
+
+
+
+
+
+
 
 
 

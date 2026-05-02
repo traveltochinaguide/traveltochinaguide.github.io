@@ -124,7 +124,9 @@ function getTodayStr() {
                 $page(el).attr('content', pageUrl);
             });
 
- // --- B. CSS/JS Cleanup ---
+ 
+
+            // --- B. CSS/JS Cleanup ---
  // Remove the massive external translations.js
  $page('script[src="/js/translations.js"]').remove();
  // Remove inline translations script (both `const translations =` and `window.translations =`)
@@ -416,8 +418,16 @@ function getTodayStr() {
                 $page('head').append(`<link rel="alternate" href="${h.url}" hreflang="${h.lang}">\n  `);
             });
 
+            // --- Z. Source Template Cleanup ---
+            // Remove <!-- hreflang alternates --> placeholder comments and trailing blank lines
+            // from the generated HTML (these confuse readers and add noise to output).
+            let finalHtml = $page.html().replace(
+                /<!-- hreflang alternates -->\s*/g,
+                ''
+            );
+
             // Write File
-            await fs.writeFile(destPath, $page.html(), 'utf-8');
+            await fs.writeFile(destPath, finalHtml, 'utf-8');
 
             // Add to Sitemap Entries
             sitemapEntries.push({
