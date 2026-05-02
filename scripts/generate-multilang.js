@@ -180,8 +180,8 @@ function getTodayStr() {
                     if ($page('#page-title').length) $page('#page-title').text(t.metaTitle);
                     else $page('title').text(t.metaTitle);
                 }
-                if (t.metaDesc) {
-                    if ($page('#meta-desc').length) $page('#meta-desc').attr('content', t.metaDesc);
+                if (t.metaDescription) {
+                    if ($page('#meta-desc').length) $page('#meta-desc').attr('content', t.metaDescription);
                 }
                 // Translate #city-name using cityDetails mapping (city page)
                 const pageNameWithoutExt = pageName.replace(/\.html$/, '');
