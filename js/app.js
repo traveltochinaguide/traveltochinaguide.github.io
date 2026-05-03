@@ -127,6 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (carouselContainer && window.translations && window.translations[currentLang]) {
         const t = window.translations[currentLang];
+        const fragment = document.createDocumentFragment();
+        const dotsFragment = document.createDocumentFragment();
         carouselData.forEach((slide, index) => {
             if (index === 0) return; // Skip first slide
             const slideEl = document.createElement('div');
@@ -147,7 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <h2 class="text-5xl md:text-7xl font-extrabold mb-4 text-shadow-lg">${t[slide.titleKey]}</h2>
             <p class="text-xl md:text-2xl text-shadow">${t[slide.subtitleKey]}</p></div></div>`;
 
-            carouselContainer.insertBefore(slideEl, carouselDotsContainer);
+            // Use DocumentFragment to batch DOM insertions (single reflow)
+            fragment.appendChild(slideEl);
 
             const dot = document.createElement('button');
             dot.className = 'carousel-dot w-3 h-3 bg-white/50 rounded-full';
@@ -159,8 +162,13 @@ document.addEventListener('DOMContentLoaded', () => {
             dot.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') { showSlide(index); stopCarousel(); startCarousel(); e.preventDefault(); }
             });
-            if (carouselDotsContainer) carouselDotsContainer.appendChild(dot);
+            dotsFragment.appendChild(dot);
         });
+        // Append all carousel slides and dots in single DOM operations
+        if (carouselDotsContainer) {
+            carouselDotsContainer.appendChild(dotsFragment);
+        }
+        carouselContainer.insertBefore(fragment, carouselDotsContainer);
     }
 
     if (document.getElementById('prev-slide')) document.getElementById('prev-slide').addEventListener('click', () => { prevSlide(); stopCarousel(); startCarousel(); });
