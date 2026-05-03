@@ -1,6 +1,7 @@
 <!DOCTYPE html><html lang="ko"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1, viewport-fit=cover">
+    <link rel="manifest" href="/manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="color-scheme" content="normal">
@@ -346,6 +347,17 @@
   
   
   
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -385,6 +397,7 @@
 <!-- Google tag (gtag.js) -->
 
 <body class="text-gray-800">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
   <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2274290381465979" crossorigin="anonymous"></script>
   <header class="site-header bg-white/90 backdrop-blur-xl sticky top-0 z-50 shadow-md shadow-gray-200/20">
  <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -424,13 +437,13 @@
  </div>
  </div>
  <div class="flex items-center md:ml-2 mt-2 md:mt-0">
- <div id="language-switcher" class="flex flex-wrap justify-end bg-blue-50 p-1 rounded-full"></div>
+ <div id="language-switcher" class="flex flex-wrap justify-end bg-blue-50 p-1 rounded-full" aria-label="Language selector"></div>
  </div>
  </div>
  </nav>
  </header>
 
-  <main class="container mx-auto px-6 py-12">
+  <main id="main-content" class="container mx-auto px-6 py-12">
     <article class="bg-white rounded-2xl shadow-lg overflow-hidden">
       <div class="relative">
         <img id="city-image" src="/images/hero-great-wall.webp" alt="Beijing" width="1600" height="900" class="w-full h-72 sm:h-96 object-cover" fetchpriority="high">

@@ -570,6 +570,11 @@ function getTodayStr() {
                 `\n    <meta name="apple-mobile-web-app-capable" content="yes">`
             );
 
+            // --- E5. Web App Manifest (PWA installability on Android/Chrome) ---
+            $page('meta[name="viewport"]').after(
+                `\n    <link rel="manifest" href="/manifest.json">`
+            );
+
 
             // --- F. SEO: hreflang ---
             $page('link[rel="alternate"][hreflang]').remove();
