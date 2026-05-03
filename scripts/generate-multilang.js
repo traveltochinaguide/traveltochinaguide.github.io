@@ -519,7 +519,10 @@ function getTodayStr() {
                 }
             });
 
-            // --- E2. LCP Image Priority Hints ---
+            // --- E5. Remove decoding="sync" from LCP images ---
+            // decoding="sync" blocks rendering while the image is decoded (10-50ms on mobile).
+            // For the LCP hero image (loading="eager"), we want non-blocking decode (default: async).
+            $page('img[loading="eager"]').removeAttr('decoding');
             // Add fetchpriority="high" to above-the-fold hero images (the LCP elements)
             // 1. Explicitly eager-loaded images (e.g. index.html carousel)
             $page('img[loading="eager"]').attr('fetchpriority', 'high');
