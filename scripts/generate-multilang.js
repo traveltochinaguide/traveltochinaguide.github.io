@@ -14,6 +14,9 @@ const pages = [
     'zhangjiajie.html',
     'jiuzhaigou.html',
     'yangtze.html',
+    'chengdu.html',
+    'hangzhou.html',
+    'xiamen.html',
     'iching.html',
     'food.html',
     'peking-duck.html',
@@ -91,7 +94,7 @@ function getTodayStr() {
 
             // Prepare the minimal data object to be injected
             // We need to provide 'translations[lang]' and 'cityDetails' for the modal to work client-side
-            const allCityDetails = { beijing: { imgQuery: 'forbidden city,beijing', localImg: '/images/hero-great-wall.webp', nameKey: 'cityBeijing', descKey: 'descBeijing', longDescKey: 'longDescBeijing' }, shanghai: { imgQuery: 'the bund,shanghai', localImg: '/images/hero-shanghai.webp', nameKey: 'cityShanghai', descKey: 'descShanghai', longDescKey: 'longDescShanghai' }, xian: { imgQuery: 'terracotta army,xian', localImg: '/images/hero-xian.webp', nameKey: 'cityXian', descKey: 'descXian', longDescKey: 'longDescXian' }, guilin: { imgQuery: 'li river,guilin,china', localImg: '/images/hero-guilin.webp', nameKey: 'cityGuilin', descKey: 'descGuilin', longDescKey: 'longDescGuilin' }, zhangjiajie: { imgQuery: 'zhangjiajie,avatar mountain,china', localImg: '/images/hero-zhangjiajie.webp', nameKey: 'cityZhangjiajie', descKey: 'descZhangjiajie', longDescKey: 'longDescZhangjiajie' }, jiuzhaigou: { imgQuery: 'jiuzhaigou,colorful lake,china', localImg: '/images/hero-jiuzhaigou.webp', nameKey: 'cityJiuzhaigou', descKey: 'descJiuzhaigou', longDescKey: 'longDescJiuzhaigou' }, yangtze: { imgQuery: 'yangtze river,three gorges,china', localImg: '/images/hero-yangtze.webp', nameKey: 'cityYangtze', descKey: 'descYangtze', longDescKey: 'longDescYangtze' }, iching: { imgQuery: 'iching,book of changes,china', localImg: '/images/hero-iching.webp', nameKey: 'cityIching', descKey: 'descIching', longDescKey: 'longDescIching' } };
+            const allCityDetails = { beijing: { imgQuery: 'forbidden city,beijing', localImg: '/images/hero-great-wall.webp', nameKey: 'cityBeijing', descKey: 'descBeijing', longDescKey: 'longDescBeijing' }, shanghai: { imgQuery: 'the bund,shanghai', localImg: '/images/hero-shanghai.webp', nameKey: 'cityShanghai', descKey: 'descShanghai', longDescKey: 'longDescShanghai' }, xian: { imgQuery: 'terracotta army,xian', localImg: '/images/hero-xian.webp', nameKey: 'cityXian', descKey: 'descXian', longDescKey: 'longDescXian' }, guilin: { imgQuery: 'li river,guilin,china', localImg: '/images/hero-guilin.webp', nameKey: 'cityGuilin', descKey: 'descGuilin', longDescKey: 'longDescGuilin' }, zhangjiajie: { imgQuery: 'zhangjiajie,avatar mountain,china', localImg: '/images/hero-zhangjiajie.webp', nameKey: 'cityZhangjiajie', descKey: 'descZhangjiajie', longDescKey: 'longDescZhangjiajie' }, jiuzhaigou: { imgQuery: 'jiuzhaigou,colorful lake,china', localImg: '/images/hero-jiuzhaigou.webp', nameKey: 'cityJiuzhaigou', descKey: 'descJiuzhaigou', longDescKey: 'longDescJiuzhaigou' }, yangtze: { imgQuery: 'yangtze river,three gorges,china', localImg: '/images/hero-yangtze.webp', nameKey: 'cityYangtze', descKey: 'descYangtze', longDescKey: 'longDescYangtze' }, chengdu: { imgQuery: 'chengdu,panda,china', localImg: '/images/hero-chengdu.webp', nameKey: 'cityChengdu', descKey: 'descChengdu', longDescKey: 'longDescChengdu' }, hangzhou: { imgQuery: 'hangzhou,west lake,china', localImg: '/images/hero-hangzhou.webp', nameKey: 'cityHangzhou', descKey: 'descHangzhou', longDescKey: 'longDescHangzhou' }, xiamen: { imgQuery: 'xiamen,gulangyu,china', localImg: '/images/hero-xiamen.webp', nameKey: 'cityXiamen', descKey: 'descXiamen', longDescKey: 'longDescXiamen' }, iching: { imgQuery: 'iching,book of changes,china', localImg: '/images/hero-iching.webp', nameKey: 'cityIching', descKey: 'descIching', longDescKey: 'longDescIching' } };
             const clientData = {
                 translations: {
                     [lang]: t
@@ -99,14 +102,14 @@ function getTodayStr() {
                 cityDetails: allCityDetails
             };
 
-            const langDir = (lang === 'en') ? rootDir : path.join(rootDir, lang);
+            const langDir = path.join(rootDir, lang);
             await fs.ensureDir(langDir);
 
             const destPath = path.join(langDir, pageName);
             const $page = cheerio.load(html);
 
             // Calculate correct URL for this page/lang combination
-            const pageUrl = (lang === 'en') ? `${baseUrl}/${pageName}` : `${baseUrl}/${lang}/${pageName}`;
+            const pageUrl = `${baseUrl}/${lang}/${pageName}`;
 
             // --- A. HTML Structure Updates ---
             $page('html').attr('lang', lang);
@@ -196,7 +199,8 @@ function getTodayStr() {
                 const pageCityMap = {
                     'beijing': 'cityBeijing', 'shanghai': 'cityShanghai', 'xian': 'cityXian',
                     'guilin': 'cityGuilin', 'zhangjiajie': 'cityZhangjiajie', 'jiuzhaigou': 'cityJiuzhaigou',
-                    'yangtze': 'cityYangtze', 'iching': 'cityIching'
+                    'yangtze': 'cityYangtze', 'chengdu': 'cityChengdu', 'hangzhou': 'cityHangzhou',
+                    'xiamen': 'cityXiamen', 'iching': 'cityIching'
                 };
                 const nameKey = pageCityMap[pageNameWithoutExt];
                 if (nameKey && t[nameKey]) {
@@ -349,9 +353,7 @@ function getTodayStr() {
                     '@context': 'https://schema.org',
                     '@type': 'BreadcrumbList',
                     'itemListElement': breadcrumbItems.map((item, idx) => {
-                        const itemUrl = (lang === 'en')
-                            ? `${baseUrl}/${item.path}`
-                            : `${baseUrl}/${lang}/${item.path}`;
+                        const itemUrl = `${baseUrl}/${lang}/${item.path}`;
                         return {
                             '@type': 'ListItem',
                             'position': idx + 1,
@@ -497,12 +499,12 @@ function getTodayStr() {
   const hash = parts[1];
 
   if (pages.includes(cleanHref)) {
-   const prefix = (lang === 'en') ? '' : `/${lang}`;
+   const prefix = `/${lang}`;
    $page(el).attr('href', `${prefix}/${cleanHref}#${hash}`);
   }
  } else {
   if (pages.includes(cleanHref)) {
-   const prefix = (lang === 'en') ? '' : `/${lang}`;
+   const prefix = `/${lang}`;
    $page(el).attr('href', `${prefix}/${cleanHref}`);
   }
  }
