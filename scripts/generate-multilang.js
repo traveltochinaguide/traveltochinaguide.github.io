@@ -532,12 +532,22 @@ function getTodayStr() {
             $page('link[rel="preload"][href$=".webp"]').attr('type', 'image/webp');
 
 
-            // --- E4. Mobile Browser Chrome: theme-color + color-scheme ---
+            // --- E4. Mobile Browser Chrome: theme-color + color-scheme + iOS PWA + viewport-fit ---
             // Sets browser chrome color on mobile devices (improves UX/brand feel)
             // Remove any existing ones first (in case of re-runs)
             $page('meta[name="theme-color"]').remove();
             $page('meta[name="color-scheme"]').remove();
-            // Insert right after viewport meta tag for correct ordering
+            $page('meta[name="apple-mobile-web-app-capable"]').remove();
+            $page('meta[name="apple-mobile-web-app-status-bar-style"]').remove();
+
+            // Update viewport to include viewport-fit=cover (notch/Dynamic Island support on iPhone)
+            const $viewport = $page('meta[name="viewport"]');
+            if ($viewport.length) {
+                const currentContent = $viewport.attr('content') || 'width=device-width, initial-scale=1.0';
+                $viewport.attr('content', currentContent.includes('viewport-fit') ? currentContent : currentContent + ', viewport-fit=cover');
+            }
+
+            // Insert after viewport meta tag for correct ordering
             if (t.themeColor) {
                 $page('meta[name="viewport"]').after(
                     `\n    <meta name="theme-color" content="${t.themeColor}">`
@@ -548,6 +558,14 @@ function getTodayStr() {
                     `\n    <meta name="color-scheme" content="${t.colorScheme}">`
                 );
             }
+            // iOS Add-to-Home-Screen: enables standalone mode without Safari chrome
+            // Insert in reverse order so they end up as: apple-mobile-web-app-capable first, then status-bar-style
+            $page('meta[name="viewport"]').after(
+                `\n    <meta name="apple-mobile-web-app-status-bar-style" content="default">`
+            );
+            $page('meta[name="viewport"]').after(
+                `\n    <meta name="apple-mobile-web-app-capable" content="yes">`
+            );
 
 
             // --- F. SEO: hreflang ---
