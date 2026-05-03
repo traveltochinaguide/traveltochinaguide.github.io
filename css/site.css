@@ -1,6 +1,10 @@
 /* site.css - shared styles for font, nav, and ads */
 :root{--site-font: "Inter", "Noto Sans SC", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif}
+html{scroll-behavior:smooth}
 html,body{font-family:var(--site-font);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background:#f7f8fa}
+
+/* ── Anchor scroll offset – prevent sticky header from covering section headings ── */
+[id]{scroll-margin-top:5rem}
 
 /* ── Header / Nav ── */
 .site-header .nav-links{display:flex;gap:.5rem;align-items:center}
