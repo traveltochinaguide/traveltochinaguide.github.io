@@ -3,8 +3,8 @@
 html{scroll-behavior:smooth}
 html,body{font-family:var(--site-font);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background:#f7f8fa}
 
-/* ── Anchor scroll offset – prevent sticky header from covering section headings ── */
-[id]{scroll-margin-top:5rem}
+/* ── Anchor scroll offset – only apply to heading elements that are real anchor targets ── */
+h1[id], h2[id], h3[id], h4[id] { scroll-margin-top:5rem }
 
 /* ── Header / Nav ── */
 .site-header .nav-links{display:flex;gap:.5rem;align-items:center}
