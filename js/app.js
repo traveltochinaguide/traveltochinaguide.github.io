@@ -130,9 +130,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const fragment = document.createDocumentFragment();
         const dotsFragment = document.createDocumentFragment();
         carouselData.forEach((slide, index) => {
-            if (index === 0) return; // Skip first slide
+            // All 4 slides are now created dynamically (incl. index 0 = Great Wall).
+            // The first slide starts visible (opacity-100); rest are hidden (opacity-0).
             const slideEl = document.createElement('div');
-            slideEl.className = 'carousel-slide absolute inset-0 w-full h-full opacity-0';
+            slideEl.className = `carousel-slide absolute inset-0 w-full h-full ${index === 0 ? 'opacity-100' : 'opacity-0'}`;
 
             const shanghaiImg = '/images/hero-shanghai.webp';
             const guilinImg = '/images/hero-guilin.webp';
@@ -144,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (slide.id === 'xian') imgSrc = xianImg;
 
             slideEl.innerHTML = `<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            <img loading="lazy" decoding="async" src="${imgSrc}" width="1920" height="1080" class="w-full h-full object-cover" alt="${t[slide.altKey] || slide.imgQuery}">
+            <img loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async" src="${imgSrc}" width="1920" height="1080" class="w-full h-full object-cover" alt="${t[slide.altKey] || slide.imgQuery}"${index === 0 ? ' fetchpriority="high"' : ''}>
             <div class="absolute inset-0 flex items-center justify-center"><div class="text-center text-white p-8 max-w-3xl">
             <h2 class="text-5xl md:text-7xl font-extrabold mb-4 text-shadow-lg">${t[slide.titleKey]}</h2>
             <p class="text-xl md:text-2xl text-shadow">${t[slide.subtitleKey]}</p></div></div>`;

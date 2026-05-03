@@ -162,6 +162,14 @@ h1[id], h2[id], h3[id], h4[id] { scroll-margin-top:5rem }
   outline-offset: 2px;
 }
 
+/* ── Text shadow utilities for carousel headings (Tailwind doesn't include these) ── */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.text-shadow-lg {
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
 /* ── Reduce motion for users with vestibular disorders / motion sensitivity ── */
 @media (prefers-reduced-motion: reduce) {
   *,

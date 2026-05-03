@@ -6,6 +6,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="color-scheme" content="normal">
     <meta name="theme-color" content="#2563eb">
+    <link rel="manifest" href="/manifest.json">
     
 
 <!-- Inline SVG favicon to avoid 404 during local testing -->
@@ -382,6 +383,15 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <link rel="alternate" href="https://travelchinaguide.dpdns.org/index.html" hreflang="x-default">
   <link rel="alternate" href="https://travelchinaguide.dpdns.org/index.html" hreflang="en">
   <link rel="alternate" href="https://travelchinaguide.dpdns.org/zh-CN/index.html" hreflang="zh-CN">
@@ -463,18 +473,7 @@
     <main id="main-content">
         <!-- Hero Carousel Section -->
         <section id="hero-carousel" class="relative w-full h-[75vh] overflow-hidden">
-            <!-- Slides will be inserted here by JS -->
-            <div class="carousel-slide absolute inset-0 w-full h-full opacity-100">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <!-- Eager load the LCP image -->
-                <img loading="eager" src="/images/hero-great-wall.webp" width="1920" height="1080" class="w-full h-full object-cover" data-lang-key="altGreatWall" alt="La Grande Muraille" fetchpriority="high">
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="text-center text-white p-8 max-w-3xl">
-                        <h2 class="text-5xl md:text-7xl font-extrabold mb-4 text-shadow-lg" data-lang-key="carouselTitle1">La Grande Muraille</h2>
-                        <p class="text-xl md:text-2xl text-shadow" data-lang-key="carouselSubtitle1">Une merveille majestueuse du monde antique.</p>
-                    </div>
-                </div>
-            </div>
+            <!-- Slides injected by app.js (all 4 carousel slides including Great Wall) -->
             <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex space-x-3" id="carousel-dots">
                 <!-- Dots will be inserted here -->
             </div>
