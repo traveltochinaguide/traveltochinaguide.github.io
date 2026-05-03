@@ -586,10 +586,17 @@ function getTodayStr() {
             // --- Z. Source Template Cleanup ---
             // Remove <!-- hreflang alternates --> placeholder comments and trailing blank lines
             // from the generated HTML (these confuse readers and add noise to output).
+            // Also collapse multiple consecutive 4-space blank lines in <head> to just one
+            // (Section E4 inserts meta tags with leading \n, producing excess blank lines).
             let finalHtml = $page.html().replace(
                 /<!-- hreflang alternates -->\s*/g,
                 ''
             );
+            // Collapse 2+ consecutive 4-space blank lines (\n    \n    \n...) to a single \n    \n
+            // Pattern breakdown: \n    ((\n    ){2,}) = \n + 4sp + one \n, then 2+ more (\n + 4sp) pairs
+            finalHtml = finalHtml.replace(/\n    ((\n    ){2,})/g, '\n    \n');
+            // Collapse 3+ plain consecutive newlines anywhere to 2 (extra body/section spacing)
+            finalHtml = finalHtml.replace(/\n{3,}/g, '\n\n');
 
             // Write File
             await fs.writeFile(destPath, finalHtml, 'utf-8');
