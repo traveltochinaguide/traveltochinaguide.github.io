@@ -137,3 +137,23 @@ html,body{font-family:var(--site-font);-webkit-font-smoothing:antialiased;-moz-o
   padding-right:180px;
  }
 }
+/* Skip-to-content link for keyboard users */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2563eb;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  font-weight: 700;
+  z-index: 9999;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #1d4ed8;
+  outline-offset: 2px;
+}
