@@ -19,7 +19,14 @@ const cityDetails = {
  chengdu: { imgQuery: "chengdu,panda,china", localImg: "/images/hero-chengdu.webp", nameKey: "cityChengdu", descKey: "descChengdu", longDescKey: "longDescChengdu" },
  hangzhou: { imgQuery: "hangzhou,west lake,china", localImg: "/images/hero-hangzhou.webp", nameKey: "cityHangzhou", descKey: "descHangzhou", longDescKey: "longDescHangzhou" },
  xiamen: { imgQuery: "xiamen,gulangyu,china", localImg: "/images/hero-xiamen.webp", nameKey: "cityXiamen", descKey: "descXiamen", longDescKey: "longDescXiamen" },
- iching: { imgQuery: "iching,book of changes,china", localImg: "/images/hero-iching.webp", nameKey: "cityIching", descKey: "descIching", longDescKey: "longDescIching" }
+ iching: { imgQuery: "iching,book of changes,china", localImg: "/images/hero-iching.webp", nameKey: "cityIching", descKey: "descIching", longDescKey: "longDescIching" },
+ suzhou: { imgQuery: "suzhou classical garden,china", localImg: "/images/hero-suzhou.webp", nameKey: "citySuzhou", descKey: "descSuzhou", longDescKey: "longDescSuzhou" },
+ chongqing: { imgQuery: "chongqing cityscape,china,yangtze river", localImg: "/images/hero-chongqing.webp", nameKey: "cityChongqing", descKey: "descChongqing", longDescKey: "longDescChongqing" },
+ guangzhou: { imgQuery: "cantonese,guangzhou,china", localImg: "/images/hero-guangzhou.webp", nameKey: "cityGuangzhou", descKey: "descGuangzhou", longDescKey: "longDescGuangzhou" },
+ shenzhen: { imgQuery: "shenzhen skyline,china", localImg: "/images/hero-shenzhen.webp", nameKey: "cityShenzhen", descKey: "descShenzhen", longDescKey: "longDescShenzhen" },
+ kunming: { imgQuery: "kunming,stone forest,china", localImg: "/images/hero-kunming.webp", nameKey: "cityKunming", descKey: "descKunming", longDescKey: "longDescKunming" },
+ dali: { imgQuery: "dali,erhai lake,yunnan,china", localImg: "/images/hero-dali.webp", nameKey: "cityDali", descKey: "descDali", longDescKey: "longDescDali" },
+ lijiang: { imgQuery: "lijiang old town,naxi,yunnan,china", localImg: "/images/hero-lijiang.webp", nameKey: "cityLijiang", descKey: "descLijiang", longDescKey: "longDescLijiang" },
 };
 
 const translations = {
