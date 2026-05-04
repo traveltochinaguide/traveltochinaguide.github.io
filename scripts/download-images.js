@@ -12,6 +12,10 @@ const images = [
     { name: 'hero-jiuzhaigou.jpg', url: 'https://images.unsplash.com/photo-1694565176775-ec282698b5e9?w=1600' },
     { name: 'hero-yangtze.jpg', url: 'https://images.unsplash.com/photo-1491552222800-c124480c9b02?w=1600' },
     { name: 'hero-iching.jpg', url: 'https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea?w=1200' },
+    { name: 'hero-suzhou.jpg', url: 'https://images.unsplash.com/photo-1537531383496-f4749b8032cf?w=1600' },
+    { name: 'hero-chengdu.jpg', url: 'https://images.unsplash.com/photo-1617411734064-8d1e2dba1bb6?w=1600' },
+    { name: 'hero-hangzhou.jpg', url: 'https://images.unsplash.com/photo-1531198714-b015d4e1b255?w=1600' },
+    { name: 'hero-xiamen.jpg', url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600' },
 
     // Attractions (Beijing)
     { name: 'attr-798-art.jpg', url: 'https://images.unsplash.com/photo-1547891654-e66ed7ebb968?w=1600' },
