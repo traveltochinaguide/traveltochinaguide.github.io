@@ -117,72 +117,30 @@ document.addEventListener('DOMContentLoaded', () => {
  // Language switcher dropdown is now created exclusively by lang-switcher.js
  // (Previously both app.js and lang-switcher.js created duplicate dropdowns)
 
- // Carousel Init
-    const carouselData = [
-        { id: 'great-wall', titleKey: 'carouselTitle1', subtitleKey: 'carouselSubtitle1', altKey: 'carouselAlt1', dotKey: 'carouselDot1', imgQuery: 'great wall,china' },
-        { id: 'shanghai', titleKey: 'carouselTitle2', subtitleKey: 'carouselSubtitle2', altKey: 'carouselAlt2', dotKey: 'carouselDot2', imgQuery: 'shanghai,skyline' },
-        { id: 'guilin', titleKey: 'carouselTitle3', subtitleKey: 'carouselSubtitle3', altKey: 'carouselAlt3', dotKey: 'carouselDot3', imgQuery: 'guilin,li river' },
-        { id: 'xian', titleKey: 'carouselTitle4', subtitleKey: 'carouselSubtitle4', altKey: 'carouselAlt4', dotKey: 'carouselDot4', imgQuery: 'terracotta army,xian' }
-    ];
+// Carousel Init - slides are now static HTML in index.html
+// Only generate dots for navigation
+const carouselData = [
+{ id: 'great-wall', titleKey: 'carouselTitle1', subtitleKey: 'carouselSubtitle1', altKey: 'carouselAlt1', dotKey: 'carouselDot1' },
+{ id: 'shanghai', titleKey: 'carouselTitle2', subtitleKey: 'carouselSubtitle2', altKey: 'carouselAlt2', dotKey: 'carouselDot2' },
+{ id: 'guilin', titleKey: 'carouselTitle3', subtitleKey: 'carouselSubtitle3', altKey: 'carouselAlt3', dotKey: 'carouselDot3' },
+{ id: 'xian', titleKey: 'carouselTitle4', subtitleKey: 'carouselSubtitle4', altKey: 'carouselAlt4', dotKey: 'carouselDot4' }
+];
 
-if (carouselContainer && window.translations && window.translations[currentLang]) {
+if (carouselDotsContainer && window.translations && window.translations[currentLang]) {
 const t = window.translations[currentLang];
-const fragment = document.createDocumentFragment();
-const dotsFragment = document.createDocumentFragment();
 carouselData.forEach((slide, index) => {
-// Skip first slide (index 0) - it's static HTML in index.html for LCP performance
-if (index === 0) return;
-// Slides 2-4 are created dynamically with opacity-0 (hidden)
-const slideEl = document.createElement('div');
-slideEl.className = 'carousel-slide absolute inset-0 w-full h-full opacity-0';
-
-const shanghaiImg = '/images/hero-shanghai.webp';
-const guilinImg = '/images/hero-guilin.webp';
-const xianImg = '/images/hero-xian.webp';
-let imgSrc = '/images/hero-great-wall.webp';
-
-if (slide.id === 'shanghai') imgSrc = shanghaiImg;
-if (slide.id === 'guilin') imgSrc = guilinImg;
-if (slide.id === 'xian') imgSrc = xianImg;
-
-slideEl.innerHTML = `<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-<img loading="lazy" decoding="async" src="${imgSrc}" width="1920" height="1080" class="w-full h-full object-cover" alt="${t[slide.altKey] || slide.imgQuery}">
-<div class="absolute inset-0 flex items-center justify-center"><div class="text-center text-white p-8 max-w-3xl">
-<h2 class="text-5xl md:text-7xl font-extrabold mb-4 text-shadow-lg">${t[slide.titleKey]}</h2>
-<p class="text-xl md:text-2xl text-shadow">${t[slide.subtitleKey]}</p></div></div>`;
-
-// Use DocumentFragment to batch DOM insertions (single reflow)
-fragment.appendChild(slideEl);
-
 const dot = document.createElement('button');
 dot.className = 'carousel-dot w-3 h-3 bg-white/50 rounded-full';
 dot.setAttribute('role', 'button');
 dot.setAttribute('tabindex', '0');
 dot.setAttribute('aria-label', t[slide.dotKey] || ('Slide ' + (index + 1)));
-dot.setAttribute('aria-pressed', 'false');
+dot.setAttribute('aria-pressed', String(index === 0));
 dot.addEventListener('click', () => { showSlide(index); stopCarousel(); startCarousel(); });
 dot.addEventListener('keydown', (e) => {
 if (e.key === 'Enter' || e.key === ' ') { showSlide(index); stopCarousel(); startCarousel(); e.preventDefault(); }
 });
-dotsFragment.appendChild(dot);
+carouselDotsContainer.appendChild(dot);
 });
-// Create first dot for static slide (index 0)
-const firstDot = document.createElement('button');
-firstDot.className = 'carousel-dot w-3 h-3 bg-white/50 rounded-full';
-firstDot.setAttribute('role', 'button');
-firstDot.setAttribute('tabindex', '0');
-firstDot.setAttribute('aria-label', t.carouselDot1 || 'Slide 1');
-firstDot.setAttribute('aria-pressed', 'true');
-firstDot.addEventListener('click', () => { showSlide(0); stopCarousel(); startCarousel(); });
-firstDot.addEventListener('keydown', (e) => {
-if (e.key === 'Enter' || e.key === ' ') { showSlide(0); stopCarousel(); startCarousel(); e.preventDefault(); }
-});
-// Insert first dot at the beginning
-if (carouselDotsContainer) {
-carouselDotsContainer.insertBefore(firstDot, carouselDotsContainer.firstChild);
-carouselDotsContainer.appendChild(dotsFragment);
-carouselContainer.insertBefore(fragment, carouselDotsContainer);
-}
 }
 
     if (document.getElementById('prev-slide')) document.getElementById('prev-slide').addEventListener('click', () => { prevSlide(); stopCarousel(); startCarousel(); });
