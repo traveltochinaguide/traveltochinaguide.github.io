@@ -502,12 +502,22 @@
 
     <main id="main-content">
         <!-- Hero Carousel Section -->
-        <section id="hero-carousel" class="relative w-full h-[75vh] overflow-hidden">
-            <!-- Slides injected by app.js (all 4 carousel slides including Great Wall) -->
-            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex space-x-3" id="carousel-dots">
-                <!-- Dots will be inserted here -->
-            </div>
-            <button id="prev-slide" data-lang-key="carouselPrev" aria-label="Previous slide" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/60 hover:bg-white text-gray-800 p-3 rounded-full shadow-xl z-10 transition-all duration-300 hover:scale-110">
+<section id="hero-carousel" class="relative w-full h-[75vh] overflow-hidden">
+ <!-- First slide is static HTML for LCP performance -->
+ <div class="carousel-slide absolute inset-0 w-full h-full opacity-100">
+ <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+ <img loading="eager" decoding="sync" src="/images/hero-great-wall.webp" width="1920" height="1080" class="w-full h-full object-cover" alt="The Great Wall">
+ <div class="absolute inset-0 flex items-center justify-center">
+ <div class="text-center text-white p-8 max-w-3xl">
+ <h2 class="text-5xl md:text-7xl font-extrabold mb-4 text-shadow-lg" data-lang-key="carouselTitle1">The Great Wall</h2>
+ <p class="text-xl md:text-2xl text-shadow" data-lang-key="carouselSubtitle1">A majestic wonder of the ancient world.</p>
+ </div>
+ </div>
+ </div>
+ <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex space-x-3" id="carousel-dots">
+ <!-- Dots will be inserted here -->
+ </div>
+ <button id="prev-slide" data-lang-key="carouselPrev" aria-label="Previous slide" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/60 hover:bg-white text-gray-800 p-3 rounded-full shadow-xl z-10 transition-all duration-300 hover:scale-110">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
                 </svg>
