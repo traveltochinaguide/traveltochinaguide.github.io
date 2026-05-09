@@ -59,7 +59,7 @@ def enrich_city_content(city_name, additions):
     if '美食' not in content and 'food' not in content.lower():
         missing.append('美食推荐')
     if '交通' not in content and 'transport' not in content.lower():
-        missing.append '交通信息')
+        missing.append('交通信息')
     
     if missing:
         print(f"  缺失内容：{', '.join(missing)}")
