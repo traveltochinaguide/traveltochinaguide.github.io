@@ -10,10 +10,10 @@ let totalFixed = 0;
 langs.forEach(lang => {
   const langSection = data.translations[lang];
   Object.keys(en).forEach(key => {
-    if (langSection.hasOwnProperty(key) && langSection[key] === key) {
+    if (langSection[key] === key) {
       langSection[key] = en[key];
       totalFixed++;
-      console.log(`Fixed placeholder for ${lang}.${key}`);
+      console.log(`Fixed placeholder '${key}' in ${lang} to: "${en[key]}".substring(0, 50)`);
     }
   });
 });
