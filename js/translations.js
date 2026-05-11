@@ -628,12 +628,12 @@ const data = {
     "contentHotpot": "<p>火锅，又称火锅，是一种源自中国的烹饪方法，在餐桌上提供一个正在沸腾的汤锅，里面有各种东亚食材和配料。</p><p>典型配料包括薄肉片、叶菜、蘑菇、馄饨、蛋饺子、豆腐和海鲜。熟食通常配蘸酱一起食用。</p>",
     "recipeIngredientHotpot": "300g thinly sliced lamb or beef, 200g leaf vegetables, 100g mushrooms, 8 won tons, 150g tofu, 100g seafood, 1L hot soup stock, dipping sauce",
     "recipeInstructionsHotpot": [
-      "Bring soup stock to a simmer at the dining table in a hot pot vessel.",
-      "Prepare ingredients: slice meat paper-thin, wash vegetables, slice tofu, clean seafood.",
-      "Add ingredients to the simmering broth using chopsticks or a ladle.",
-      "Cook until the meat and vegetables are done — timing varies by ingredient.",
-      "Dip cooked ingredients in your chosen dipping sauce and enjoy."
-    ],
+          "将汤料放在餐桌上的火锅容器中煮沸。",
+          "准备材料：肉切薄片，蔬菜洗净，豆腐切片，海鲜洗净。",
+          "用筷子或勺子将配料添加到煮沸的肉汤中。",
+          "煮至肉和蔬菜熟透——时间因原料而异。",
+          "将煮熟的食材浸入您选择的蘸酱中并享用。"
+        ],
     "titleDumplings": "饺子（Jiaozi）",
     "subtitleDumplings": "传统与繁荣的味道",
     "contentDumplings": "<p>饺子是中国饺子的一种，在中国和其他东亚地区普遍食用。它们是中国新年期间及北方各省全年食用的主要食物之一。</p><p>它们由肉馅和/或蔬菜馅包裹在薄擀的面团中，然后通过按压边缘密封而成。</p>",
@@ -866,12 +866,12 @@ const data = {
     "contentHotpot": "<p>火鍋（ホットポット／ホットポット）は中国起源の調理法で、食卓で沸騰したスープの鍋を使用し、様々な東アジアの食材と具材を入れます。</p><p>代表的な材料には、薄切り肉、葉野菜、キノコ、ワンタン、卵饺子、豆腐、海鮮が含まれます。調理された食べ物は通常、つけダレと一緒に食べられます。</p>",
     "recipeIngredientHotpot": "300g thinly sliced lamb or beef, 200g leaf vegetables, 100g mushrooms, 8 won tons, 150g tofu, 100g seafood, 1L hot soup stock, dipping sauce",
     "recipeInstructionsHotpot": [
-      "Bring soup stock to a simmer at the dining table in a hot pot vessel.",
-      "Prepare ingredients: slice meat paper-thin, wash vegetables, slice tofu, clean seafood.",
-      "Add ingredients to the simmering broth using chopsticks or a ladle.",
-      "Cook until the meat and vegetables are done — timing varies by ingredient.",
-      "Dip cooked ingredients in your chosen dipping sauce and enjoy."
-    ],
+          "食卓で鍋の器にだし汁を入れて煮ます。",
+          "材料を準備します：肉を紙のように薄くスライスし、野菜を洗い、豆腐をスライスし、魚介類をきれいにします。",
+          "とろとろになったスープに、箸やおたまを使って具材を加えます。",
+          "肉と野菜が焼き上がるまで調理します。タイミングは材料によって異なります。",
+          "調理した具材をお好みのつけだれにつけてお召し上がりください。"
+        ],
     "contentPekingDuck": "<p>北京ダックは、皇室時代から北京で提供されてきた料理です。肉の特徴はその薄く脆い皮にあり、正版本では主に皮と少量の肉が提供され、調理師が客の前でスライスします。</p><p>鴨はこの料理のために特別に品種改良され、65日後に屠宰されて味付けられ、閉鎖式または吊り炉で焙煎されます。肉は大葱、黄瓜、甘面ソースと共に食べられ、薄餅で巻いて食べます。</p>",
     "recipeIngredientPekingDuck": "1 whole duck (specially bred for Peking Duck), 2 stalks scallion, 1 cucumber, 3 tbsp sweet bean sauce, 8 thin pancakes",
     "recipeInstructionsPekingDuck": [
@@ -1482,12 +1482,12 @@ const data = {
     "contentHotpot": "<p>Хот-пот, также известный как горшочек, — это метод приготовления пищи, возникший в Китае, при котором за обеденным столом ставят кипящий горшок с бульоном, наполненный разнообразными восточноазиатскими продуктами и ингредиентами.</p><p>Типичные ингредиенты включают тонко нарезанное мясо, листовые овощи, грибы, вонтоны, яичные кнели, тофу и морепродукты. Приготовленные продукты обычно едят с соусом для макания.</p>",
     "recipeIngredientHotpot": "300g thinly sliced lamb or beef, 200g leaf vegetables, 100g mushrooms, 8 won tons, 150g tofu, 100g seafood, 1L hot soup stock, dipping sauce",
     "recipeInstructionsHotpot": [
-      "Bring soup stock to a simmer at the dining table in a hot pot vessel.",
-      "Prepare ingredients: slice meat paper-thin, wash vegetables, slice tofu, clean seafood.",
-      "Add ingredients to the simmering broth using chopsticks or a ladle.",
-      "Cook until the meat and vegetables are done — timing varies by ingredient.",
-      "Dip cooked ingredients in your chosen dipping sauce and enjoy."
-    ],
+          "Доведите бульон до кипения на обеденном столе в горячей кастрюле.",
+          "Подготовьте ингредиенты: нарежьте мясо тонкими ломтиками, вымойте овощи, нарежьте тофу, очистите морепродукты.",
+          "Добавьте ингредиенты в кипящий бульон с помощью палочек для еды или половника.",
+          "Готовьте, пока мясо и овощи не будут готовы — время зависит от ингредиента.",
+          "Обмакните приготовленные ингредиенты в выбранный вами соус и наслаждайтесь."
+        ],
     "contentPekingDuck": "<p>Утка по-пекински — блюдо из Пекина, которое готовят со времен императорской эпохи. Мясо отличается тонкой хрустящей кожей, а в аутентичных версиях блюда подают преимущественно кожу с небольшим количеством мяса, нарезая их перед гостями.</p><p>Уток специально выращивают для этого блюда, забивают через 65 дней и маринуют перед запеканием в закрытой или подвесной печи. Мясо обычно едят с зеленым луком, огурцом и сладким соусом из бобов, заворачивая в тонкие блинчики.</p>",
     "recipeIngredientPekingDuck": "1 whole duck (specially bred for Peking Duck), 2 stalks scallion, 1 cucumber, 3 tbsp sweet bean sauce, 8 thin pancakes",
     "recipeInstructionsPekingDuck": [
@@ -1790,12 +1790,12 @@ const data = {
     "contentHotpot": "<p>Le hot pot, également connu sous le nom de marmite, est une méthode de cuisson originaire de Chine, préparée avec une marmite de bouillon frémissant sur la table à manger, contenant une variété de produits alimentaires et d'ingrédients d'Asie de l'Est.</p><p>Les ingrédients typiques comprennent de la viande tranchée finement, des légumes verts, des champignons, des wontons, des raviolis aux œufs, du tofu et des fruits de mer. Les aliments cuits sont généralement consommés avec une sauce de trempette.</p>",
     "recipeIngredientHotpot": "300g thinly sliced lamb or beef, 200g leaf vegetables, 100g mushrooms, 8 won tons, 150g tofu, 100g seafood, 1L hot soup stock, dipping sauce",
     "recipeInstructionsHotpot": [
-      "Bring soup stock to a simmer at the dining table in a hot pot vessel.",
-      "Prepare ingredients: slice meat paper-thin, wash vegetables, slice tofu, clean seafood.",
-      "Add ingredients to the simmering broth using chopsticks or a ladle.",
-      "Cook until the meat and vegetables are done — timing varies by ingredient.",
-      "Dip cooked ingredients in your chosen dipping sauce and enjoy."
-    ],
+          "Faites mijoter le bouillon de soupe à la table à manger dans une marmite.",
+          "Préparez les ingrédients : tranchez la viande très finement, lavez les légumes, tranchez le tofu, nettoyez les fruits de mer.",
+          "Ajouter les ingrédients au bouillon frémissant à l’aide de baguettes ou d’une louche.",
+          "Cuire jusqu'à ce que la viande et les légumes soient cuits – le temps varie selon les ingrédients.",
+          "Trempez les ingrédients cuits dans la trempette de votre choix et dégustez."
+        ],
     "contentPekingDuck": "<p>Le canard laqué de Pékin est un plat de Beijing qui se prépare depuis l'ère impériale. La viande est caractérisée par sa peau fine et croustillante, les versions authentiques du plat servant principalement la peau et peu de viande, tranchée devant les convives par le cuisinier.</p><p>Les canards sont élevés spécialement pour ce plat, abattus après 65 jours et assaisonnés avant d'être rôtis dans un four fermé ou suspendu. La viande est souvent consommée avec de la ciboule, du concombre et de la sauce sucrée aux haricots avec des crêpes roulées autour de la garniture.</p>",
     "recipeIngredientPekingDuck": "1 whole duck (specially bred for Peking Duck), 2 stalks scallion, 1 cucumber, 3 tbsp sweet bean sauce, 8 thin pancakes",
     "recipeInstructionsPekingDuck": [
@@ -2098,12 +2098,12 @@ const data = {
     "contentHotpot": "<p>Hot Pot, auch als Topfgericht bekannt, ist ein aus China stammendes Garverfahren, das mit einem köchelnden Topf Brühe am Esstisch zubereitet wird, der eine Vielzahl ostasiatischer Lebensmittel und Zutaten enthält.</p><p>Typische Zutaten sind dünn geschnittenes Fleisch, Blattgemüse, Pilze, Wontons, Eierklößchen, Tofu und Meeresfrüchte. Das gekochte Essen wird normalerweise mit einer Dip-Sauce gegessen.</p>",
     "recipeIngredientHotpot": "300g thinly sliced lamb or beef, 200g leaf vegetables, 100g mushrooms, 8 won tons, 150g tofu, 100g seafood, 1L hot soup stock, dipping sauce",
     "recipeInstructionsHotpot": [
-      "Bring soup stock to a simmer at the dining table in a hot pot vessel.",
-      "Prepare ingredients: slice meat paper-thin, wash vegetables, slice tofu, clean seafood.",
-      "Add ingredients to the simmering broth using chopsticks or a ladle.",
-      "Cook until the meat and vegetables are done — timing varies by ingredient.",
-      "Dip cooked ingredients in your chosen dipping sauce and enjoy."
-    ],
+          "Bringen Sie die Suppenbrühe am Esstisch in einem heißen Topf zum Kochen.",
+          "Zutaten vorbereiten: Fleisch in hauchdünne Scheiben schneiden, Gemüse waschen, Tofu in Scheiben schneiden, Meeresfrüchte putzen.",
+          "Geben Sie die Zutaten mit Stäbchen oder einer Schöpfkelle in die kochende Brühe.",
+          "Kochen, bis das Fleisch und das Gemüse gar sind – der Zeitpunkt variiert je nach Zutat.",
+          "Tauchen Sie die gekochten Zutaten in die Dip-Sauce Ihrer Wahl und genießen Sie sie."
+        ],
     "contentPekingDuck": "<p>Peking Ente ist ein Gericht aus Peking, das seit der Kaiserzeit zubereitet wird. Das Fleisch zeichnet sich durch seine dünne, knusprige Haut aus, wobei authentische Versionen des Gerichts meist die Haut und wenig Fleisch servieren, das vom Koch vor den Gästen in Scheiben geschnitten wird.</p><p>Enten werden speziell für dieses Gericht gezüchtet, nach 65 Tagen geschlachtet und gewürzt, bevor sie in einem geschlossenen oder hängenden Ofen geröstet werden. Das Fleisch wird oft mit Frühlingszwiebeln, Gurke und süßer Bohnensauce mit Pfannkuchen gegessen.</p>",
     "recipeIngredientPekingDuck": "1 whole duck (specially bred for Peking Duck), 2 stalks scallion, 1 cucumber, 3 tbsp sweet bean sauce, 8 thin pancakes",
     "recipeInstructionsPekingDuck": [
@@ -2406,12 +2406,12 @@ const data = {
     "contentHotpot": "<p>El hot pot, también conocido como fondue chino, es un método de cocción que se origina en China, preparado con una olla hirviendo de caldo en la mesa del comedor, que contiene una variedad de alimentos e ingredientes de Asia Oriental.</p><p>Los ingredientes típicos incluyen carne finamente rebanada, verduras de hoja, champiñones, wontons, dumplings de huevo, tofu y mariscos. La comida cocinada generalmente se come con una salsa para mojar.</p>",
     "recipeIngredientHotpot": "300g thinly sliced lamb or beef, 200g leaf vegetables, 100g mushrooms, 8 won tons, 150g tofu, 100g seafood, 1L hot soup stock, dipping sauce",
     "recipeInstructionsHotpot": [
-      "Bring soup stock to a simmer at the dining table in a hot pot vessel.",
-      "Prepare ingredients: slice meat paper-thin, wash vegetables, slice tofu, clean seafood.",
-      "Add ingredients to the simmering broth using chopsticks or a ladle.",
-      "Cook until the meat and vegetables are done — timing varies by ingredient.",
-      "Dip cooked ingredients in your chosen dipping sauce and enjoy."
-    ],
+          "Lleve el caldo a fuego lento en la mesa del comedor en una olla caliente.",
+          "Prepare los ingredientes: corte la carne en rodajas finas como papel, lave las verduras, corte el tofu en rodajas y limpie los mariscos.",
+          "Agregue los ingredientes al caldo hirviendo con palillos o un cucharón.",
+          "Cocine hasta que la carne y las verduras estén cocidas; el tiempo varía según el ingrediente.",
+          "Sumerja los ingredientes cocidos en la salsa que elija y disfrute."
+        ],
     "contentPekingDuck": "<p>El pato laqueado de Peking es un plato de Peking que se ha preparado desde la era imperial. La carne se caracteriza por su piel fina y crujiente, y las versiones auténticas del plato sirven principalmente la piel y poca carne, cortadas en rodajas frente a los comensales por el cocinero.</p><p>Los patos se crían especialmente para este plato, se sacrifican después de 65 días y se sazonan antes de asarse en un horno cerrado o colgado. La carne frecuentemente se come con cebolleta, pepino y salsa dulce de frijoles con panqueques enrollados alrededor del relleno.</p>",
     "recipeIngredientPekingDuck": "1 whole duck (specially bred for Peking Duck), 2 stalks scallion, 1 cucumber, 3 tbsp sweet bean sauce, 8 thin pancakes",
     "recipeInstructionsPekingDuck": [
