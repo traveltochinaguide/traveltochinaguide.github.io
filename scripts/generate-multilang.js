@@ -34,20 +34,25 @@ const pages = [
  'festivals.html',
  'gardens.html',
  'guangzhou.html',
+ 'guoqiao-mixian.html',
  'huangshan.html',
  'kunming.html',
  'language.html',
  'lijiang.html',
+ 'mapo-tofu.html',
  'martialarts.html',
  'medicine.html',
  'music.html',
+ 'nanjing.html',
  'opera.html',
  'painting.html',
  'paper.html',
  'pottery.html',
  'shenzhen.html',
  'silk.html',
- 'tea.html'
+ 'tea.html',
+ 'transport.html',
+ 'xiaolongbao.html'
 ];
 
 // Sitemap configuration
