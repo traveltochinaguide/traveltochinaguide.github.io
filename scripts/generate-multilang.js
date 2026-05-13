@@ -11,7 +11,6 @@ const pages = [
  'shanghai.html',
  'xian.html',
  'guilin.html',
- 'zhangjiajie.html',
  'jiuzhaigou.html',
  'yangtze.html',
  'chengdu.html',
@@ -52,7 +51,9 @@ const pages = [
  'silk.html',
  'tea.html',
  'transport.html',
- 'xiaolongbao.html'
+ 'xiaolongbao.html',
+ 'googlef501e2ee1025d72e.html',
+ 'nanjiang.html'
 ];
 
 // Sitemap configuration
