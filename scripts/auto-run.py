@@ -1,141 +1,279 @@
 #!/usr/bin/env python3
-"""
-China Travel Site - 自动化开发执行器
-每 5 分钟自动执行一个开发任务
-
-特性:
-- 锁文件机制：防止并发执行
-- 自动选择任务：按优先级 P0 > P1 > P2 > P3 > P4
-- 进度持久化：基于 .task_progress.md
-- 自动提交：git commit + push
+"""China Travel Site - 页面质量检查修复执行器
+每5分钟执行，逐个检查页面。
+特征: 锁文件防并发, 自愈模式, 自动git commit+push
 """
 
-import os
-import sys
-import subprocess
+import os, sys, subprocess, json, re, time
 from pathlib import Path
 from datetime import datetime
 
 BASE_DIR = Path('/home/ubuntu/traveltochinaguide.github.io')
-PROGRESS_FILE = Path.home() / '.hermes' / 'cron' / 'china-travel-progress.md'
 LOCK_FILE = Path('/tmp/hermes_china_travel.lock')
-TASK_LOG = Path.home() / '.hermes' / 'cron' / 'china-travel-log.md'
+PROGRESS_FILE = Path.home() / '.hermes' / 'cron' / 'china-travel-progress.md'
+LOG_FILE = Path.home() / '.hermes' / 'cron' / 'china-travel-log.md'
+
+LANGS = ['en', 'zh-CN', 'ja', 'ko', 'ru', 'fr', 'de', 'es']
+
+# 按领域分类的页面
+PAGE_GROUPS = {
+    'hot_cities': [
+        'beijing', 'shanghai', 'xian', 'chengdu', 'guilin', 'hangzhou',
+        'suzhou', 'xiamen', 'chongqing', 'guangzhou', 'shenzhen', 'kunming',
+        'dali', 'lijiang', 'zhangjiajie', 'jiuzhaigou', 'huangshan',
+        'nanjing', 'yangtze', 'nanjiang'
+    ],
+    'culture': [
+        'iching', 'calligraphy', 'gardens', 'tea', 'opera', 'martialarts',
+        'medicine', 'festivals', 'painting', 'pottery', 'clothing',
+        'architecture', 'music', 'silk', 'language', 'paper'
+    ],
+    'food': [
+        'food', 'peking-duck', 'dim-sum', 'hotpot', 'dumplings',
+        'guoqiao-mixian', 'mapo-tofu', 'xiaolongbao'
+    ],
+    'utility': ['index', 'visa', 'transport', 'greatwall']
+}
+
+ALL_PAGES = []
+for group in PAGE_GROUPS.values():
+    ALL_PAGES.extend(group)
 
 def check_lock():
-    """检查锁文件，如果存在且进程仍在运行则跳过"""
     if LOCK_FILE.exists():
         try:
             pid = int(LOCK_FILE.read_text().strip())
-            # 检查进程是否还在运行
             if subprocess.run(['ps', '-p', str(pid)], capture_output=True).returncode == 0:
-                print(f"[SKIP] 前一个任务仍在运行 (PID: {pid})")
+                log(f"[SKIP] 前一个任务仍在运行 (PID: {pid})")
                 return True
         except (ValueError, FileNotFoundError):
             pass
-        # 清理无效锁文件
         LOCK_FILE.unlink(missing_ok=True)
     return False
 
 def set_lock():
-    """设置锁文件"""
     LOCK_FILE.write_text(str(os.getpid()))
 
 def release_lock():
-    """释放锁文件"""
     LOCK_FILE.unlink(missing_ok=True)
 
-def log_task(message):
-    """记录任务日志"""
-    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    with open(TASK_LOG, 'a', encoding='utf-8') as f:
-        f.write(f"\n## [{timestamp}] {message}\n")
+def log(msg):
+    ts = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(LOG_FILE, 'a', encoding='utf-8') as f:
+        f.write(f"[{ts}] {msg}\n")
+    print(f"[{ts}] {msg}")
 
-def run_task():
-    """执行开发任务"""
-    print(f"\n{'='*60}")
-    print(f"China Travel Site - 自动开发任务")
-    print(f"时间：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"{'='*60}\n")
+def get_todo_list():
+    """从进度文件读取待办页面"""
+    if not PROGRESS_FILE.exists():
+        return None
+    content = PROGRESS_FILE.read_text(encoding='utf-8')
+    todos = []
+    done = []
+    for line in content.split('\n'):
+        line = line.strip()
+        if line.startswith('- [ ]'):
+            todos.append(line[6:].strip())
+        elif line.startswith('- [x]'):
+            done.append(line[6:].strip())
+    return todos, done
+
+def check_page_quality(page_name):
+    """检查单个页面的多语言质量"""
+    issues = []
     
-    # 检查并设置锁
+    # 检查根页面
+    root_path = BASE_DIR / f'{page_name}.html'
+    if not root_path.exists():
+        return [f'{page_name}.html: 根页面缺失']
+    
+    content = root_path.read_text(encoding='utf-8')
+    
+    # 1. language-switcher div
+    if 'id="language-switcher"' not in content:
+        issues.append(f'{page_name}.html: 缺少 language-switcher div')
+    
+    # 2. lang-switcher.js
+    if '/js/lang-switcher.js' not in content:
+        issues.append(f'{page_name}.html: 缺少 lang-switcher.js 引用')
+    
+    # 3. persist-lang.js
+    if '/js/persist-lang.js' not in content:
+        issues.append(f'{page_name}.html: 缺少 persist-lang.js 引用')
+    
+    # 4. hreflang 标签数量
+    hreflangs = set(re.findall(r'hreflang="([^"]*)"', content))
+    if len(hreflangs) < 8:
+        issues.append(f'{page_name}.html: 只有 {len(hreflangs)}/8 hreflang 标签')
+    
+    # 5. 检查所有语言目录页面都存在
+    for lang in LANGS:
+        lang_path = BASE_DIR / lang / f'{page_name}.html'
+        if not lang_path.exists():
+            issues.append(f'{page_name}.html: {lang} 版本缺失')
+    
+    # 6. 检查语言目录页面的 language-switcher
+    for lang in LANGS:
+        lang_path = BASE_DIR / lang / f'{page_name}.html'
+        if lang_path.exists():
+            lang_content = lang_path.read_text(encoding='utf-8')
+            if 'id="language-switcher"' not in lang_content:
+                issues.append(f'{lang}/{page_name}.html: 缺少 language-switcher div')
+    
+    return issues
+
+def auto_fix_page(page_name):
+    """自动修复常见的页面问题"""
+    base_url = 'https://travelchinaguide.dpdns.org'
+    issues = check_page_quality(page_name)
+    
+    if not issues:
+        return True, "无需修复"
+    
+    # 运行 generate-multilang.js 重新生成所有语言版本
+    result = subprocess.run(
+        ['node', 'scripts/generate-multilang.js'],
+        cwd=BASE_DIR,
+        capture_output=True,
+        text=True,
+        timeout=120
+    )
+    
+    if result.returncode != 0:
+        return False, f"generate-multilang.js 失败: {result.stderr[:200]}"
+    
+    # 验证修复
+    remaining = check_page_quality(page_name)
+    if remaining:
+        return False, f"修复后仍有问题: {'; '.join(remaining[:3])}"
+    
+    return True, "generate-multilang.js 重生成完成"
+
+def run():
+    log("="*50)
+    log("China Travel Site - 页面质量检查")
+    
     if check_lock():
         return
     
     set_lock()
-    log_task("开始执行任务")
+    log("锁已获取")
     
     try:
-        # 读取进度文件
-        if not PROGRESS_FILE.exists():
-            print("❌ 进度文件不存在")
+        # 读取待办列表
+        todo_data = get_todo_list()
+        
+        if todo_data is None:
+            # 首次运行：创建进度文件
+            create_initial_progress()
+            log("待办列表已创建")
             return
         
-        content = PROGRESS_FILE.read_text(encoding='utf-8')
-        
-        # 分析待办事项
-        todos = []
-        for line in content.split('\n'):
-            if line.strip().startswith('- [ ]'):
-                todos.append(line.strip()[6:].strip())
+        todos, done = todo_data
         
         if not todos:
-            print("✅ 无待办任务")
-            log_task("无待办任务")
+            log("✅ 全部页面已完成，无需更多任务")
             return
         
-        # 选择第一个任务
+        # 取第一个待办页面
         task = todos[0]
-        print(f"📋 当前任务：{task}")
-        log_task(f"执行任务：{task}")
+        log(f"📋 执行: {task}")
         
-        # 根据任务类型执行
-        if 'hreflang' in task.lower() or 'Schema' in task.lower():
-            print("✅ SEO 验证任务已完成")
-            log_task("SEO 验证完成")
-        elif '丰富' in task or '扩展' in task:
-            print("📝 执行内容丰富任务...")
-            # 这里调用实际的内容生成逻辑
-            log_task("内容丰富任务执行中")
-        elif '新增' in task or '创建' in task:
-            print("🆕 执行新增页面任务...")
-            log_task("新增页面任务执行中")
-        else:
-            print(f"🔧 执行通用任务：{task}")
-            log_task(f"执行任务：{task}")
+        # 解析任务（格式如 "beijing.html - 修复多语言问题"）
+        page_name = task.split('.html')[0].strip()
+        if not page_name:
+            log(f"⚠️ 无法解析页面名: {task}")
+            mark_done(task)
+            return
         
-        # 更新进度文件
-        new_content = content.replace(f'- [ ] {task}', f'- [x] {task}')
-        if new_content != content:
-            PROGRESS_FILE.write_text(new_content, encoding='utf-8')
-            print(f"✅ 任务完成：{task}")
-            log_task(f"任务完成：{task}")
-            
-            # Git 提交
-            subprocess.run(['git', 'add', '-A'], cwd=BASE_DIR, capture_output=True)
-            result = subprocess.run(
-                ['git', 'commit', '-m', f'Auto: 完成 {task}'],
-                cwd=BASE_DIR,
-                capture_output=True,
-                text=True
-            )
-            if result.returncode == 0:
-                print("📤 Git 提交成功")
-                subprocess.run(['git', 'push', 'origin', 'main'], cwd=BASE_DIR, capture_output=True)
-            else:
-                print("⚠️  Git 提交失败或无更改")
+        log(f"🔍 检查 {page_name}.html...")
+        
+        # 执行修复
+        success, msg = auto_fix_page(page_name)
+        
+        if success:
+            log(f"✅ {page_name}.html 修复完成")
         else:
-            print(f"⚠️  任务执行失败：{task}")
-            log_task(f"任务失败：{task}")
-            
+            log(f"❌ {page_name}.html 修复失败: {msg}")
+        
+        # 标记完成（无论成功失败，避免卡死）
+        mark_done(task)
+        
+        # Git 提交
+        subprocess.run(['git', 'add', '-A'], cwd=BASE_DIR, capture_output=True)
+        result = subprocess.run(
+            ['git', 'commit', '-m', f'Auto: {page_name}.html 多语言检查修复'],
+            cwd=BASE_DIR,
+            capture_output=True,
+            text=True
+        )
+        if result.returncode == 0:
+            subprocess.run(['git', 'push', 'origin', 'main'], cwd=BASE_DIR, capture_output=True)
+            log("📤 已提交并推送")
+        else:
+            log("ℹ️  无变更或提交失败")
+        
+# 清理 Cloudflare 缓存
+        cf_token = os.environ.get('CF_API_TOKEN', '')
+        if cf_token:
+            subprocess.run([
+                'curl', '-s', '-X', 'POST',
+                'https://api.cloudflare.com/client/v4/zones/5020faaea9c504e81ba4943c527d2858/purge_cache',
+                '-H', f'Authorization: Bearer {cf_token}',
+                '-H', 'Content-Type: application/json',
+                '--data', '{"purge_everything":true}'
+            ], capture_output=True)
+            log("🧹 Cloudflare 缓存已清理")
+        else:
+            log("⚠️ CF_API_TOKEN 未设置，跳过缓存清理")
+        
     except Exception as e:
-        print(f"❌ 错误：{e}")
-        log_task(f"错误：{e}")
+        log(f"❌ 异常: {e}")
     finally:
         release_lock()
+        log("锁已释放")
+        log(f"{'='*50}\n")
+
+def create_initial_progress():
+    """创建初始待办进度文件"""
+    content = "# China Travel Site - 页面多语言修复进度\n\n"
+    content += "## 按页面逐一修复\n\n"
     
-    print(f"\n{'='*60}")
-    print("✅ 任务周期完成")
-    print(f"{'='*60}\n")
+    from datetime import datetime
+    content += f"创建时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
+    
+    content += "### 热门城市页面 (20)\n"
+    for p in PAGE_GROUPS['hot_cities']:
+        content += f"- [ ] {p}.html - 多语言检查修复\n"
+    content += "\n"
+    
+    content += "### 文化页面 (16)\n"
+    for p in PAGE_GROUPS['culture']:
+        content += f"- [ ] {p}.html - 多语言检查修复\n"
+    content += "\n"
+    
+    content += "### 美食页面 (8)\n"
+    for p in PAGE_GROUPS['food']:
+        content += f"- [ ] {p}.html - 多语言检查修复\n"
+    content += "\n"
+    
+    content += "### 其他页面 (4)\n"
+    for p in PAGE_GROUPS['utility']:
+        content += f"- [ ] {p}.html - 多语言检查修复\n"
+    content += "\n"
+    
+    PROGRESS_FILE.parent.mkdir(parents=True, exist_ok=True)
+    PROGRESS_FILE.write_text(content, encoding='utf-8')
+    log(f"待办列表已创建: {len(ALL_PAGES)} 个页面")
+
+def mark_done(task):
+    """标记任务为已完成"""
+    if not PROGRESS_FILE.exists():
+        return
+    content = PROGRESS_FILE.read_text(encoding='utf-8')
+    new_content = content.replace(f'- [ ] {task}', f'- [x] {task}')
+    PROGRESS_FILE.write_text(new_content, encoding='utf-8')
 
 if __name__ == '__main__':
-    run_task()
+    run()
