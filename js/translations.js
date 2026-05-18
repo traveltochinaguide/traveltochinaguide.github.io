@@ -1215,7 +1215,7 @@ const translations = {
     "descKungPao": "Spicy stir-fried chicken with peanuts and vegetables.",
     "descMapoTofu": "Tofu in a spicy, oily sauce with minced meat.",
     "descShandong": "Known for its wide variety of seafood and soups.",
-    "descShanghai": "A dazzling metropolis showcasing China's futuristic ambition and colonial past.",
+    "descShanghai": "눈부신 대도시로, 중국의 미래 지향적 야망과 식민지 역사를 보여주는 곳.",
     "descSuzhou": "동양의 베尼斯 — 고전 정원, 견직물, 운하의 매력.",
     "descSichuan": "Famous for its bold flavors, pungency, and spiciness from garlic and chili peppers.",
     "descSpringRolls": "Golden fried rolls filled with vegetables or meat.",
