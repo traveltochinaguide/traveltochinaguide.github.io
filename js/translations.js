@@ -753,7 +753,7 @@ const translations = {
     "descMartialarts": "Discover 武术 — from Shaolin Kung Fu to Tai Chi, explore the history, styles, and philosophy of Chinese martial arts.",
     "descMedicine": "Discover 中医 — acupuncture, herbal medicine, and the holistic health traditions that have shaped Chinese medicine for millennia.",
     "descMusic": "Discover Chinese traditional music — from the ancient guqin and guzheng strings to Peking opera, folk melodies, and ceremonial court music.",
-    "descOpera": "Explore 戏曲 — Peking Opera, regional styles, elaborate costumes, and the performing arts tradition of China.",
+    "descOpera": "探索戏曲——京剧、地方戏曲、精美戏服以及中国表演艺术传统。",
     "descPainting": "The ancient art of brush writing — discover 书法, its history, styles, and meditative practice.",
     "descPaper": "The ancient Chinese folk art of Jianzhi paper cutting — from festival decorations to UNESCO heritage.",
     "descPottery": "Discover Jingdezhen — the Porcelain Capital of China, where centuries of craft produce exquisite ceramics.",
