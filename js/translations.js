@@ -1540,7 +1540,7 @@ const translations = {
     "descMapoTofu": "Tofu in a spicy, oily sauce with minced meat.",
     "descShandong": "Known for its wide variety of seafood and soups.",
     "descSuzhou": "Венеция Востока — классические сады, шёлк и очарование каналов.",
-    "descShanghai": "A dazzling metropolis showcasing China's futuristic ambition and colonial past.",
+    "descShanghai": "Ослепительный мегаполис, демонстрирующий футуристические амбиции и колониальное прошлое Китая.",
     "descSichuan": "Famous for its bold flavors, pungency, and spiciness from garlic and chili peppers.",
     "descSpringRolls": "Golden fried rolls filled with vegetables or meat.",
     "descWontons": "Delicate dumplings served in a clear, savory broth.",
