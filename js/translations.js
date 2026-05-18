@@ -883,7 +883,7 @@ const translations = {
       "Serve with spring onion, cucumber strips, and sweet bean sauce, rolled in thin pancakes."
     ],
     "cuisineDescription": "Taste the incredible diversity of Chinese food, with flavors for every palate.",
-    "descBeijing": "The imperial capital, home to the Forbidden City and the Great Wall.",
+    "descBeijing": "かつての王都であり、故宮（紫禁城）と万里の長城を擁する北京。",
     "descCantonese": "Known for fresh ingredients and minimal spices. Dim Sum is a highlight.",
     "descChowMein": "Stir-fried noodles with vegetables and soy sauce.",
     "descGuilin": "Famous for its stunning karst landscapes along the Li River.",
@@ -2688,7 +2688,8 @@ const translations = {
     "descGardens": "Discover the art of Chinese garden design — from Suzhou's UNESCO-listed classical gardens to imperial retreats and the ancient tradition of penjing.",
     "descGreatwall": "Ancient Fortification Across 21,000 Kilometers",
     "descGuangzhou": "The heart of Cantonese culture, cuisine, and commerce in southern China.",
-    "descHuangshan": "China's most iconic mountain — famous for sea of clouds, oddly-shaped pines, and granite peaks.",
+        "descHuangshan": "China's most iconic mountain — famous for sea of clouds, oddly-shaped pines, and granite peaks.",
+    "longDescHuangshan": "<p>Huangshan (黄山), que significa literalmente 'Montaña Amarilla,' es uno de los destinos escénicos más célebres de China y Patrimonio de la Humanidad por la UNESCO desde 1990. Conocida como la 'Montaña N.º 1 de China,' se eleva a 1,864 metros sobre el nivel del mar en la provincia de Anhui.</p><p>La montaña es mundialmente famosa por su <strong>mar de nubes</strong> (云海), sus <strong>pinos de formas caprichosas</strong> (奇松), sus <strong>picos de granito</strong> (怪石) y sus aguas termales. La interacción de estas cuatro maravillas crea un paisaje etéreo que ha inspirado a pintores y poetas chinos durante siglos.</p><p>Las principales atracciones incluyen <strong>Beihai (Mar del Norte)</strong>, el <strong>Pico Luminoso (Bright Summit)</strong>, el <strong>Pino del Saludo (Guest-Greeting Pine)</strong> y el espectacular <strong>Pico Danxia (Danxia Peak)</strong>. La mejor época para visitar es de abril a noviembre, siendo el otoño la temporada de colores más dramáticos.</p>",
     "descIching": "I Ching (iching) –an introduction to the Book of Changes, hexagrams, history and practical uses. Learn about iching divination and modern interpretation.",
     "descKunming": "The \"Spring City\" - year-round mild climate and gateway to Yunnan ethnic diversity.",
     "descLanguage": "Mandarin, Characters & Sinoxenic Languages",
