@@ -1119,7 +1119,7 @@ const translations = {
     "citiesTitle": "상징적인 도시",
     "citiesDescription": "제왕의 수도에서 미래지향적 대도시까지, 중국의 활기찬 심장을 발견하세요.",
     "cityBeijing": "베이징",
-    "descBeijing": "The imperial capital, home to the Forbidden City and the Great Wall.",
+    "descBeijing": "제왕의 수도이자 자금성과 만리장성이 있는 곳입니다.",
     "cityShanghai": "상하이",
     "citySuzhou": "쑤저우",
     "cityXian": "시안",
