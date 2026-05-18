@@ -1443,7 +1443,7 @@ const translations = {
     "citiesTitle": "Знаковые города",
     "citiesDescription": "От императорских столиц до футуристических мегаполисов — откройте для себя яркое сердце Китая.",
     "cityBeijing": "Пекин",
-    "descBeijing": "The imperial capital, home to the Forbidden City and the Great Wall.",
+    "descBeijing": "Императорская столица — родина Запретного города и Великой Китайской стены.",
     "cityShanghai": "Шанхай",
     "citySuzhou": "Сучжоу",
     "cityXian": "Сиань",
