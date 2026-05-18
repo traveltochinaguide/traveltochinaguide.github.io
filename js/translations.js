@@ -892,7 +892,7 @@ const translations = {
     "descKungPao": "Spicy stir-fried chicken with peanuts and vegetables.",
     "descMapoTofu": "Tofu in a spicy, oily sauce with minced meat.",
     "descShandong": "Known for its wide variety of seafood and soups.",
-    "descShanghai": "A dazzling metropolis showcasing China's futuristic ambition and colonial past.",
+    "descShanghai": "眩いばかりの大都市、上海。中国の未来的な野心と植民地時代の歴史が融合する街。",
     "descSichuan": "Famous for its bold flavors, pungency, and spiciness from garlic and chili peppers.",
     "descSuzhou": "東洋のベニス — 古典庭園、シルク、水運の魅力を感じる街。",
     "descSpringRolls": "Golden fried rolls filled with vegetables or meat.",
