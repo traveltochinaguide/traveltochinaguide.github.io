@@ -897,7 +897,7 @@ const translations = {
     "descSuzhou": "東洋のベニス — 古典庭園、シルク、水運の魅力を感じる街。",
     "descSpringRolls": "Golden fried rolls filled with vegetables or meat.",
     "descWontons": "Delicate dumplings served in a clear, savory broth.",
-    "descXian": "The ancient starting point of the Silk Road and home to the Terracotta Army.",
+    "descXian": "シルクロードの原点であり、兵馬俑の故郷。",
     "descYangtze": "Cruise through the majestic Three Gorges, a lifeline of Chinese civilization.",
     "descZhangjiajie": "Pillar-like mountains that inspired the Hallelujah Mountains in Avatar.",
     "foodDimSum": "Dim Sum",
