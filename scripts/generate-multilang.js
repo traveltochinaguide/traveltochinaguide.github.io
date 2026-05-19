@@ -11,6 +11,7 @@ const pages = [
  'shanghai.html',
  'xian.html',
  'guilin.html',
+ 'zhangjiajie.html',
  'jiuzhaigou.html',
  'yangtze.html',
  'chengdu.html',
