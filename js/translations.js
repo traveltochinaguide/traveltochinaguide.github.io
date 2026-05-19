@@ -1220,7 +1220,7 @@ const translations = {
     "descSichuan": "Famous for its bold flavors, pungency, and spiciness from garlic and chili peppers.",
     "descSpringRolls": "Golden fried rolls filled with vegetables or meat.",
     "descWontons": "Delicate dumplings served in a clear, savory broth.",
-    "descXian": "The ancient starting point of the Silk Road and home to the Terracotta Army.",
+    "descXian": "고대 실크로드의 출발점이자 병마용의 고향.",
     "descYangtze": "Cruise through the majestic Three Gorges, a lifeline of Chinese civilization.",
     "descZhangjiajie": "Pillar-like mountains that inspired the Hallelujah Mountains in Avatar.",
     "foodDimSum": "Dim Sum",
