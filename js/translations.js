@@ -1398,7 +1398,7 @@ const translations = {
     "descMartialarts": "Discover 武术 — from Shaolin Kung Fu to Tai Chi, explore the history, styles, and philosophy of Chinese martial arts.",
     "descMedicine": "Discover 中医 — acupuncture, herbal medicine, and the holistic health traditions that have shaped Chinese medicine for millennia.",
     "descMusic": "Discover Chinese traditional music — from the ancient guqin and guzheng strings to Peking opera, folk melodies, and ceremonial court music.",
-    "descOpera": "Explore 戏曲 — Peking Opera, regional styles, elaborate costumes, and the performing arts tradition of China.",
+    "descOpera": "중국 전통 오페라 — 경극, 지역 양식, 화려한 의상과 중국 공연 예술 전통을 탐험하세요.",
     "descPainting": "The ancient art of brush writing — discover 书法, its history, styles, and meditative practice.",
     "descPaper": "The ancient Chinese folk art of Jianzhi paper cutting — from festival decorations to UNESCO heritage.",
     "descPottery": "Discover Jingdezhen — the Porcelain Capital of China, where centuries of craft produce exquisite ceramics.",
@@ -1425,6 +1425,7 @@ const translations = {
     "ogTitleArchitecture": "Chinese Architecture - Forbidden City, Temple of Heaven & Classical Design",
     "ogDescArchitecture": "Explore Chinese architecture — from the Forbidden City's imperial grandeur to Temple of Heaven geometry and traditional courtyard houses.",
     "longDescHuangshan": "<p>황산(黄山)은 문자 그대로 '누런 산'이라는 뜻으로, 1990년부터 유네스코 세계문화유산으로 등재된 중국에서 가장 유명한 자연 경관 중 하나입니다. '천하제일기산(天下第一奇山)'이라 불리며, 안후이성에 위치한 해발 1,864m의 웅장한 산입니다.</p><p>황산은 <strong>운해(雲海)</strong>, <strong>기송(奇松)</strong>, <strong>괴석(怪石)</strong>, 온천으로 세계적으로 유명합니다. 이 네 가지 절경의 조화는 수백 년 동안 중국 화가와 시인들에게 영감을 준 신비로운 풍경을 만들어냅니다.</p><p>주요 명소로는 <strong>북해(北海)</strong>, <strong>광명정(光明頂)</strong>, <strong>영객송(迎客松)</strong>, 그리고 장관을 이루는 <strong>단하봉(丹霞峰)</strong>이 있습니다. 최적의 방문 시기는 4월부터 11월까지이며, 가을이 가장 화려한 색감을 자랑합니다.</p>"
+    "longDescOpera": "<p><strong>중국 오페라</strong>(戏曲, xìqǔ)는 음악, 성악, 마임, 춤, 곡예를 결합한 종합 공연 예술입니다. <strong>경극</strong>(京剧, jīngjù)이 가장 유명한 형태입니다.</p><h3>경극 (京剧)</h3><p>경극은 18세기 후반에 등장했으며, 안후이 오페라(徽剧)와 후베이 오페라(汉剧)가 결합된 형태입니다. 주요 특징은 다음과 같습니다:</p><ul><li><strong>노래</strong> — 다양한 패턴의 선율적인 아리아, 소규모 앙상블 반주.</li><li><strong>대화와 낭송</strong> — 베이징 방언으로 전달.</li><li><strong>무술</strong> — 곡예적인 격투와 동작.</li><li><strong>춤</strong> — 상징적인 제스처와 동작 시퀀스.</li></ul><h3>의상과 분장</h3><p>중국 오페라 의상(戏服)은 매우 정교합니다. <strong>분장</strong>(脸谱)은 상징적이며 — 각 색상은 등장인물의 성격을 나타냅니다: 빨간색은 충성, 검은색은 정의, 흰색은 배신, 금색은 신성한 인물을 의미합니다.</p><h3>지역 양식</h3><p>경극 외에도 주요 지역 양식으로는 광동 오페라(粤剧), 곤곡(昆曲) — 원나라 시대로 거슬러 올라가는 가장 오래된 공연 형식 중 하나, 그리고 다양한 다른 형식들이 있습니다.</p>",
   },
   "ru": {
     "siteTitle": "Тур по Китаю",
