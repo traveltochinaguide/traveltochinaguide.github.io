@@ -1534,7 +1534,7 @@ const translations = {
     "cuisineDescription": "Taste the incredible diversity of Chinese food, with flavors for every palate.",
     "descCantonese": "Known for fresh ingredients and minimal spices. Dim Sum is a highlight.",
     "descChowMein": "Stir-fried noodles with vegetables and soy sauce.",
-    "descGuilin": "Famous for its stunning karst landscapes along the Li River.",
+    "descGuilin": "Знаменит своими потрясающими карстовыми ландшафтами вдоль реки Лицзян.",
     "descJiangsu": "Characterized by soft textures and strict selection of seasonal ingredients.",
     "descJiuzhaigou": "A wonderland of colorful lakes, layered waterfalls, and snow-capped peaks.",
     "descKungPao": "Spicy stir-fried chicken with peanuts and vegetables.",
