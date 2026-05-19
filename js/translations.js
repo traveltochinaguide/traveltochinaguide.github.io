@@ -899,7 +899,7 @@ const translations = {
     "descWontons": "Delicate dumplings served in a clear, savory broth.",
     "descXian": "シルクロードの原点であり、兵馬俑の故郷。",
     "descYangtze": "Cruise through the majestic Three Gorges, a lifeline of Chinese civilization.",
-    "descZhangjiajie": "Pillar-like mountains that inspired the Hallelujah Mountains in Avatar.",
+    "descZhangjiajie": "「アバター」に登場するハレルヤ山脈のモデルとなった、そそり立つ柱状の岩峰群。",
     "foodDimSum": "Dim Sum",
     "foodDumplings": "Dumplings",
     "foodHotpot": "Hotpot",
