@@ -747,7 +747,7 @@ const translations = {
     "descGuangzhou": "华南地区粤文化、美食与商业的中心。",
     "descHuangshan": "中国最具代表性的名山 — 以云海、奇松、怪石和花岗岩峰林闻名。",
     "descIching": "I Ching (iching) –an introduction to the Book of Changes, hexagrams, history and practical uses. Learn about iching divination and modern interpretation.",
-    "descKunming": "The \"Spring City\" - year-round mild climate and gateway to Yunnan ethnic diversity.",
+    "descKunming": "\"春城\"——四季如春的温和气候，通往云南多元民族文化的门户。",
     "descLanguage": "Mandarin, Characters & Sinoxenic Languages",
     "descLijiang": "Ancient Naxi capital with UNESCO World Heritage status and Jade Dragon Snow Mountain backdrop.",
     "descMartialarts": "Discover 武术 — from Shaolin Kung Fu to Tai Chi, explore the history, styles, and philosophy of Chinese martial arts.",
